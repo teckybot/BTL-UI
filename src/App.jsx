@@ -1,8 +1,25 @@
+import { useRef } from 'react';
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import VideoPage from "./components/VideoPage";
+import Events from "./components/Events";
+import Partners from "./components/Partners";
+import Footer from "./components/Footer";
+
 function App() {
+  const videoPageRef = useRef(null);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-600">BTL HOME PAGE</h1>
-    </div>
+    <>
+      <Header />
+      <Hero videoPageRef={videoPageRef} />
+      <div ref={videoPageRef}>
+        <VideoPage />
+      </div>
+      <Events />
+      <Partners />
+      <Footer />
+    </>
   );
 }
 
