@@ -1,10 +1,11 @@
 import { useRef } from 'react';
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import VideoPage from "./components/VideoPage";
-import Events from "./components/Events";
+import VideoPage from "./components/VideoSection";
+import EventsTimeline from "./components/Events";
 import Partners from "./components/Partners";
 import Footer from "./components/Footer";
+import VideoGallery from "./components/videocard"
 
 function App() {
   const videoPageRef = useRef(null);
@@ -16,7 +17,8 @@ function App() {
       <div ref={videoPageRef}>
         <VideoPage />
       </div>
-      <Events />
+      <VideoGallery />
+      <EventsTimeline />
       <Partners />
       <Footer />
     </>
