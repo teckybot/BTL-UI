@@ -45,7 +45,6 @@ export default function EventsTimeline() {
 
   return (
     <div className="relative bg-[#f5faff] min-h-screen py-24 px-4 sm:px-10 overflow-hidden">
-      {/* Decorative Circles */}
       <img
         src={circle1}
         alt="decorative"
@@ -62,14 +61,11 @@ export default function EventsTimeline() {
       </h2>
 
       <div className="relative max-w-4xl mx-auto">
-        {/* Vertical Line */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-[4px] bg-gradient-to-b from-blue-500 to-blue-300 z-0 rounded-full" />
 
-        {/* Events */}
         <div className="flex flex-col gap-16 relative z-10">
           {events.map((event, index) => (
             <div key={index} className="flex flex-col sm:flex-row items-center w-full">
-              {/* LEFT SIDE */}
               {event.side === "left" && (
                 <>
                   <div className="hidden sm:block sm:w-1/2 text-right pr-6">
@@ -95,7 +91,6 @@ export default function EventsTimeline() {
                 </>
               )}
 
-              {/* RIGHT SIDE */}
               {event.side === "right" && (
                 <>
                   <div className="hidden sm:block sm:w-1/2" />

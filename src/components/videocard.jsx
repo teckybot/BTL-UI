@@ -28,7 +28,7 @@ export default function FeaturedVideoSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!animating) slideNext();
-    }, 5000); // smoother interval
+    }, 5000); 
     return () => clearInterval(interval);
   }, [videoList, animating]);
 
@@ -41,7 +41,7 @@ export default function FeaturedVideoSection() {
         return newList;
       });
       setAnimating(false);
-    }, 1000); // match animation duration
+    }, 1000); 
   };
 
   const handleDragEnd = (_, info) => {
@@ -52,7 +52,6 @@ export default function FeaturedVideoSection() {
 
   return (
     <div className="relative bg-[#f5faff] w-full px-4 sm:px-12 py-20 overflow-hidden">
-      {/* Decorative Plus Icons */}
       <img
         src={Plus}
         alt="plus"
@@ -64,12 +63,10 @@ export default function FeaturedVideoSection() {
         className="absolute w-8 sm:w-12 h-8 sm:h-12 right-8 top-8"
       />
 
-      {/* Main Container */}
       <div
         ref={containerRef}
         className="max-w-[1440px] mx-auto flex flex-col md:flex-row gap-8 items-center"
       >
-        {/* Sliding Section */}
         <motion.div
           className="flex gap-6 items-center w-full"
           drag="x"
@@ -77,7 +74,6 @@ export default function FeaturedVideoSection() {
           onDragEnd={handleDragEnd}
           transition={{ ease: "easeInOut", duration: 1 }}
         >
-          {/* Highlighted Left Video */}
           <motion.div
             key={videoList[0].title}
             className="relative flex-shrink-0 w-full md:w-[55%] rounded-3xl overflow-hidden shadow-xl"
@@ -103,15 +99,13 @@ export default function FeaturedVideoSection() {
             </div>
           </motion.div>
 
-          {/* Right Section */}
           <div className="flex flex-col justify-between w-full md:w-[45%] gap-6">
-            {/* Top Text */}
+
             <div className="text-[#0f172a] text-lg sm:text-xl font-medium leading-relaxed">
               Lorem Ipsum has been the industry's
               <br /> standard dummy text ever
             </div>
 
-            {/* Bottom Small Videos */}
             <div className="flex gap-4 overflow-hidden">
               {videoList.slice(1).map((video, idx) => (
                 <motion.div
