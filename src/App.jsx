@@ -11,17 +11,17 @@ function App() {
   const videoPageRef = useRef(null);
 
   return (
-    <>
+    <div className="flex flex-col">
       <Header />
       <Hero videoPageRef={videoPageRef} />
-      <div ref={videoPageRef}>
+      <div ref={videoPageRef} className="w-full">
         <VideoPage />
       </div>
-      <VideoGallery />
+      <VideoGallery className="mt-0" /> {/* Ensure no extra margin-top */}
       <EventsTimeline />
       <Partners />
       <Footer />
-    </>
+    </div>
   );
 }
 

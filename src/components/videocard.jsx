@@ -1,22 +1,19 @@
 import React, { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Plus from "../data/Plus.png";
 
 const videos = [
   {
     title: "Journey Through the Stars",
-    image:
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Rocket Engineering Basics",
-    image:
-      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Night Sky Observation Tips",
-    image:
-      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -28,7 +25,7 @@ export default function FeaturedVideoSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!animating) slideNext();
-    }, 5000); 
+    }, 5000);
     return () => clearInterval(interval);
   }, [videoList, animating]);
 
@@ -41,7 +38,7 @@ export default function FeaturedVideoSection() {
         return newList;
       });
       setAnimating(false);
-    }, 1000); 
+    }, 1000);
   };
 
   const handleDragEnd = (_, info) => {
@@ -51,32 +48,34 @@ export default function FeaturedVideoSection() {
   };
 
   return (
-    <div className="relative bg-[#f5faff] w-full px-4 sm:px-12 py-20 overflow-hidden">
+    <div className="relative bg-[#f5faff] w-full px-4 sm:px-8 md:px-12 py-8 sm:py-12 md:py-20 overflow-hidden">
+      {/* Plus icons - smaller and pushed back */}
       <img
         src={Plus}
         alt="plus"
-        className="absolute w-8 sm:w-12 h-8 sm:h-12 left-8 bottom-8"
+        className="absolute w-6 h-6 sm:w-8 sm:h-8 left-4 bottom-4 opacity-40"
       />
       <img
         src={Plus}
         alt="plus"
-        className="absolute w-8 sm:w-12 h-8 sm:h-12 right-8 top-8"
+        className="absolute w-6 h-6 sm:w-8 sm:h-8 right-4 top-4 opacity-40"
       />
 
       <div
         ref={containerRef}
-        className="max-w-[1440px] mx-auto flex flex-col md:flex-row gap-8 items-center"
+        className="max-w-[1440px] mx-auto flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-center"
       >
         <motion.div
-          className="flex gap-6 items-center w-full"
+          className="flex flex-col md:flex-row gap-3 sm:gap-4 md:gap-6 items-center w-full"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={handleDragEnd}
           transition={{ ease: "easeInOut", duration: 1 }}
         >
+          {/* Main video card */}
           <motion.div
             key={videoList[0].title}
-            className="relative flex-shrink-0 w-full md:w-[55%] rounded-3xl overflow-hidden shadow-xl"
+            className="relative flex-shrink-0 w-full md:w-[55%] rounded-2xl md:rounded-3xl overflow-hidden shadow-lg md:shadow-xl"
             initial={{ opacity: 0.8, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
@@ -84,33 +83,33 @@ export default function FeaturedVideoSection() {
             <img
               src={videoList[0].image}
               alt={videoList[0].title}
-              className="w-full h-[300px] md:h-[400px] object-cover"
+              className="w-full h-[200px] sm:h-[260px] md:h-[400px] object-cover"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="bg-white/60 backdrop-blur-md rounded-full p-3">
-                <svg width="48" height="48" viewBox="0 0 24 24">
+              <span className="bg-white/60 backdrop-blur-md rounded-full p-2 md:p-3">
+                <svg className="w-8 h-8 md:w-12 md:h-12" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="12" fill="#fff" fillOpacity="0.6" />
                   <polygon points="10,8 16,12 10,16" fill="#222" />
                 </svg>
               </span>
             </div>
-            <div className="absolute bottom-4 left-4 text-white text-base sm:text-lg font-medium bg-black/40 px-4 py-2 rounded-xl">
+            <div className="absolute bottom-3 left-3 text-white text-sm sm:text-base md:text-lg font-medium bg-black/40 px-3 py-1 rounded-lg">
               {videoList[0].title}
             </div>
           </motion.div>
 
-          <div className="flex flex-col justify-between w-full md:w-[45%] gap-6">
-
-            <div className="text-[#0f172a] text-lg sm:text-xl font-medium leading-relaxed">
+          {/* Side content - made more compact on mobile */}
+          <div className="flex flex-col justify-between w-full md:w-[45%] gap-3 sm:gap-4 md:gap-6">
+            <div className="text-[#0f172a] text-sm sm:text-base md:text-lg font-medium px-2 sm:px-0">
               Lorem Ipsum has been the industry's
-              <br /> standard dummy text ever
+              <br className="hidden sm:block" /> standard dummy text ever
             </div>
 
-            <div className="flex gap-4 overflow-hidden">
+            <div className="flex gap-2 sm:gap-3 md:gap-4 overflow-hidden">
               {videoList.slice(1).map((video, idx) => (
                 <motion.div
                   key={video.title}
-                  className="relative flex-1 rounded-2xl overflow-hidden shadow-md"
+                  className="relative flex-1 rounded-xl md:rounded-2xl overflow-hidden shadow-sm md:shadow-md"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.15 * (idx + 1) }}
@@ -118,23 +117,17 @@ export default function FeaturedVideoSection() {
                   <img
                     src={video.image}
                     alt={video.title}
-                    className="w-full h-[160px] sm:h-[180px] object-cover"
+                    className="w-full h-[100px] sm:h-[140px] md:h-[160px] object-cover"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-white/60 backdrop-blur-md rounded-full p-2">
-                      <svg width="36" height="36" viewBox="0 0 24 24">
-                        <circle
-                          cx="12"
-                          cy="12"
-                          r="12"
-                          fill="#fff"
-                          fillOpacity="0.6"
-                        />
+                    <span className="bg-white/60 backdrop-blur-md rounded-full p-1.5">
+                      <svg className="w-6 h-6" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="12" fill="#fff" fillOpacity="0.6" />
                         <polygon points="10,8 16,12 10,16" fill="#222" />
                       </svg>
                     </span>
                   </div>
-                  <div className="absolute bottom-3 left-3 text-white text-sm sm:text-base bg-black/40 px-3 py-1 rounded">
+                  <div className="absolute bottom-2 left-2 text-white text-xs sm:text-sm bg-black/40 px-2 py-1 rounded">
                     {video.title}
                   </div>
                 </motion.div>

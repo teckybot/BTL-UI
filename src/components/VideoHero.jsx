@@ -1,9 +1,9 @@
 // src/components/VideoHero.jsx
 export default function VideoHero() {
   return (
-    <div className="relative w-full overflow-hidden">
-      {/* Video container - full width with increased height on mobile */}
-      <div className="relative w-full h-[70vh] sm:h-0 sm:pb-[56.25%]"> {/* Full height on mobile, 16:9 on desktop */}
+    <div className="relative w-full h-full overflow-hidden">
+      {/* Video container with explicit mobile height */}
+      <div className="relative w-full h-[70vh] md:h-full">
         <video
           autoPlay
           loop
@@ -11,23 +11,40 @@ export default function VideoHero() {
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover"
           style={{
-            // On mobile: show only right 60% (crop left 40%)
-            objectPosition: '100% ',
-            // On desktop: show full video
+            // Mobile: show right 60% (crop left 40%)
+            objectPosition: 'right center',
+            // Desktop: show full video
             '@media (min-width: 640px)': {
-              objectPosition: 'right right'
+              objectPosition: 'center center'
             }
           }}
         >
           <source src="/src/data/universe.mp4" type="video/mp4" />
+          <source src="/src/data/universe.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
+        
+        {/* Top dark gradient overlay */}
+        <div 
+          className="absolute top-0 left-0 w-full h-[10%] z-10"
+          style={{
+            background: 'linear-gradient(to bottom, #040521 10%, transparent 100%)'
+          }}
+        />
+        
+        {/* Bottom white gradient overlay */}
+        <div 
+          className="absolute bottom-0 left-0 w-full h-[10%] z-10"
+          style={{
+            background: 'linear-gradient(to top, #F5F8FF 30%, transparent 100%)'
+          }}
+        />
       </div>
 
       {/* Content overlay */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20">
         <h1
-          className="font-normal text-[46px] text-center mb-4 drop-shadow-lg"
+          className="font-normal text-3xl sm:text-4xl md:text-[46px] text-center mb-4 drop-shadow-lg"
           style={{
             background: "linear-gradient(50deg, rgba(255, 255, 255, 0) -5.78%, #FFFFFF 21.49%, #FFFFFF 79.19%, rgba(255, 255, 255, 0) 103.32%)",
             WebkitBackgroundClip: "text",
@@ -37,8 +54,17 @@ export default function VideoHero() {
           Young minds from across India <br />
           came together for BTL.
         </h1>
-
       </div>
+
+      {/* Mobile-specific video cropping */}
+      <style jsx global>{`
+        @media (max-width: 639px) {
+          video {
+            width: 166.67% !important;
+            left: 0% !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
