@@ -1,5 +1,4 @@
-
-import BTL_LOGO from "../data/btl_logo.png";
+import BTL_LOGO from "../data/BTL2025_Theme PNG 1.png";
 import Facebook from "../data/Facebook.png";
 import Instagram from "../data/Instagram.png";
 import Linkedin from "../data/Linkedin.png";
@@ -7,52 +6,44 @@ import Youtube from "../data/Youtube.png";
 
 const Footer = () => {
   return (
-    <footer className="relative text-white">
+    <footer className="relative text-white overflow-hidden">
+      {/* Background Gradient */}
       <div
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(113.74% 101.12% at 50% 0%, #040521 50%, #092267 70%, #2053CA 85%, #F5F8FF 100%)",
+            "radial-gradient(113.74% 101.12% at 50% 0%, #040521 50%, #092267 70%, #2053CA 85%,rgb(94, 143, 255) 100%)",
         }}
       />
 
       {/* Content Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-12 pb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
         {/* Logo */}
-        <div className="mb-8 md:-ml-5 flex justify-center sm:justify-start">
+        <div className="mb-8 lg:h-24 lg:pl-[-25px] w-full flex-col justify-center md:justify-start">
           <img
             src={BTL_LOGO}
             alt="BTL Logo"
-            className="h-16 sm:h-14 md:h-24 object-contain"
+            className="h-22 sm:h-20 md:h-28 lg:h-40 w-auto object-contain"
           />
         </div>
 
-        {/* Navigation & Address Sections */}
-        <div className="flex flex-col sm:hidden w-full mb-10">
-          <div className="grid grid-cols-2 gap-x-4 text-sm">
+        {/* MOBILE LAYOUT */}
+        <div className="sm:hidden w-full mb-10">
+          <div className="grid grid-cols-2  gap-6 text-sm">
             {/* Left Column: Explore Links */}
             <div className="flex flex-col space-y-3">
-              <a href="#" className="hover:underline">About BTL</a>
-              <a href="#" className="hover:underline">Events</a>
-              <a href="#" className="hover:underline">Gallery</a>
-              <a href="#" className="hover:underline">Contact us</a>
+              <h3 className="font-semibold text-white">Explore</h3>
+              <a href="#" className="hover:underline text-gray-300">About BTL</a>
+              <a href="#" className="hover:underline text-gray-300">Events</a>
+              <a href="#" className="hover:underline text-gray-300">Gallery</a>
+              <a href="#" className="hover:underline text-gray-300">Contact us</a>
             </div>
 
             {/* Right Column: Address Items */}
-            <div className="flex flex-col space-y-3 text-gray-300">
+            <div className="flex flex-col space-y-3">
               <div>
-                <h3 className="font-semibold mb-1">Address - 1</h3>
-              </div>
-              <div>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-1">Address - 2</h3>
-              </div>
-              <div>
-                <p>
+                <h3 className="font-semibold text-white">Address - 1</h3>
+                <p className="text-gray-300 mt-1">
                   Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 </p>
               </div>
@@ -61,40 +52,33 @@ const Footer = () => {
         </div>
 
         {/* DESKTOP LAYOUT */}
-        <div className="hidden sm:flex w-full justify-between flex-wrap gap-y-10 gap-x-12">
+        <div className="hidden lg:mt-[100px] sm:flex w-full justify-between flex-wrap gap-y-10">
           {/* Explore */}
-          <div className="flex flex-col space-y-2 text-sm min-w-[150px]">
-            <h3 className="font-semibold mb-1">Explore</h3>
-            <a href="#" className="hover:underline">About BTL</a>
-            <a href="#" className="hover:underline">Events</a>
-            <a href="#" className="hover:underline">Gallery</a>
-            <a href="#" className="hover:underline">Contact us</a>
+          <div className="flex flex-col space-y-3 text-sm w-full sm:w-auto sm:min-w-[150px]">
+            <h3 className="font-semibold text-white">Explore</h3>
+            <a href="#" className="hover:underline text-gray-300">About BTL</a>
+            <a href="#" className="hover:underline text-gray-300">Events</a>
+            <a href="#" className="hover:underline text-gray-300">Gallery</a>
+            <a href="#" className="hover:underline text-gray-300">Contact us</a>
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col space-y-2 text-sm min-w-[150px]">
-            <h3 className="font-semibold mb-1">Quick Links</h3>
-            <a href="#" className="hover:underline">About BTL</a>
-            <a href="#" className="hover:underline">Events</a>
-            <a href="#" className="hover:underline">Gallery</a>
-            <a href="#" className="hover:underline">Contact us</a>
+          <div className="flex flex-col space-y-3 text-sm w-full sm:w-auto sm:min-w-[150px]">
+            <h3 className="font-semibold text-white">Quick Links</h3>
+            <a href="#" className="hover:underline text-gray-300">About BTL</a>
+            <a href="#" className="hover:underline text-gray-300">Events</a>
+            <a href="#" className="hover:underline text-gray-300">Gallery</a>
+            <a href="#" className="hover:underline text-gray-300">Contact us</a>
           </div>
 
           {/* Address 1 */}
-          <div className="flex flex-col space-y-2 text-sm max-w-sm">
-            <h3 className="font-semibold mb-1">Address - 1</h3>
-            <p className="text-gray-300 leading-snug break-words">
+          <div className="flex flex-col space-y-3 text-sm w-full sm:w-auto sm:max-w-xs">
+            <h3 className="font-semibold text-white">Address - 1</h3>
+            <p className="text-gray-300 leading-snug">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </p>
           </div>
 
-          {/* Address 2 */}
-          <div className="flex flex-col space-y-2 text-sm max-w-sm">
-            <h3 className="font-semibold mb-1">Address - 2</h3>
-            <p className="text-gray-300 leading-snug break-words">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            </p>
-          </div>
         </div>
 
         {/* Social Icons Section */}
@@ -109,25 +93,29 @@ const Footer = () => {
           </div>
 
           {/* Icons */}
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 md:gap-32">
+          <div className="flex items-center justify-center gap-6 sm:gap-8">
             <a href="#" aria-label="Facebook" className="hover:opacity-80 transition">
-              <img src={Facebook} alt="Facebook" className="h-6 w-6 sm:h-5 sm:w-5" />
+              <img src={Facebook} alt="Facebook" className="h-6 w-6 sm:h-7 sm:w-7" />
             </a>
             <a href="#" aria-label="Instagram" className="hover:opacity-80 transition">
-              <img src={Instagram} alt="Instagram" className="h-6 w-6 sm:h-5 sm:w-5" />
+              <img src={Instagram} alt="Instagram" className="h-6 w-6 sm:h-7 sm:w-7" />
             </a>
             <a href="#" aria-label="LinkedIn" className="hover:opacity-80 transition">
-              <img src={Linkedin} alt="LinkedIn" className="h-6 w-6 sm:h-5 sm:w-5" />
+              <img src={Linkedin} alt="LinkedIn" className="h-6 w-6 sm:h-7 sm:w-7" />
             </a>
             <a href="#" aria-label="YouTube" className="hover:opacity-80 transition">
-              <img src={Youtube} alt="YouTube" className="h-6 w-6 sm:h-5 sm:w-5" />
+              <img src={Youtube} alt="YouTube" className="h-6 w-6 sm:h-7 sm:w-7" />
             </a>
           </div>
         </div>
 
         {/* Footer Text */}
-        <div className="mt-10 text-center text-3xl sm:text-4xl md:text-8xl font-extrabold tracking-wide text-white leading-none px-2">
-          BHARAT TECK LEAGUE
+        <div className="mt-10 w-full text-center">
+          <h2 className="text-white font-extrabold tracking-wide leading-tight
+                        text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+                        px-2 ">
+            BHARAT TECK LEAGUE 2025
+          </h2>
         </div>
       </div>
     </footer>

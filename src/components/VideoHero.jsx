@@ -50,8 +50,8 @@ export default function VideoHero() {
             WebkitTextFillColor: "transparent"
           }}
         >
-          Young minds from across India <br />
-          came together for BTL.
+          Young talents from 5 states  will unite <br />
+          for an inspiring experience at BTL.
         </h1>
       </div>
 

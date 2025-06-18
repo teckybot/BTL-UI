@@ -57,7 +57,7 @@ export default function EventsTimeline() {
         className="absolute bottom-6 md:bottom-[45%] left-6 w-[160px] h-[160px] sm:w-[190px] sm:h-[190px] md:w-[220px] md:h-[220px] object-contain -rotate-12 pointer-events-none select-none opacity-40 md:opacity-60 z-0"
       />
       <img
-        src={circle2}
+        src={circle3}
         alt="decorative"
         className="absolute bottom-6 md:-bottom-16 right-6 md:-right-8 w-[160px] h-[160px] sm:w-[190px] sm:h-[190px] md:w-[450px] md:h-[450px] object-contain -rotate-12 pointer-events-none select-none opacity-40 md:opacity-60 z-0"
       />
@@ -75,8 +75,8 @@ export default function EventsTimeline() {
               {event.side === "left" && (
                 <>
                   {/* Desktop/tablet left-aligned content */}
-                  <div className="hidden sm:block sm:w-1/2 text-right pr-4 md:pr-6">
-                    <div className="inline-block text-xs sm:text-sm font-semibold bg-white px-3 sm:px-4 py-1 rounded-full shadow mb-2">
+                  <div className="hidden sm:block sm:w-1/2  text-right pr-4 md:pr-6">
+                    <div className="inline-block text-xs sm:text-smfont-semibold bg-white px-3 sm:px-4 py-1 rounded-full shadow mb-2">
                       {event.date}
                     </div>
                     <div className="bg-white p-4 sm:p-5 rounded-xl shadow-md text-gray-700 inline-block text-left max-w-xs sm:max-w-none">
@@ -90,7 +90,7 @@ export default function EventsTimeline() {
                   
                   {/* Mobile content */}
                   <div className="sm:hidden w-full text-center">
-                    <div className="text-xs sm:text-sm font-semibold bg-white px-3 py-1 rounded-full shadow mb-2 inline-block">
+                    <div className="text-xs sm:text-smfont-semibold bg-white px-3 py-1 rounded-full shadow mb-2 inline-block">
                       {event.date}
                     </div>
                     <div className="bg-white p-4 rounded-xl shadow-md text-gray-700 w-full max-w-xs mx-auto">
