@@ -1,27 +1,18 @@
-import { useRef } from 'react';
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import VideoPage from "./components/VideoSection";
-import EventsTimeline from "./components/Events";
-import Partners from "./components/Partners";
-import Footer from "./components/Footer";
-import VideoGallery from "./components/videocard"
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './components/ScrollToTopButton';
+import Home from './pages/Home'; 
 
 function App() {
-  const videoPageRef = useRef(null);
-
   return (
-    <div className="flex flex-col">
-      <Header />
-      <Hero videoPageRef={videoPageRef} />
-      <div ref={videoPageRef} className="w-full">
-        <VideoPage />
-      </div>
-      <VideoGallery className="mt-0" /> {/* Ensure no extra margin-top */}
-      <EventsTimeline />
-      <Partners />
-      <Footer />
-    </div>
+    <Router>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <ScrollToTopButton />
+    </Router>
   );
 }
 

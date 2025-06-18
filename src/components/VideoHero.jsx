@@ -1,4 +1,3 @@
-// src/components/VideoHero.jsx
 export default function VideoHero() {
   return (
     <div className="relative w-full h-full overflow-hidden">

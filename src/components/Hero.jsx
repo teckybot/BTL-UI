@@ -1,4 +1,4 @@
-// src/components/Hero.jsx
+
 import { useState, useEffect } from 'react';
 import Plus from '../data/Plus.png';
 
@@ -36,7 +36,7 @@ export default function Hero() {
       }}
     >
       {/* Heading with responsive sizing and spacing */}
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl lg:mt-[-35px] sm:mt-[-0px] md:mt-10 mb-3 sm:mb-5 text-[#050728] font-poppins leading-tight">
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl lg:mt-[-15px] sm:mt-[-0px] md:mt-10 mb-3 sm:mb-5 text-[#050728] font-poppins leading-tight">
         The Future of <span className="text-[#112481]">Space</span> <br className="hidden sm:block" /> Starts with You
       </h1>
 
@@ -60,7 +60,7 @@ export default function Hero() {
       {/* Register Button */}
       <a
         href="#event"
-        className="px-5 py-3 lg:mb-[-2px] sm:mb-4 px-5 py-3 mt-[10px] font-poppins text-white font-medium text-sm sm:text-xs rounded-full shadow-md hover:opacity-80 transition"
+        className="px-5 py-3 lg:mb-[-2px] sm:mb-4 mt-[10px] font-poppins text-white font-medium text-sm sm:text-xs rounded-full shadow-md hover:opacity-80 transition"
         style={{
           background: 'radial-gradient(60.83% 66.41% at 51.25% 105.71%, #185FFF 0%, #5989FF 100%)'
         }}

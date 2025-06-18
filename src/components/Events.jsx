@@ -1,6 +1,7 @@
-import React from "react";
+
 import circle1 from "../data/circle1.png";
 import circle2 from "../data/circle2.png";
+import circle3 from "../data/circle3.png";
 
 export default function EventsTimeline() {
   const events = [
@@ -48,12 +49,17 @@ export default function EventsTimeline() {
       <img
         src={circle1}
         alt="decorative"
-        className="absolute top-6 right-6 w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] object-contain rotate-12 pointer-events-none select-none opacity-40 md:opacity-60 z-0"
+        className="absolute top-6 md:-top-0 right-6 md:right-10 w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] object-contain rotate-12 pointer-events-none select-none opacity-40 md:opacity-60 z-0"
       />
       <img
         src={circle2}
         alt="decorative"
-        className="absolute bottom-6 left-6 w-[160px] h-[160px] sm:w-[190px] sm:h-[190px] md:w-[220px] md:h-[220px] object-contain -rotate-12 pointer-events-none select-none opacity-40 md:opacity-60 z-0"
+        className="absolute bottom-6 md:bottom-[45%] left-6 w-[160px] h-[160px] sm:w-[190px] sm:h-[190px] md:w-[220px] md:h-[220px] object-contain -rotate-12 pointer-events-none select-none opacity-40 md:opacity-60 z-0"
+      />
+      <img
+        src={circle2}
+        alt="decorative"
+        className="absolute bottom-6 md:-bottom-16 right-6 md:-right-8 w-[160px] h-[160px] sm:w-[190px] sm:h-[190px] md:w-[450px] md:h-[450px] object-contain -rotate-12 pointer-events-none select-none opacity-40 md:opacity-60 z-0"
       />
 
       <h2 className="relative z-10 text-center text-3xl sm:text-4xl md:text-5xl font-semibold mb-12 md:mb-16 text-[#0f172a]">

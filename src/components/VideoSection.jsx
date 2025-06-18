@@ -1,4 +1,3 @@
-// src/components/VideoPage.jsx
 import VideoHero from './VideoHero';
 
 export default function VideoPage() {
