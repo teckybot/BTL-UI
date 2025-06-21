@@ -18,8 +18,8 @@ export default function VideoHero() {
             }
           }}
         >
-          <source src="/src/data/universe.mp4" type="video/mp4" />
-          <source src="/src/data/universe.webm" type="video/webm" />
+          <source src="/universe.mp4" type="video/mp4" />
+          <source src="/universe.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
         
