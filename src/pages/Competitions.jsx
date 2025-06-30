@@ -29,31 +29,32 @@ export default function Competitions() {
         <div className="flex-1">
           {/* Desktop Title */}
           {/* Desktop Title with Background Text */}
-          <div className="hidden md:block relative text-center mb-6">
+          <div className="hidden md:flex relative  items-end justify-center">
             {/* Faded Background Text */}
-            <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-              <h1 className="text-[148px] font-extrabold uppercase text-gray-300 opacity-30 select-none tracking-widest">
+            <div className="absolute bottom-[-25px] flex justify-center items-end w-full pointer-events-none">
+              <h1 className="text-[200px] font-extrabold uppercase text-gray-300 opacity-30 select-none tracking-widest leading-none">
+                {competitions[hoveredIndex]?.title}
+              </h1>
+            </div>
+            <div className="text-[90px]">
+              {/* Foreground Title */}
+              <h1
+                className="relative font-[500] bottom-[-15px]  uppercase tracking-normal leading-none"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  // fontSize: '90px',
+                  background: 'linear-gradient(180deg, #C17010 25%, #DBC6A2 100%)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  color: 'transparent',
+                }}
+              >
                 {competitions[hoveredIndex]?.title}
               </h1>
             </div>
 
-            {/* Foreground Title */}
-            <h1
-              className="relative font-[500] text-center select-none uppercase tracking-normal"
-              style={{
-                fontFamily: 'Poppins, sans-serif',
-                fontSize: '60px',
-                lineHeight: '90%',
-                background: 'linear-gradient(180deg, #C17010 25%, #DBC6A2 100%)',
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-                color: 'transparent',
-              }}
-            >
-              {competitions[hoveredIndex]?.title}
-            </h1>
           </div>
-          
+
           {/* Desktop Layout */}
           <div className="hidden md:flex w-full h-[calc(100vh-180px)] overflow-hidden">
             {competitions.map((comp, idx) => (
