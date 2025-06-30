@@ -50,8 +50,7 @@ export default function VideoHero() {
             WebkitTextFillColor: "transparent"
           }}
         >
-          Young talents from 5 states  will unite <br />
-          for an inspiring experience at BTL.
+          BTL is set to unite brilliant young minds <br />from across various states for an inspiring event.
         </h1>
       </div>
 
