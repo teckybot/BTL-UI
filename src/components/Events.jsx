@@ -1,7 +1,7 @@
 
-import circle1 from "../data/circle1.png";
-import circle2 from "../data/circle2.png";
-import circle3 from "../data/circle3.png";
+import circle1 from "../data/Ellipse 53.png";
+import circle2 from "../data/Ellipse 54.png";
+import circle3 from "../data/Ellipse 52.png";
 
 export default function EventsTimeline() {
   const events = [
@@ -44,7 +44,7 @@ export default function EventsTimeline() {
   ];
 
   return (
-    <div className="relative bg-[#f5faff] min-h-screen py-12 md:py-20 px-4 sm:px-6 md:px-8 overflow-hidden">
+    <div className="relative bg-white min-h-screen py-12 md:py-20 px-4 sm:px-6 md:px-8 overflow-hidden">
       {/* Background circles - positioned behind content with opacity */}
       <img
         src={circle1}

@@ -48,7 +48,7 @@ export default function FeaturedVideoSection() {
   };
 
   return (
-    <div className="relative bg-[#f5faff] w-full px-4 sm:px-8 md:px-12 py-8 sm:py-12 md:py-20 overflow-hidden">
+    <div className="relative bg-white w-full px-4 sm:px-8 md:px-12 py-8 sm:py-12 md:py-20 overflow-hidden">
       {/* Plus icons - smaller and pushed back */}
       <img
         src={Plus}

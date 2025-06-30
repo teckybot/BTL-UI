@@ -1,18 +1,19 @@
 import { useState } from 'react';
-import logo from '../data/btl_logo.png';
+import logo from '../data/BTL 2025 Logo PNG (W) 1.png';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'About BTL', href: '#about' },
-    { name: 'Events', href: '#events' },
+    { name: 'Home', href: '/' },
+    { name: 'About BTL', href: 'Aboutus' },
+    { name: 'Competitions', href: 'Competitions' },
     { name: 'Gallery', href: '#gallery' },
     { name: 'Contact us', href: '#contact', isSpecial: true },
   ];
 
   return (
-    <nav className="bg-[#F5F8FF] shadow-md font-poppins">
+    <nav className="fixed w-full top-0 z-50 bg-white/5 backdrop-blur-[25px] shadow-md font-poppins">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo on the left */}

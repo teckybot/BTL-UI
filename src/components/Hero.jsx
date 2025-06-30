@@ -1,42 +1,42 @@
-
-import { useState, useEffect } from 'react';
 import Plus from '../data/Plus.png';
+import space1 from '../data/space1.jpg';
+import space2 from '../data/space2.jpg';
+import space3 from '../data/space3.jpg';
+import space4 from '../data/space4.jpg';
 
 export default function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   const slides = [
     {
       title: "Space Camp 2025",
-      image: "https://images.unsplash.com/photo-1612285127145-5c4b9f1d7d5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+      image: space1
     },
     {
       title: "Rocket Building Workshop",
-      image: "https://images.unsplash.com/photo-1612285127145-5c4b9f1d7d5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+      image: space2
     },
     {
       title: "Stargazing Night Event",
-      image: "https://images.unsplash.com/photo-1598312889421-9d60a4927b53?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+      image: space3
+    },
+    {
+      title: "Space Exploration",
+      image: space4
     },
   ];
 
-  // Auto-scroll slides every 3 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
+  // Duplicate slides 3x for ultra-wide screens (adjust as needed)
+  const repeatedSlides = [...slides, ...slides, ...slides];
 
   return (
     <section
-      className="flex flex-col items-center text-center px-4 pt-20 pb-0 sm:pb-8 sm:p-10 lg:p-16 min-h-[70vh] sm:min-h-[500px] lg:min-h-[400px] justify-start sm:justify-center relative"
+      className="flex flex-col     items-center text-center px-0 pt-20 pb-0 sm:pb-8 sm:p-10 lg:p-16 min-h-[70vh] sm:min-h-[500px] lg:min-h-[400px] justify-start sm:justify-center relative"
       style={{
-        background: 'radial-gradient(97.27% 97.27% at 50% 0%, #F5F8FF 47.23%, #307DE3 67.54%, #2054CC 76.56%, #112481 87.85%, #040521 100%)'
+        background: 'radial-gradient(97.27% 97.27% at 50% 0%, #F5F8FF 47.23%, #307DE3 67.54%, #2054CC 76.56%, #112481 87.85%, #040521 100%)',
+        // background: 'radial-gradient(97.27% 97.27% at 50% 0%, #F5F8FF 45%, #AAAAAA 60%, #909090 75%, #525252 85%, #000000 100%)'
       }}
     >
-      {/* Heading with responsive sizing and spacing */}
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl lg:mt-[-15px] sm:mt-[-0px] md:mt-10 mb-3 sm:mb-5 text-[#050728] font-poppins leading-tight">
+      {/* Heading */}
+      <h1 className="text-4xl pt-[50px] sm:text-5xl lg:text-6xl lg:mt-[-15px] sm:mt-[-0px] md:mt-10 mb-3 sm:mb-5 text-[#050728] font-poppins leading-tight">
         The Future of <span className="text-[#112481]">Space</span> <br className="hidden sm:block" /> Starts with You
       </h1>
 
@@ -49,15 +49,13 @@ export default function Hero() {
       <img
         src={Plus}
         alt="plus"
-        className="absolute w-8 sm:w-12 md:w-12 h-8 sm:h-12 md:h-12 z-10 left-5 sm:left-6 md:left-24 top-[20rem] md:top-96"
+        className="absolute  w-8 sm:w-12 md:w-12 h-8 sm:h-12 md:h-12 z-5 left-12 sm:left-6 md:left-24 top-10 md:top-96"
       />
 
-      {/* Paragraph - single line on mobile, multi-line on desktop */}
       <p className="mb-4 sm:mb-6 font-poppins text-sm sm:text-base sm:whitespace-normal text-ellipsis max-w-[90vw] sm:max-w-md text-[#050728] px-2">
         Fun, hands-on projects for young minds passionate about space, science, and engineering.
       </p>
 
-      {/* Register Button */}
       <a
         href="#event"
         className="px-5 py-3 lg:mb-[-2px] sm:mb-4 mt-[10px] font-poppins text-white font-medium text-sm sm:text-xs rounded-full shadow-md hover:opacity-80 transition"
@@ -68,45 +66,51 @@ export default function Hero() {
         Register now
       </a>
 
-      {/* Carousel - adjusted margins */}
-      <div className="w-full max-w-8xl overflow-hidden rounded-xl sm:rounded-3xl mt-[45px] sm:mt-8">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+      {/* INFINITE LOOPING CAROUSEL */}
+      <div className="w-screen    sm:mb-10 overflow-hidden mt-10 ">
+        <div 
+          className="flex items-center gap-6 sm:gap-8  md:gap-10 lg:gap-12 marquee-track"
+          style={{
+            width: 'max-content',
+            animation: 'marquee 30s linear infinite'
+          }}
         >
-          {slides.map((slide, index) => (
+          {repeatedSlides.map((slide, idx) => (
             <div
-              key={index}
-              className="flex-shrink-0 w-full h-48 sm:h-96 relative"
-              style={{
-                background: `url(${slide.image}) no-repeat center center / cover`,
-                backgroundBlendMode: 'overlay',
-                backgroundColor: 'rgba(0, 0, 0, 0.4)'
-              }}
+              key={idx}
+              className="
+                relative bg-white rounded-3xl shadow-lg border border-gray-200 mx-2
+                overflow-hidden
+                w-[300px] h-[240px]
+                md:w-[400px] md:h-[320px]
+                lg:w-[1400px] lg:h-[440px]
+                flex-shrink-0
+              "
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <h3 className="text-xl sm:text-3xl lg:text-4xl text-white font-poppins font-semibold px-4 text-center">
-                  {slide.title}
-                </h3>
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="object-cover w-full h-full"
+              />
+              {/* Optional: Overlay Title */}
+              <div className="absolute bottom-0  left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-2 sm:p-4">
+                <span className="text-white text-xs sm:text-base md:text-lg font-semibold">{slide.title}</span>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Navigation Dots - centered */}
-      <div className="flex justify-center space-x-2 mt-4 sm:mt-6 mb-2 sm:mb-0">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 sm:w-2 sm:h-2 rounded-full transition-colors ${
-              currentSlide === index ? 'bg-[#050728]' : 'bg-gray-300'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
+      {/* CSS for infinite loop and pause on hover */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+        .marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 }

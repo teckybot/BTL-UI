@@ -26,7 +26,7 @@ export default function PartnersSection() {
   ];
 
   return (
-    <div className="bg-[#f5faff]  px-4 sm:px-10">
+    <div className="bg-white   px-4 sm:px-10">
       <h2 className="text-center text-2xl sm:text-3xl font-semibold text-[#0f172a] mb-12">
         Esteemed Partners
       </h2>
