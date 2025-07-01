@@ -29,14 +29,14 @@ export default function Hero() {
 
   return (
     <section
-      className="flex flex-col     items-center text-center px-0 pt-20 pb-0 sm:pb-8 sm:p-10 lg:p-16 min-h-[70vh] sm:min-h-[500px] lg:min-h-[400px] justify-start sm:justify-center relative"
+      className="flex flex-col items-center text-center px-4 pt-20 pb-0 sm:pb-8 sm:p-10 lg:p-16 min-h-[70vh] sm:min-h-[500px] lg:min-h-[400px] justify-start sm:justify-center relative"
       style={{
         background: 'radial-gradient(97.27% 97.27% at 50% 0%, #F5F8FF 47.23%, #307DE3 67.54%, #2054CC 76.56%, #112481 87.85%, #040521 100%)',
         // background: 'radial-gradient(97.27% 97.27% at 50% 0%, #F5F8FF 45%, #AAAAAA 60%, #909090 75%, #525252 85%, #000000 100%)'
       }}
     >
       {/* Heading */}
-      <h1 className="text-4xl pt-[50px] sm:text-5xl lg:text-6xl lg:mt-[-15px] sm:mt-[-0px] md:mt-10 mb-3 sm:mb-5 text-[#050728] font-poppins leading-tight">
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl mt-10 sm:mt-20 md:mt-20 lg:mt-22 mb-3 sm:mb-5 text-[#050728] font-poppins leading-tight">
         The Future of <span className="text-[#112481]">Space</span> <br className="hidden sm:block" /> Starts with You
       </h1>
 
@@ -67,7 +67,7 @@ export default function Hero() {
       </a>
 
       {/* INFINITE LOOPING CAROUSEL */}
-      <div className="w-screen    sm:mb-10 overflow-hidden mt-10 ">
+      <div className="w-screen sm:mb-10 overflow-hidden mt-10 ">
         <div 
           className="flex items-center gap-6 sm:gap-8  md:gap-10 lg:gap-12 marquee-track"
           style={{

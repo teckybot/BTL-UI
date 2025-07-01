@@ -6,15 +6,16 @@ import img12 from "../data/images/img2.png";
 import img13 from "../data/images/img3.png";
 import img14 from "../data/images/img4.png";
 import img15 from "../data/images/img5.png";
-import { CgEnter } from "react-icons/cg";
+import { Link } from 'react-router-dom';
 
 const competitions = [
-  { title: "ASTROBOT", image: img11 },
-  { title: "3D MAKER", image: img12 },
-  { title: "SPACE PILOT", image: img13 },
-  { title: "CODEX", image: img14 },
-  { title: "INNOVERSE", image: img15 },
+  { title: "ASTROBOT", image: img12 },
+  { title: "3D MAKER", image: img13 },
+  { title: "SPACE PILOT", image: img14 },
+  { title: "CODEX", image: img15 },
+  { title: "INNOVERSE", image: img11 },
 ];
+
 
 export default function Competitions() {
   const [hoveredIndex, setHoveredIndex] = useState(0);
@@ -39,20 +40,20 @@ export default function Competitions() {
             <div className="text-[90px]">
               {/* Foreground Title */}
               <h1
-                className="relative font-[500] bottom-[-15px]  uppercase tracking-normal leading-none"
-                style={{
-                  fontFamily: 'Poppins, sans-serif',
-                  // fontSize: '90px',
-                  background: 'linear-gradient(180deg, #C17010 25%, #DBC6A2 100%)',
-                  WebkitBackgroundClip: 'text',
-                  backgroundClip: 'text',
-                  color: 'transparent',
-                }}
+                className={`text-[90px] font-[500] uppercase tracking-normal leading-none inline-block bg-clip-text text-transparent transition-all duration-300
+                ${{
+                    "3D MAKER": "bg-gradient-3dmaker",
+                    "SPACE PILOT": "bg-gradient-spacepilot",
+                    "CODEX": "bg-gradient-codex",
+                    "INNOVERSE": "bg-gradient-innoverse",
+                    "ASTROBOT": "bg-gradient-astrobot",
+                  }[competitions[hoveredIndex]?.title]
+                  }
+                `}
               >
                 {competitions[hoveredIndex]?.title}
               </h1>
             </div>
-
           </div>
 
           {/* Desktop Layout */}
@@ -64,18 +65,39 @@ export default function Competitions() {
                 className={`relative group transition-all duration-300 cursor-pointer w-1/5 ${hoveredIndex === idx ? "opacity-100" : "opacity-50"
                   }`}
               >
-                <img
-                  src={comp.image}
-                  alt={comp.title}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-                />
+                {comp.title === "ASTROBOT" ? (
+                  <Link to="/competitions/robotics">
+                    <img
+                      src={comp.image}
+                      alt={comp.title}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  </Link>
+                ) : (
+                  <Link to={`/competitions/${comp.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <img
+                      src={comp.image}
+                      alt={comp.title}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  </Link>
+                )}
                 <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="bg-white/80 hover:bg-white text-gray-800 font-semibold py-2 px-5 rounded-full text-sm shadow-lg">
-                    Details →
-                  </button>
+                  {comp.title === "ASTROBOT" ? (
+                    <Link to="/competitions/robotics">
+                      <button className="bg-white/80 hover:bg-white text-gray-800 font-semibold py-2 px-5 rounded-full text-sm shadow-lg">
+                        Details →
+                      </button>
+                    </Link>
+                  ) : (
+                    <Link to={`/competitions/${comp.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                      <button className="bg-white/80 hover:bg-white text-gray-800 font-semibold py-2 px-5 rounded-full text-sm shadow-lg">
+                        Details →
+                      </button>
+                    </Link>
+                  )}
                 </div>
               </div>
-
             ))}
           </div>
 
@@ -93,7 +115,7 @@ export default function Competitions() {
                 background: 'linear-gradient(180deg, #1D1D1D 40.38%, #FFFFFF 100%)',
                 WebkitBackgroundClip: 'text',
                 backgroundClip: 'text',
-                color: 'transparent',
+                WebkitTextFillColor: 'transparent',
               }}
             >
               COMPETITIONS
@@ -127,5 +149,3 @@ export default function Competitions() {
 
   );
 }
-
-export { competitions };

@@ -19,11 +19,11 @@ const Footer = () => {
       {/* Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
         {/* Logo */}
-        <div className="mb-8 lg:h-24 lg:pl-[-25px] w-full flex-col justify-center md:justify-start">
+        <div className="block sm:hidden mb-8 lg:h-24 lg:pl-[-25px] w-full flex-col justify-center md:justify-start">
           <img
             src={BTL_LOGO}
             alt="BTL Logo"
-            className="h-22 sm:h-20 md:h-28 lg:h-40 w-auto object-contain"
+            className="h-48 pl-24 w-auto object-contain"
           />
         </div>
 
@@ -31,10 +31,10 @@ const Footer = () => {
         <div className="sm:hidden w-full mb-10">
           <div className="grid grid-cols-2  gap-6 text-sm">
             {/* Left Column: Explore Links */}
-            <div className="flex flex-col space-y-3">
+            <div className="flex flex-col space-y-3 pl-5">
               <h3 className="font-semibold text-white">Explore</h3>
-              <a href="#" className="hover:underline text-gray-300">About BTL</a>
-              <a href="#" className="hover:underline text-gray-300">Events</a>
+              <a href="/Aboutus" className="hover:underline text-gray-300">About BTL</a>
+              <a href="/Competitions" className="hover:underline text-gray-300">Events</a>
               <a href="#" className="hover:underline text-gray-300">Gallery</a>
               <a href="#" className="hover:underline text-gray-300">Contact us</a>
             </div>
@@ -55,18 +55,18 @@ const Footer = () => {
         <div className="hidden lg:mt-[100px] sm:flex w-full justify-between flex-wrap gap-y-10">
           {/* Explore */}
           <div className="flex flex-col space-y-3 text-sm w-full sm:w-auto sm:min-w-[150px]">
-            <h3 className="font-semibold text-white">Explore</h3>
-            <a href="#" className="hover:underline text-gray-300">About BTL</a>
-            <a href="#" className="hover:underline text-gray-300">Events</a>
-            <a href="#" className="hover:underline text-gray-300">Gallery</a>
-            <a href="#" className="hover:underline text-gray-300">Contact us</a>
+            <img
+            src={BTL_LOGO}
+            alt="BTL Logo"
+            className="h-22 sm:h-20 md:h-32 lg:h-40 lg:pl-16 w-auto object-contain"
+          />
           </div>
 
           {/* Quick Links */}
           <div className="flex flex-col space-y-3 text-sm w-full sm:w-auto sm:min-w-[150px]">
             <h3 className="font-semibold text-white">Quick Links</h3>
-            <a href="#" className="hover:underline text-gray-300">About BTL</a>
-            <a href="#" className="hover:underline text-gray-300">Events</a>
+            <a href="/Aboutus" className="hover:underline text-gray-300">About BTL</a>
+            <a href="/Competitions" className="hover:underline text-gray-300">Events</a>
             <a href="#" className="hover:underline text-gray-300">Gallery</a>
             <a href="#" className="hover:underline text-gray-300">Contact us</a>
           </div>

@@ -1,6 +1,4 @@
-
 import { useRef } from 'react';
-import Header from "../components/Header";
 import Hero from "../components/Hero";
 import VideoPage from "../components/VideoSection";
 import EventsTimeline from "../components/Events";
@@ -13,7 +11,6 @@ const Home = () => {
 
   return (
     <div className="flex flex-col">
-      <Header />
       <Hero videoPageRef={videoPageRef} />
       <div ref={videoPageRef} className="w-full">
         <VideoPage />

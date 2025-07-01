@@ -25,7 +25,7 @@ export default function FeaturedVideoSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!animating) slideNext();
-    }, 5000);
+    }, 2000);
     return () => clearInterval(interval);
   }, [videoList, animating]);
 
