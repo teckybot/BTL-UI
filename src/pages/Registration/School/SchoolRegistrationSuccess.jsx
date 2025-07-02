@@ -1,7 +1,7 @@
 
 import { useNavigate } from 'react-router-dom';
 import exclamation from '../../../data/exclamation.png'
-import plus from '../../../data/plus.png'
+import plus from '../../../data/Plus.png'
 
 export default function SchoolRegistrationSuccess() {
   const navigate = useNavigate();
