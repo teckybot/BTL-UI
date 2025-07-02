@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
-import Navbar from './components/Header'; // Make sure this file exists
+import Navbar from './components/Header'; 
 import Home from './pages/Home';
 import Aboutus from './pages/Aboutus';
 import Competitions from './pages/Competitions';
@@ -10,6 +10,7 @@ import ThreeDMaker from './pages/competitions/ThreeDMaker';
 import SpacePilot from './pages/competitions/SpacePilot';
 import Codex from './pages/competitions/Codex';
 import Innoverse from './pages/competitions/Innoverse';
+import ContactCard from './pages/Contactus';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/competitions/space-pilot" element={<SpacePilot />} />
         <Route path="/competitions/codex" element={<Codex />} />
         <Route path="/competitions/innoverse" element={<Innoverse />} />
+        <Route path="/contactus" element={<ContactCard />} />
       </Routes>
       <ScrollToTopButton />
     </Router>

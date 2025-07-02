@@ -22,7 +22,7 @@ export default function Navbar() {
     { name: 'About BTL', to: '/aboutus' },
     { name: 'Competitions', to: '/competitions' },
     { name: 'Gallery', to: '#gallery' },
-    { name: 'Contact us', to: '#contact', isSpecial: true },
+    { name: 'Contact us', to: '/contactus', isSpecial: true },
   ];
 
   //navbar style
