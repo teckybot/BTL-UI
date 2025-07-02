@@ -31,6 +31,7 @@ function App() {
         <Route path="/contactus" element={<ContactCard />} />
         <Route path="/registration/school" element={<SchoolRegistrationPage />} />
         <Route path="/registration/team" element={<TeamRegistrationPage />} />
+        
       </Routes>
       <ScrollToTopButton />
     </Router>
