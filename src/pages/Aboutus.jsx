@@ -181,7 +181,7 @@ export default function Aboutus() {
 
              <div className="relative z-10 mt-6 ml-2 -top-6">
               <p className="text-base text-gray-600 mb-1">Level</p>
-              <h3 className="text-2xl font-bold mb-3">Qualifier</h3>
+              <h3 className="text-2xl font-bold mb-3">Finale</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
               Selected teams from the Qualifier Round will participate in the on-site finale. They will compete or demonstrate their models in alignment with the given problem statement.
               </p>
