@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import SchoolRegistrationCard from './SchoolRegistrationCard';
-import TeamRegistrationForm from './TeamRegistrationForm';
+import TeamRegistrationForm from './TeamChekckPointCard';
 import Footer from '../../../components/Footer';
 import SchoolRegistrationForm from '../School/SchoolRegistrationForm';
 import TabbedRegistrationView from '../TabbedRegistrationView';
