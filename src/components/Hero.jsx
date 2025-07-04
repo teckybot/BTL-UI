@@ -1,6 +1,6 @@
 import React from "react";
-import bgImageDesktop from '../data/about2.png';
-import bgImageMobile from '../data/about_mobile.png';
+import bgImageDesktop from '../data/home_hero.png';
+import bgImageMobile from '../data/home_hero.png';
 
 export default function Aboutus() {
   return (
@@ -15,15 +15,15 @@ export default function Aboutus() {
         <img
           src={bgImageMobile}
           alt="Earth from space"
-          className="md:hidden w-full h-full object-cover"
+          className="md:hidden w-full h-top object-cover"
         />
-        <div
+        {/* <div
   className="absolute inset-0 z-10"
   style={{
     background: 'radial-gradient(circle at center, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.53) 60%, rgba(0, 0, 0, 0.62) 100%)',
     pointerEvents: 'none', // So clicks go through if needed
   }}
-></div>
+></div> */}
 
       </div>
 
