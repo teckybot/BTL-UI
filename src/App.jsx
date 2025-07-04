@@ -14,6 +14,7 @@ import ContactCard from './pages/Contactus';
 import SchoolRegistrationPage from './pages/Registration/School/SchoolRegistrationPage';
 import TeamRegistrationPage from './pages/Registration/Team/TeamRegistrationPage';
 import SchoolRegistrationSuccess from './pages/Registration/School/SchoolRegistrationSuccess'
+import ComingSoon from './components/commingsoonpage';
 
 function App() {
   return (
@@ -30,9 +31,10 @@ function App() {
         <Route path="/competitions/codex" element={<Codex />} />
         <Route path="/competitions/innoverse" element={<Innoverse />} />
         <Route path="/contactus" element={<ContactCard />} />
-        <Route path="/registration/school" element={<SchoolRegistrationPage />} />
+        {/* <Route path="/registration/school" element={<SchoolRegistrationPage />} />
         <Route path="/registration/team" element={<TeamRegistrationPage />} />
-        <Route path="/registration/success" element={<SchoolRegistrationSuccess />} />
+        <Route path="/registration/success" element={<SchoolRegistrationSuccess />} /> */}
+        <Route path="/comingsoon" element={<ComingSoon />} />
         
       </Routes>
       <ScrollToTopButton />

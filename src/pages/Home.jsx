@@ -5,6 +5,7 @@ import EventsTimeline from "../components/Events";
 import Partners from "../components/Partners";
 import Footer from "../components/Footer";
 import VideoGallery from "../components/videocard";
+import ComingSoon from '../components/commingsoonpage';
 
 const Home = () => {
   const videoPageRef = useRef(null);
@@ -12,7 +13,7 @@ const Home = () => {
   return (
     <div className="flex flex-col">
       <Hero videoPageRef={videoPageRef} />
-      
+      {/* <ComingSoon /> */}
       
       <EventsTimeline />
       <VideoGallery className="mt-0" />
