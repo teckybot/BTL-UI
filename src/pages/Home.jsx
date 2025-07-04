@@ -12,9 +12,9 @@ const Home = () => {
   return (
     <div className="flex flex-col">
       <Hero videoPageRef={videoPageRef} />
-      <div ref={videoPageRef} className="w-full">
+      {/* <div ref={videoPageRef} className="w-full">
         <VideoPage />
-      </div>
+      </div> */}
       <VideoGallery className="mt-0" />
       <EventsTimeline />
       <Partners />

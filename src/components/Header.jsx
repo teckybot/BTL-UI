@@ -5,7 +5,7 @@ import logo from '../data/BTL 2025 Logo PNG (W) 1.png';
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const isAboutus = location.pathname.toLowerCase() === '/aboutus';
+  const isAboutus = location.pathname.toLowerCase() === '/';
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Navbar() {
     { name: 'Home', to: '/' },
     { name: 'About BTL', to: '/aboutus' },
     { name: 'Competitions', to: '/competitions' },
-    {name:'Registration', to:'/registration/school'},
+    { name: 'Registration', to: '/registration/school' },
     { name: 'Gallery', to: '#gallery' },
     { name: 'Contact us', to: '/contactus', isSpecial: true },
   ];
@@ -102,20 +102,18 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu - centered and without bg for special item */}
-      <div className={`${isMenuOpen ? 'block' : 'hidden'} sm:hidden`}>
+      {/* Mobile menu - centered and with backdrop */}
+      <div className={`${isMenuOpen ? 'block' : 'hidden'} sm:hidden bg-white/5 backdrop-blur-[25px] shadow-md`}>
         <div className="flex flex-col items-center px-2 pt-2 pb-4 space-y-2">
           {navItems.map((item) => (
             item.to.startsWith('#') ? (
               <a
                 key={item.name}
                 href={item.to}
-                className={
-                  `block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ` +
-                  (item.isSpecial
-                    ? (isAboutus ? 'text-white' : 'text-blue-600 hover:text-blue-800')
-                    : (isAboutus ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'))
-                }
+                className={`block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-co lors duration-200 ${item.isSpecial
+                    ? (isAboutus ? 'text-black' : 'text-blue-600 hover:text-blue-800')
+                    : (isAboutus ? 'text-black hover:text-gray-200' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50')
+                  }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -124,12 +122,10 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 to={item.to}
-                className={
-                  `block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ` +
-                  (item.isSpecial
-                    ? (isAboutus ? 'text-white' : 'text-blue-600 hover:text-blue-800')
-                    : (isAboutus ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'))
-                }
+                className={`block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${item.isSpecial
+                    ? (isAboutus ? 'text-black' : 'text-blue-600 hover:text-blue-800')
+                    : (isAboutus ? 'text-black hover:text-gray-200' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50')
+                  }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -138,6 +134,7 @@ export default function Navbar() {
           ))}
         </div>
       </div>
+
     </nav>
   );
 }
