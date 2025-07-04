@@ -17,7 +17,14 @@ export default function Aboutus() {
           alt="Earth from space"
           className="md:hidden w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div
+  className="absolute inset-0 z-10"
+  style={{
+    background: 'radial-gradient(circle at center, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.53) 60%, rgba(0, 0, 0, 0.62) 100%)',
+    pointerEvents: 'none', // So clicks go through if needed
+  }}
+></div>
+
       </div>
 
       {/* Content */}
