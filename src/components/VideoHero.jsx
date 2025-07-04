@@ -27,13 +27,13 @@ export default function VideoHero() {
         <div 
           className="absolute top-0 left-0 w-full h-[10%] z-10"
           style={{
-            background: 'linear-gradient(to bottom, #040521 10%, transparent 100%)'
+            background: 'linear-gradient(to bottom, #F5F8FF 30%, transparent 100%)'
           }}
         />
         
         {/* Bottom white gradient overlay */}
         <div 
-          className="absolute bottom-0 left-0 w-full h-[10%] z-10"
+          className="absolute top bottom-0 left-0 w-full h-[10%] z-10"
           style={{
             background: 'linear-gradient(to top, #F5F8FF 30%, transparent 100%)'
           }}

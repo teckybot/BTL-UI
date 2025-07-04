@@ -110,14 +110,15 @@ const Footer = () => {
         </div>
 
         {/* Footer Text */}
-        <div className="mt-10 w-full text-center">
+        
+      </div>
+      <div className="mt-10 w-full text-center">
           <h2 className="text-white font-extrabold tracking-wide leading-tight
                         text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
                         px-2 ">
             BHARAT TECK LEAGUE 2025
           </h2>
         </div>
-      </div>
     </footer>
   );
 };

@@ -15,7 +15,7 @@ export default function Aboutus() {
         <img
           src={bgImageMobile}
           alt="Earth from space"
-          className="md:hidden w-full h-top object-cover"
+          className="md:hidden w-full h-full object-cover"
         />
         {/* <div
   className="absolute inset-0 z-10"
