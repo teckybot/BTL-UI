@@ -47,7 +47,7 @@ export default function CountdownTimer() {
       <div className="flex flex-col items-center md:items-center lg:items-start justify-center h-full px-2 md:ml-0 lg:ml-16 xl:ml-36">
         {/* Title */}
         <h1
-          className="text-[38px] sm:text-[36px] md:text-[38px] lg:text-[40px] xl:text-[48px] font-poppins font-medium tracking-[0.15em] blur-[1.5px] mb-6 md:mb-8 lg:mb-10 xl:ml-6 bg-gradient-to-r from-reg-gradient-from to-reg-gradient-to text-center md:text-center lg:text-left"
+          className="text-[38px] sm:text-[36px] md:text-[38px] lg:text-[40px] xl:text-[48px] font-poppins font-medium tracking-[0.15em] blur-[1.5px] mb-6 md:mb-8 lg:mb-10 xl:ml-12 bg-gradient-to-r from-reg-gradient-from to-reg-gradient-to text-center md:text-center lg:text-left"
           style={{
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',

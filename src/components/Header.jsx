@@ -5,17 +5,52 @@ import logo from '../data/BTL 2025 Logo PNG (W) 1.png';
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const isAboutus = location.pathname.toLowerCase() === '/';
+  const isAboutus = location.pathname.toLowerCase() === '/aboutus';
+  const isHome = location.pathname.toLowerCase() === '/';
+  const isRegistration = location.pathname.toLowerCase() === '/count-down';
   const [scrolled, setScrolled] = useState(false);
+  const [inAndhraSection, setInAndhraSection] = useState(false);
+  const [inEventTimelineSection, setInEventTimelineSection] = useState(false);
 
   useEffect(() => {
-    if (!isAboutus) return;
+    if (!isAboutus && !isHome && !isRegistration) return;
+    
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 10);
+      
+      // Check if we're in the Andhra Tech League section (only for About Us page)
+      if (isAboutus) {
+        const andhraSection = document.querySelector('h2');
+        if (andhraSection && andhraSection.textContent.includes('ANDHRA TECK LEAGUE 2023')) {
+          const sectionTop = andhraSection.offsetTop - 100; // Offset for navbar height
+          setInAndhraSection(scrollY >= sectionTop);
+        }
+      }
+      // Check if we're in the Event Timelines section (only for Home page)
+      if (isHome) {
+        const eventTimelineSection = document.getElementById('event-timelines');
+        if (eventTimelineSection) {
+          const sectionTop = eventTimelineSection.offsetTop - 100; // Offset for navbar height
+          setInEventTimelineSection(scrollY >= sectionTop);
+        } else {
+          // Fallback: try to find by text content if ID is not found
+          const h2Elements = document.querySelectorAll('h2');
+          const eventTimelineH2 = Array.from(h2Elements).find(h2 => 
+            h2.textContent.toLowerCase().includes('events timeline') || 
+            h2.textContent.toLowerCase().includes('event timeline')
+          );
+          if (eventTimelineH2) {
+            const sectionTop = eventTimelineH2.offsetTop - 100;
+            setInEventTimelineSection(scrollY >= sectionTop);
+          }
+        }
+      }
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isAboutus]);
+  }, [isAboutus, isHome, isRegistration]);
 
   const navItems = [
     { name: 'Home', to: '/' },
@@ -26,14 +61,52 @@ export default function Navbar() {
     { name: 'Contact us', to: '/contactus', isSpecial: true },
   ];
 
-  //navbar style
-  let navClass = 'fixed w-full top-0 z-50 font-poppins';
+  // Navbar style logic for different pages
+  let navClass = 'fixed w-full top-0 z-50 font-poppins transition-all duration-300';
+  let textColor = '';
+  let mobileButtonClass = '';
+  
   if (isAboutus) {
-    navClass += scrolled
-      ? ' bg-white/5 backdrop-blur-[25px] shadow-md'
-      : ' bg-transparent shadow-none backdrop-blur-none';
+    if (!scrolled) {
+      // At rest: no glass effect, white text
+      navClass += ' bg-transparent shadow-none backdrop-blur-none';
+      textColor = 'text-white';
+      mobileButtonClass = 'text-white hover:text-gray-300 hover:bg-white/20';
+    } else if (scrolled && !inAndhraSection) {
+      // Scrolled but not in Andhra section: white text with glass effect
+      navClass += ' bg-white/10 backdrop-blur-[25px] shadow-md';
+      textColor = 'text-white';
+      mobileButtonClass = 'text-white hover:text-gray-300 hover:bg-white/20';
+    } else {
+      // In Andhra section or beyond: gray text with glass effect
+      navClass += ' bg-white/10 backdrop-blur-[25px] shadow-md';
+      textColor = 'text-gray-700';
+      mobileButtonClass = 'text-gray-700 hover:text-gray-900 hover:bg-white/80';
+    }
+  } else if (isHome || isRegistration) {
+    if (!scrolled) {
+      // At rest: no glass effect, white text
+      navClass += ' bg-transparent shadow-none backdrop-blur-none';
+      textColor = 'text-white';
+      mobileButtonClass = isHome ? 'text-gray  rounded-md' : 'text-white hover:text-gray-300 hover:bg-white/20';
+    } else {
+      // Scrolled: check if in Event Timelines section
+      navClass += ' bg-white/10 backdrop-blur-[25px] shadow-md';
+      if (isHome && inEventTimelineSection) {
+        // In Event Timelines section: gray text
+        textColor = 'text-gray-700';
+        mobileButtonClass = 'text-gray-700 bg-white/10 backdrop-blur-[25px] rounded-md';
+      } else {
+        // Scrolled but not in Event Timelines: white text
+        textColor = 'text-white';
+        mobileButtonClass = isHome ? 'text-white bg-white/10 backdrop-blur-[25px] rounded-md' : 'text-white hover:text-gray-300 hover:bg-white/20';
+      }
+    }
   } else {
+    // Other pages: default styling
     navClass += ' bg-white/5 backdrop-blur-[25px]';
+    textColor = 'text-[#050728]';
+    mobileButtonClass = 'text-gray-700 hover:text-gray-900 hover:bg-gray-100';
   }
 
   return (
@@ -57,8 +130,8 @@ export default function Navbar() {
                   className={
                     `px-4 py-2 text-sm font-medium transition-colors duration-200 ` +
                     (item.isSpecial
-                      ? (isAboutus ? 'bg-white rounded-full text-gray' : 'bg-[#E7EEFF] rounded-full')
-                      : (isAboutus ? 'text-white hover:text-gray-200' : 'text-[#050728] hover:text-gray-900'))
+                      ? ((isAboutus && !inAndhraSection) || isHome || isRegistration ? 'bg-white rounded-full text-gray-700' : 'bg-[#E7EEFF] rounded-full text-gray-700')
+                      : ((isAboutus || isHome || isRegistration) ? `${textColor} hover:text-gray-200` : 'text-[#050728] hover:text-gray-900'))
                   }
                 >
                   {item.name}
@@ -70,8 +143,8 @@ export default function Navbar() {
                   className={
                     `px-4 py-2 text-sm font-medium transition-colors duration-200 ` +
                     (item.isSpecial
-                      ? (isAboutus ? 'bg-white rounded-full text-gray' : 'bg-[#E7EEFF] rounded-full')
-                      : (isAboutus ? 'text-white hover:text-gray-200' : 'text-[#050728] hover:text-gray-900'))
+                      ? ((isAboutus && !inAndhraSection) || isHome || isRegistration ? 'bg-white rounded-full text-gray-700' : 'bg-[#E7EEFF] rounded-full text-gray-700')
+                      : ((isAboutus || isHome || isRegistration) ? `${textColor} hover:text-gray-200` : 'text-[#050728] hover:text-gray-900'))
                   }
                 >
                   {item.name}
@@ -84,7 +157,7 @@ export default function Navbar() {
           <div className="sm:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md ${isAboutus ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-gray-900'} hover:bg-gray-100 focus:outline-none`}
+              className={`inline-flex items-center justify-center p-2 rounded-md transition-all duration-200 ${mobileButtonClass} focus:outline-none`}
               aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -103,17 +176,18 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu - centered and with backdrop */}
-      <div className={`${isMenuOpen ? 'block' : 'hidden'} sm:hidden bg-white/5 backdrop-blur-[25px] shadow-md`}>
+      <div className={`${isMenuOpen ? 'block' : 'hidden'} sm:hidden bg-white/10 backdrop-blur-[25px] shadow-md`}>
         <div className="flex flex-col items-center px-2 pt-2 pb-4 space-y-2">
           {navItems.map((item) => (
             item.to.startsWith('#') ? (
               <a
                 key={item.name}
                 href={item.to}
-                className={`block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-co lors duration-200 ${item.isSpecial
-                    ? (isAboutus ? 'text-black' : 'text-blue-600 hover:text-blue-800')
-                    : (isAboutus ? 'text-black hover:text-gray-200' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50')
-                  }`}
+                className={`block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  item.isSpecial
+                    ? (isAboutus && !inAndhraSection ? 'text-gray-700 bg-white/80' : 'text-blue-600 hover:text-blue-800')
+                    : ((isAboutus || isHome || isRegistration || location.pathname.toLowerCase() === '/competitions' || location.pathname.toLowerCase() === '/contactus') ? `${textColor} hover:bg-white/80 hover:text-gray-900` : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50')
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -122,10 +196,11 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 to={item.to}
-                className={`block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${item.isSpecial
-                    ? (isAboutus ? 'text-black' : 'text-blue-600 hover:text-blue-800')
-                    : (isAboutus ? 'text-black hover:text-gray-200' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50')
-                  }`}
+                className={`block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  item.isSpecial
+                    ? (isAboutus && !inAndhraSection ? 'text-gray-700 bg-white/80' : 'text-blue-600 hover:text-blue-800')
+                    : ((isAboutus || isHome || isRegistration || location.pathname.toLowerCase() === '/competitions' || location.pathname.toLowerCase() === '/contactus') ? `${textColor} hover:bg-white/80 hover:text-gray-900` : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50')
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
