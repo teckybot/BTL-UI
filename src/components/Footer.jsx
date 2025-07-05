@@ -23,7 +23,7 @@ const Footer = () => {
           <img
             src={BTL_LOGO}
             alt="BTL Logo"
-            className="h-48 pl-24 w-auto object-contain"
+            className="h-48 pl-28 w-auto object-contain"
           />
         </div>
 
@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="sm:hidden w-full mb-10">
           <div className="grid grid-cols-2  gap-6 text-sm">
             {/* Left Column: Explore Links */}
-            <div className="flex flex-col space-y-3 pl-5">
+            <div className="flex flex-col space-y-3 pl-10">
               <h3 className="font-semibold text-white">Explore</h3>
               <a href="/Aboutus" className="hover:underline text-gray-300">About BTL</a>
               <a href="/Competitions" className="hover:underline text-gray-300">Events</a>
@@ -82,7 +82,7 @@ const Footer = () => {
         </div>
 
         {/* Social Icons Section */}
-        <div className="my-12 w-full flex flex-col items-center">
+        <div className="mt-12  w-full flex flex-col items-center">
           {/* Divider with text */}
           <div className="w-full flex items-center justify-center my-6">
             <div className="h-px flex-grow bg-gradient-to-r from-transparent to-white" />
@@ -112,7 +112,7 @@ const Footer = () => {
         {/* Footer Text */}
         
       </div>
-      <div className="mt-10 w-full text-center">
+      <div className="mt-5 w-full text-center">
           <h2 className="text-white font-extrabold tracking-wide leading-tight
                         text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
                         px-2 ">

@@ -27,7 +27,7 @@ export default function Aboutus() {
             className="text-center mt-10 font-bold uppercase"
             style={{
               fontFamily: 'Poppins, sans-serif',
-              fontWeight: 700,
+              fontWeight: 500,
               fontSize: '90px',
               lineHeight: '100%',
               letterSpacing: '0%',
@@ -39,7 +39,7 @@ export default function Aboutus() {
               textShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
             }}
           >
-            BHARAT TECK LEAGUE 2025
+            THE JOURNEY
           </h1>
 
 
@@ -67,8 +67,13 @@ export default function Aboutus() {
         </div>
 
         <div className="relative z-10 px-4 py-16 max-w-md mx-auto text-center">
-          <h1 className="text-3xl mt-[130px] font-extrabold tracking-wider uppercase text-white">
-            About BTL
+          <h1 className="text-3xl mt-[130px] font-extrabold tracking-wider uppercase text-white"
+            style={{
+              background: 'linear - gradient(270deg, #93AFC2 0 %, #FFFFFF 50 %, #93AFC2 100 %)',
+
+            }}
+          >
+            THE JOURNEY
           </h1>
 
           <div className="mt-[270px] bg-white/10 p-4 rounded-xl text-sm leading-relaxed text-gray-100 shadow-md border border-white/10">
