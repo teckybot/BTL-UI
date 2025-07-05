@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import logo from '../data/BTL 2025 Logo PNG (W) 1.png';
+import logo from "../data/BTL2025_Theme PNG 1.png";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -116,7 +116,7 @@ export default function Navbar() {
           {/* Logo on the left */}
           <div className="flex-shrink-0">
             <a href="/">
-              <img src={logo} alt="BTL Logo" className="h-12 w-auto" />
+              <img src={logo} alt="BTL Logo" className="h-20 w-auto" />
             </a>
           </div>
 
