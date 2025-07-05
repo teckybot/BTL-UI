@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../components/Footer";
 import bgImageDesktop from '../data/about1.png';
 import bgImageMobile from '../data/about1.png';
-
+import level from '../data/levelbg.jpg'
 import globe from '../data/world-globe.png'
 import rocket from '../data/rocket.png'
 import space from '../data/space.png'
@@ -79,128 +79,6 @@ export default function Aboutus() {
         </div>
       </div>
 
-      {/* ---------- LEVELS OF PARTICIPATION SECTION ---------- */}
-      <div
-        className="relative text-center text-black py-[140px] px-4"
-        style={{
-          background: 'radial-gradient(97.27% 97.27% at 50% 0%, #F5F8FF 47.23%, #307DE3 67.54%, #2054CC 76.56%, #112481 100%)',
-        }}
-      >
-        {/* Large background LEVEL text */}
-        <h1
-          className="
-    absolute
-    text-[#1369C1]/10
-    select-none
-    pointer-events-none
-    font-bold
-    uppercase
-    leading-none
-    text-[230px]
-    md:text-[300px]
-    lg:text-[500px]
-    font-poppins
-    mt-[80px]
-    whitespace-pre
-    sm:whitespace-normal
-    text-left
-
-    left-0
-    sm:left-1/2
-    sm:transform
-    sm:-translate-x-1/2
-    pl-4
-  "
-        >
-          <span className="block sm:hidden">L{'\n'}E{'\n'}V{'\n'}E{'\n'}L</span>
-          <span className="hidden sm:inline">LEVEL</span>
-        </h1>
-
-
-
-        <h2 className="relative z-10 mt-[-20px] text-[40px] md:text-[86px] font-extrabold text-[#112481] tracking-wide mb-16 uppercase">
-          Levels of Participation
-        </h2>
-
-        <div className="relative z-10 mt-[140px] flex flex-col lg:flex-row items-center justify-center gap-[150px] md:gap-[250px] max-w-6xl mx-auto">
-
-          {/* Qualifier Card */}
-
-          <div className="bg-white rounded-3xl pt-24 p-[50px] w-[330px] md:w-[400px] shadow-xl text-left relative">
-            <img
-              src={globe}
-              alt="Rocket"
-              className="absolute top-6 left-6 w-8 h-8"
-            />
-
-            {/* badge – top‑right */}
-            <span
-              className="absolute top-5 right-6 bg-[#1939A3] text-white
-               text-sm px-3 py-1 rounded-full font-semibold"
-            >
-              Online
-            </span>
-
-            <div className="relative z-10 mt-6 ml-2 -top-6">
-              <p className="text-base text-gray-600 mb-1">Level</p>
-              <h3 className="text-2xl font-bold mb-3">Qualifier</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Each team must submit a 1-minute video showcasing their tech model and the skills relevant to their chosen competition category, aligned with the given problem statement.
-              </p>
-            </div>
-
-            {/* faint space outline */}
-            <img
-              src={space}
-              alt=""
-              className="absolute bottom-2 right-1 w-20 pointer-events-none select-none"
-            />
-
-            {/* number badge */}
-            <div className="absolute bottom-[-1px] left-[-3px] w-14 h-14 rounded-full bg-[#1A3EAD] text-white font-bold flex items-center justify-center text-xl shadow-lg">
-              1
-            </div>
-          </div>
-
-
-          {/* Finale Card */}
-          <div className="bg-white rounded-3xl pt-24 p-[50px] w-[330px] md:w-[400px] shadow-xl text-left relative">
-            <img
-              src={rocket}
-              alt="Rocket"
-              className="absolute top-6 left-6 w-8 h-8"
-            />
-
-            {/* badge – top‑right */}
-            <span
-              className="absolute top-5 right-6 bg-[#1939A3] text-white
-               text-sm px-3 py-1 rounded-full font-semibold"
-            >
-              Offline
-            </span>
-
-             <div className="relative z-10 mt-6 ml-2 -top-6">
-              <p className="text-base text-gray-600 mb-1">Level</p>
-              <h3 className="text-2xl font-bold mb-3">Finale</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-              Selected teams from the Qualifier Round will participate in the on-site finale. They will compete or demonstrate their models in alignment with the given problem statement.
-              </p>
-            </div>
-
-            {/* faint orbit outline */}
-            <img
-              src={orbit}
-              alt=""
-              className="absolute bottom-2 right-1 w-20 pointer-events-none select-none"
-            />
-
-            {/* number badge */}
-            <div className="absolute bottom-[-1px] left-[-3px] w-14 h-14 rounded-full bg-[#1A3EAD] text-white font-bold flex items-center justify-center text-xl shadow-lg">
-              2
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* ANDHRA TECK LEAGUE  */}
       <div className="bg-[#F7F9FF] px-6 md:px-16 py-20 relative overflow-hidden">

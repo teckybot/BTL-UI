@@ -5,6 +5,7 @@ import EventsTimeline from "../components/Events";
 import Partners from "../components/Partners";
 import Footer from "../components/Footer";
 import VideoGallery from "../components/videocard";
+import Leveles from '../components/levels';
 import ComingSoon from '../components/commingsoonpage';
 
 const Home = () => {
@@ -12,14 +13,17 @@ const Home = () => {
 
   return (
     <div className="flex flex-col">
+    
+      
+
       <Hero videoPageRef={videoPageRef} />
       {/* <ComingSoon /> */}
-      
+      <Leveles />
       <EventsTimeline />
       <VideoGallery className="mt-0" />
-      <div ref={videoPageRef} className="w-full">
+      {/* <div ref={videoPageRef} className="w-full">
         <VideoPage />
-      </div>
+      </div> */}
       <Partners />
       <Footer />
     </div>
