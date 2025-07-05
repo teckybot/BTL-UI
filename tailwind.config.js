@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
+        orbitron: ['Orbitron', 'sans-serif'],
       },
       keyframes: {
         scrollPartnerRow: {
@@ -28,7 +29,13 @@ export default {
         'gradient-schoolReg': 'linear-gradient(180deg, #0E265F 0%, #1E4FC5 100%)',
         'gradient-form': 'linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(168, 200, 244, 0.2) 20.19%)',
         'school-reg-radial': 'radial-gradient(97.27% 97.27% at 50% 0%, #F5F8FF 47.23%, #307DE3 67.54%, #2054CC 76.56%, #112481 100%)',
-        
+        'count-down': 'background: linear-gradient(98.52deg, #FFFFFF 0%, #A7C4D1 100%)',
+      },
+      colors: {
+        'reg-gradient-from': '#FFFFFF',
+        'reg-gradient-to': '#A7C4D1',
+        'countdown-gradient-from': '#FFFFFF',
+        'countdown-gradient-to': '#A2B7C0',
       },
     },
   },

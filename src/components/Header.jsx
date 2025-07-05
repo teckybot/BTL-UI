@@ -21,7 +21,7 @@ export default function Navbar() {
     { name: 'Home', to: '/' },
     { name: 'About BTL', to: '/aboutus' },
     { name: 'Competitions', to: '/competitions' },
-    { name: 'Registration', to: '/comingsoon' },
+    { name: 'Registration', to: '/count-down' },
     { name: 'Gallery', to: '#gallery' },
     { name: 'Contact us', to: '/contactus', isSpecial: true },
   ];

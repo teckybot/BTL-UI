@@ -83,9 +83,9 @@ export default function leveles() {
             </span>
 
             <div className="relative z-10 mt-6 ml-2 -top-6">
-              <p className="text-base text-gray-600 mb-1">Level</p>
+              <p className="text-base text-gray-900 mb-1">Level</p>
               <h3 className="text-2xl font-bold mb-3">Qualifier</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-900 leading-relaxed">
                 Each team must submit a 1-minute video showcasing their tech model and the skills relevant to their chosen competition category, aligned with the given problem statement.
               </p>
             </div>
@@ -126,9 +126,9 @@ export default function leveles() {
             </span>
 
             <div className="relative z-10 mt-6 ml-2 -top-6">
-              <p className="text-base text-gray-600 mb-1">Level</p>
+              <p className="text-base text-gray-900 mb-1">Level</p>
               <h3 className="text-2xl font-bold mb-3">Finale</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-900 leading-relaxed">
                 Selected teams from the Qualifier Round will participate in the on-site finale. They will compete or demonstrate their models in alignment with the given problem statement.
               </p>
             </div>

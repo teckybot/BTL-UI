@@ -15,6 +15,7 @@ import SchoolRegistrationPage from './pages/Registration/School/SchoolRegistrati
 import TeamRegistrationPage from './pages/Registration/Team/TeamRegistrationPage';
 import SchoolRegistrationSuccess from './pages/Registration/School/SchoolRegistrationSuccess'
 import ComingSoon from './components/commingsoonpage';
+import CountdownTimer from './pages/CountdownTimer'
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
         {/* <Route path="/registration/school" element={<SchoolRegistrationPage />} />
         <Route path="/registration/team" element={<TeamRegistrationPage />} />
         <Route path="/registration/success" element={<SchoolRegistrationSuccess />} /> */}
-        <Route path="/comingsoon" element={<ComingSoon />} />
+        <Route path="/count-down" element={<CountdownTimer />} />
         
       </Routes>
       <ScrollToTopButton />
