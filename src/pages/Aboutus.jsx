@@ -44,21 +44,25 @@ export default function Aboutus() {
           </h1>
 
 
-          <div className="relative mt-[350px]">
+          <div className="relative mt-[50px]">
             {/* White Translucent Layer */}
             <div className="absolute inset-0 -z-10 bg-white/10 backdrop-blur-[30px] rounded-2xl shadow-2xl" />
 
             {/* Actual Card */}
             <div className="bg-white/5 backdrop-blur-[25px] p-6 md:p-6 rounded-2xl border border-white/20 text-base md:text-lg text-gray-100 leading-relaxed shadow-xl">
               <p>
-                Bharat Teck League (BTL) is a national initiative by Teckybot that fosters innovation, creativity, and technical skills among young minds across India. Through a series of engaging competitions conducted across various states, BTL provides a dynamic platform for students
-                to explore emerging technologies, showcase their talents, and develop problem-solving abilities.
+                The Bharat Teck League (BTL), proudly organized by Teckybot, was born from the vision of creating a national platform where young innovators can showcase their talent through competitions. We believe that every student has the potential to transform ideas into reality when given the right exposure, guidance, and opportunities.BTL isn’t just an event, it’s a movement to inspire creativity, innovation,
+                and hands-on learning across schools and colleges in India. Through exciting tech competitions and challenges.
               </p>
               <br />
               <p>
-                BTL is more than just a competition—it's a celebration of learning, collaboration, 
-                and the limitless potential of young innovators in the world of technology. 
-                This year, Bharat Teck League (BTL) has expanded its reach, hosting competitions in multiple regions across the country. By uniting students from diverse backgrounds and cultures, BTL continues to nurture a vibrant community of young tech enthusiasts and changemakers nationwide.
+                Our mission is to ignite young minds by organizing national-level tech competitions that encourage students to think beyond textbooks and apply their knowledge to real-world problems.At Bharat Teck League by Teckybot, we are committed to building a generation of creators, innovators, and
+                problem-solvers who will drive India’s digital future. We strive to make technology accessible, engaging, and inspiring for every student, regardless of background.
+              </p>
+              <br />
+              <p>
+                Our vision is to establish the Bharat Teck League as India’s largest innovation platform for student competitions, where young talent from every corner of the country can shine.We aim to empower the next generation of tech leaders and entrepreneurs by providing them with a national stage to showcase their creativity, ideas, and innovations. Through Teckybot, we envision
+                a future where every student becomes a pioneer of technology, shaping a smarter, sustainable, and tech-driven India
               </p>
             </div>
           </div>
@@ -86,50 +90,19 @@ export default function Aboutus() {
             THE JOURNEY
           </h1>
 
-          <div className="relative mt-[270px]">
+          <div className="relative mt-[100px]">
             {/* White Translucent Layer */}
             <div className="absolute inset-0 -z-10 bg-white/10 backdrop-blur-[25px] rounded-xl shadow-2xl" />
 
             {/* Actual Card */}
             <div className="bg-white/10 p-4 rounded-xl text-sm leading-relaxed text-gray-100 shadow-md border border-white/10">
               <p>
-                Bharat Teck League (BTL) by Teckybot is a national initiative that nurtures innovation and technical skills among young minds through engaging competitions across India. It offers a platform to explore emerging technologies and solve real-world problems. This year, BTL expanded nationwide, uniting diverse students and celebrating the spirit of learning and collaboration.
+                Bharat Tech League (BTL) is a national initiative
+                by Teckybot that fosters innovation, creativity,  and technical skills among young minds across India
               </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div className="hidden sm:block relative min-h-screen bg-black text-white">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={newbgImageDesktop1}
-            alt="Earth from space"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        <div className=" relative z-10 px-6 py-20 max-w-7xl mx-auto text-center">
-          <div className="hidden sm:block relative mt-[60px]">
-            {/* White Translucent Layer */}
-            <div className="absolute inset-0 -z-10 bg-white/10 backdrop-blur-[30px] rounded-2xl shadow-2xl" />
-
-            {/* Actual Card */}
-            <div className="bg-white/5 backdrop-blur-[25px] p-6 md:p-6 rounded-2xl border border-white/20 text-base md:text-lg text-gray-100 leading-relaxed shadow-xl">
               <p>
-                The Bharat Teck League (BTL), proudly organized by Teckybot, was born from the vision of creating a national platform where young innovators can showcase their talent through competitions. We believe that every student has the potential to transform ideas into reality when given the right exposure, guidance,
-                and opportunities.BTL isn’t just an event, it’s a movement to inspire creativity, innovation, and hands-on learning across schools and colleges in India. Through exciting tech competitions and challenges.
-              </p>
-              <br />
-              <p>
-                Our mission is to ignite young minds by organizing national-level tech competitions that encourage students to think beyond textbooks and apply their knowledge to real-world problems.At Bharat Teck League by Teckybot, we are committed to building a generation of creators,
-                innovators, and problem solvers who will drive India’s digital future. We strive to make technology accessible, engaging, and inspiring for every student, regardless of background.
-              </p>
-              <br />
-              <p>
-                Our vision is to establish the Bharat Teck League as India’s largest innovation platform for student competitions, where young talent from every corner of the country can shine.We aim to empower the next generation of tech leaders and entrepreneurs by providing them with a national stage to showcase their creativity,
-                 ideas, and innovations. Through Teckybot, we envision a future where every student becomes a pioneer of technology, shaping a smarter, sustainable, and tech driven India
+                Through a series of engaging  competitions conducted across various states, 
+                BTL provides a dynamic platform for students  to explore emerging technologies, showcase their talents, and develop problem-solving  abilities
               </p>
             </div>
           </div>
@@ -167,13 +140,13 @@ export default function Aboutus() {
           >
             <p>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bharat Teck League 2024 (BTL) was built on the remarkable success of the Andhra Teck League,
-              expanding its impact across Telangana and Andhra Pradesh. With over 1500+  participants, 
+              expanding its impact across Telangana and Andhra Pradesh. With over 1500+  participants,
               the event served as a platform for innovation, collaboration, and future ready learning.
             </p>
-          
+
             <p>
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Four major competitions as 3D Printing, Robotics, Drone Technology, and  the Internet of 
-              Things, captured the essence of Industry 4.0 technologies, challenging  participants to 
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Four major competitions as 3D Printing, Robotics, Drone Technology, and  the Internet of
+              Things, captured the essence of Industry 4.0 technologies, challenging  participants to
               push the boundaries of creativity and problem solving. BTL 2024  celebrated the spirit of
               technological exploration and set a new benchmark for youth driven innovation in the region
             </p>
@@ -233,7 +206,7 @@ export default function Aboutus() {
         </div>
       </div>
 
-       {/* ANDHRA TECK LEAGUE  */}
+      {/* ANDHRA TECK LEAGUE  */}
       <div className="bg-[#F7F9FF] px-6 md:px-16 py-20 relative overflow-hidden">
 
         {/* Section Title */}
@@ -263,7 +236,7 @@ export default function Aboutus() {
               &nbsp;&nbsp;&nbsp;&nbsp;Andhra Teck League 2023 (ATL) was a showcase of Andhra Pradesh’s technological talent and spirit of innovation.
               More than just a competition, it celebrated creativity and entrepreneurship, drawing over 1,500 participants.
             </p>
-            
+
             <p>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The grand finale, with 600+ finalists, highlighted the region’s growing tech potential and inspired future innovators.
               Setting a strong precedent, the event marked a significant step in empowering students to pursue their tech aspirations.

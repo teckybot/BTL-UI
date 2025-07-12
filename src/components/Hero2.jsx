@@ -31,13 +31,13 @@ export default function HeroWithLogoAndTagline() {
 
           {/* Powered by Teckybot Section */}
           {/* Teckybot Section for Desktop */}
-          <div className="hidden lg:block absolute bottom-80 right-[38%] text-left">
-            <p className="text-white text-base font-light">Powered by</p>
+          <div className="hidden lg:block absolute bottom-80 right-[35%] text-left">
+            <p className="text-white text-lg pl-14 font-light">Powered by</p>
             <div className="flex items-center gap-3 mt-2">
               <img
                 src={teckybotLogo}
                 alt="Teckybot Logo"
-                className="w-[230px] h-auto object-contain"
+                className="w-[250px] h-auto object-contain"
               />
             </div>
           </div>
