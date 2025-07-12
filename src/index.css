@@ -15,3 +15,19 @@ body {
   overflow-x: hidden;
 }
 
+/* Add only if you want custom scrollbars */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+
+
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(81, 81, 81, 0.7);
+  border-radius: 4px;
+
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  
+}
+
