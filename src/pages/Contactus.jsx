@@ -34,78 +34,76 @@ export default function ContactUs() {
 
           {/* Cards Container - Centered on small screens */}
           <div className="flex flex-col gap-9 z-10 items-center lg:items-start w-full max-w-[400px] lg:max-w-none">
-            {/* Contact Card 1 */}
-            <div
-              className="w-full sm:w-[400px] h-[180px] rounded-[20px] px-6 py-8 backdrop-blur-[8px] border text-white"
-              style={{
-                background: '#FFFFFF1A',
-                border: '0.5px solid',
-                borderImageSlice: 1,
-              }}
-            >
-              <p className="text-sm font-poppins mt-[-10px] mb-4">Coordinator</p>
-              <h3
-                className="font-poppins mb-4"
-                style={{
-                  fontWeight: 600,
-                  fontSize: '30px',
-                  lineHeight: '100%',
-                }}
-              >
-                M. SRIPOUSHYA
-              </h3>
-              {/* Added <a> tag with tel: URI to make the phone number clickable */}
-              <a href="tel:+918886122889" className="inline-block">
-                <div
-                  className="inline-block px-4 py-2 rounded-md font-semibold text-black"
-                  style={{
-                    background: 'linear-gradient(270deg, #C5E8F5 0%, #E7EEFF 100%)',
-                    fontSize: '30px',
-                    fontWeight: 600,
-                    lineHeight: '100%',
-                  }}
-                >
-                  +91 88861 22889
-                </div>
-              </a>
-            </div>
+  {/* Contact Card 1 */}
+  <div
+    className="w-full sm:w-[400px] h-[180px] rounded-[20px] px-6 py-8 backdrop-blur-[8px] border text-white"
+    style={{
+      background: '#FFFFFF1A',
+      border: '0.5px solid',
+      borderImageSlice: 1,
+    }}
+  >
+    <p className="text-sm font-poppins mt-[-10px] mb-4">Coordinator</p>
+    <h3
+      // Applied responsive font size classes: text-2xl for mobile, md:text-[30px] for larger screens
+      className="font-poppins mb-4 font-semibold text-2xl md:text-[30px] lg:text-[30px]"
+      style={{
+        lineHeight: '100%',
+      }}
+    >
+      M. SRIPOUSHYA
+    </h3>
+    {/* Added <a> tag with tel: URI to make the phone number clickable */}
+    <a href="tel:+918886122889" className="inline-block">
+      <div
+        // Applied responsive font size classes: text-2xl for mobile, md:text-[30px] for larger screens
+        className="inline-block px-4 py-2 rounded-md font-semibold text-black text-2xl md:text-[30px] lg:text-[30px]"
+        style={{
+          background: 'linear-gradient(270deg, #C5E8F5 0%, #E7EEFF 100%)',
+          fontWeight: 600,
+          lineHeight: '100%',
+        }}
+      >
+        +91 88861 22889
+      </div>
+    </a>
+  </div>
 
-            {/* Contact Card 2 */}
-            <div
-              className="w-full sm:w-[400px] h-[180px] rounded-[20px] px-6 py-8 backdrop-blur-[8px] border text-white"
-              style={{
-                background: '#FFFFFF1A',
-                border: '0.5px solid',
-                borderImageSlice: 1,
-              }}
-            >
-              <p className="text-sm font-poppins mt-[-10px] mb-4">Coordinator</p>
-              <h3
-                className="font-poppins mb-4"
-                style={{
-                  fontWeight: 600,
-                  fontSize: '30px',
-                  lineHeight: '100%',
-                }}
-              >
-                CH. JOSHINI
-              </h3>
-              {/* Added <a> tag with tel: URI to make the phone number clickable */}
-              <a href="tel:+919000555885" className="inline-block">
-                <div
-                  className="inline-block px-4 py-2 rounded-md font-semibold text-black"
-                  style={{
-                    background: 'linear-gradient(270deg, #C5E8F5 0%, #E7EEFF 100%)',
-                    fontSize: '30px',
-                    fontWeight: 600,
-                    lineHeight: '100%',
-                  }}
-                >
-                  +91 90005 55885
-                </div>
-              </a>
-            </div>
-          </div>
+  {/* Contact Card 2 */}
+  <div
+    className="w-full sm:w-[400px] h-[180px] rounded-[20px] px-6 py-8 backdrop-blur-[8px] border text-white"
+    style={{
+      background: '#FFFFFF1A',
+      border: '0.5px solid',
+      borderImageSlice: 1,
+    }}
+  >
+    <p className="text-sm font-poppins mt-[-10px] mb-4">Coordinator</p>
+    <h3
+      // Applied responsive font size classes: text-2xl for mobile, md:text-[30px] for larger screens
+      className="font-poppins mb-4 font-semibold text-2xl md:text-[30px] lg:text-[30px]"
+      style={{
+        lineHeight: '100%',
+      }}
+    >
+      CH. JOSHINI
+    </h3>
+    {/* Added <a> tag with tel: URI to make the phone number clickable */}
+    <a href="tel:+919000555885" className="inline-block">
+      <div
+        // Applied responsive font size classes: text-2xl for mobile, md:text-[30px] for larger screens
+        className="inline-block px-4 py-2 rounded-md font-semibold text-black text-2xl md:text-[30px] lg:text-[30px]"
+        style={{
+          background: 'linear-gradient(270deg, #C5E8F5 0%, #E7EEFF 100%)',
+          fontWeight: 600,
+          lineHeight: '100%',
+        }}
+      >
+        +91 90005 55885
+      </div>
+    </a>
+  </div>
+</div>
         </div>
 
         {/* BTL Logo and Tagline (Positioned on the right side for large screens) */}
