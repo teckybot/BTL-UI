@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../components/Footer";
-import bgImageDesktop from '../data/All/BTL_about us.jpg';
-import bgImageMobile from '../data/All/about1.png';
+import bgImageDesktop from '../data/All/BTL_about us.png';
+import bgImageMobile from '../data/All/BTL_about_us.png';
 import level from '../data/All/levelbg.jpg'
 import globe from '../data/All/world-globe.png'
 import rocket from '../data/All/rocket.png'
