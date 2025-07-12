@@ -23,7 +23,7 @@ const Footer = () => {
           <img
             src={BTL_LOGO}
             alt="BTL Logo"
-            className="h-48 pl-[90px] w-auto object-contain"
+            className="h-48 pl-[75px] w-auto object-contain"
           />
         </div>
 
@@ -53,7 +53,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col space-y-3 pt-6 text-sm pl-[90px] w-full sm:w-auto sm:min-w-[150px] lg:mt-10">
+          <div className="flex flex-col space-y-3 pt-6 text-sm pl-[75px] w-full sm:w-auto sm:min-w-[150px] lg:mt-10">
             <h3 className="font-normal text-white pl-12">Powered by</h3>
             <img src={Teckybotlogo} alt="Teckybot Logo" className="w-48 h-auto" />
           </div>
