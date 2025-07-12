@@ -136,7 +136,7 @@ const Footer = () => {
 
       
       {/* Copyright text (Bottom left, added based on image) */}
-      <div className="absolute pl-12 md:pl-0 bottom-4 left-4 text-xs text-white font-normal">
+      <div className="absolute pl-6 md:pl-0 bottom-4 left-4 text-xs text-white font-normal">
         © 2025 Bharat Teck League. All rights reserved.
       </div>
     </footer>
