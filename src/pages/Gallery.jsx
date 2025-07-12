@@ -1,5 +1,19 @@
 import React from 'react';
 import img from '../data/All/home_hero.png';
+import img1 from '../data/gallery_images/img1.png'
+import img2 from '../data/gallery_images/img2.png'
+import img3 from '../data/gallery_images/img3.png'
+import img4 from '../data/gallery_images/img4.png'
+import img5 from '../data/gallery_images/img5.png'
+import img6 from '../data/gallery_images/img6.png'
+import img7 from '../data/gallery_images/img7.png'
+import img8 from '../data/gallery_images/img8.png'
+import img9 from '../data/gallery_images/img9.png'
+import img10 from '../data/gallery_images/img10.png'
+import img11 from '../data/gallery_images/img11.png'
+import img12 from '../data/gallery_images/img12.png'
+import img13 from '../data/gallery_images/img13.png'
+import Footer from '../components/Footer';
 // import img1 from '../data/globe.png';
 
 // Reusable Gallery Card Component
@@ -19,26 +33,27 @@ const GalleryCard = ({ image, height, className = '' }) => {
 const Gallery = () => {
   // Sample image data - replace with your actual image paths
   const images = [
-    { id: 1, src: img, alt: 'Event photo 1' },
-    { id: 2, src: img, alt: 'Event photo 2' },
-    { id: 3, src: img, alt: 'Event photo 3' },
-    { id: 4, src: img, alt: 'Event photo 4' },
-    { id: 5, src: img, alt: 'Event photo 5' },
-    { id: 6, src: img, alt: 'Event photo 6' },
-    { id: 7, src: img, alt: 'Event photo 7' },
-    { id: 8, src: img, alt: 'Event photo 8' },
-    { id: 9, src: img, alt: 'Event photo 9' },
-    { id: 10, src: img, alt: 'Event photo 10' },
-    { id: 11, src: img, alt: 'Event photo 11' },
-    { id: 12, src: img, alt: 'Event photo 12' },
+    { id: 1, src: img2, alt: 'Event photo 1' },
+    { id: 2, src: img3, alt: 'Event photo 2' },
+    { id: 3, src: img4, alt: 'Event photo 3' },
+    { id: 4, src: img5, alt: 'Event photo 4' },
+    { id: 5, src: img6, alt: 'Event photo 5' },
+    { id: 6, src: img7, alt: 'Event photo 6' },
+    { id: 7, src: img8, alt: 'Event photo 7' },
+    { id: 8, src: img9, alt: 'Event photo 8' },
+    { id: 9, src: img10, alt: 'Event photo 9' },
+    { id: 10, src: img11, alt: 'Event photo 10' },
+    { id: 11, src: img12, alt: 'Event photo 11' },
+    { id: 12, src: img13, alt: 'Event photo 12' },
   ];
 
   return (
+<>
     <div className="bg-white">
       {/* Hero Section */}
       <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px]">
         <img
-          src="/src/data/home_hero.png"
+          src={img1}
           alt="Gallery Hero"
           className="w-full h-full object-cover rounded-b-[40px]"
         />
@@ -54,17 +69,17 @@ const Gallery = () => {
         <div className="flex gap-4">
           <div className="flex flex-col gap-4 w-1/2">
             <GalleryCard image={images[0]} height="h-[170px]" />
-            <GalleryCard image={images[1]} height="h-[170px]" />
+            <GalleryCard image={images[3]} height="h-[170px]" />
           </div>
-          <GalleryCard image={images[2]} height="h-[355px]" className="w-1/2" />
+          <GalleryCard image={images[1]} height="h-[355px]" className="w-1/2" />
         </div>
 
         <div className="flex gap-4">
-          <GalleryCard image={images[3]} height="h-[170px]" className="w-1/2" />
+          <GalleryCard image={images[2]} height="h-[170px]" className="w-1/2" />
           <GalleryCard image={images[4]} height="h-[170px]" className="w-1/2" />
         </div>
 
-        <GalleryCard image={images[5]} height="h-[170px]" />
+        <GalleryCard image={images[10]} height="h-[170px]" />
 
         <div className="flex gap-4">
           <GalleryCard image={images[6]} height="h-[170px]" className="w-1/2" />
@@ -97,6 +112,8 @@ const Gallery = () => {
         <GalleryCard image={images[11]} height="h-[350px]" className="col-span-2" />
       </div>
     </div>
+    <Footer />
+  </>
   );
 };
 

@@ -29,7 +29,7 @@ export default function EventsTimeline() {
       {/* DESKTOP VIEW */}
       <div className="hidden sm:block relative min-h-screen overflow-hidden bg-white">
         {/* Gradient Background Circle */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-[110vw] h-[2500px] md:h-[3599px] rounded-full bg-gradient-to-b from-[#2053CA] to-[#092267] z-0" />
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-[110vw] h-[2500px] md:h-[3759px] rounded-full bg-gradient-to-b from-[#2053CA] to-[#092267] z-0" />
 
         {/* Stars Layer */}
         <div className="absolute inset-0 z-10 pointer-events-none">
