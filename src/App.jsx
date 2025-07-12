@@ -18,7 +18,6 @@ import ComingSoon from './components/comingsoon';
 import CountdownTimer from './pages/CountdownTimer'
 import ErrorScreen from './components/errorScreen';
 import DummyCompetitions from './pages/DummyCompetitions';
-import gallery from './pages/Gallery';
 import Gallery from './pages/Gallery';
 import { TeamDraftProvider } from './context/TeamDraftContext';
 import TeamModulesPage from './pages/Registration/TeamModulesPage';
@@ -48,7 +47,7 @@ function App() {
           <Route path="/registration-success" element={<SchoolRegistrationSuccess />} />
           <Route path="/registration" element={<CountdownTimer />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
-          <Route path="/gallery" element={<ErrorScreen />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/competitions" element={<DummyCompetitions />} />
           <Route path="/modules" element={<TeamModulesPage />} />
           <Route path="/team-form/:teamNumber" element={<TeamForm />} />

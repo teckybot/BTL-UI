@@ -24,11 +24,6 @@ export default function Robotics() {
           </h1>
 
 
-          <p className="mt-5 max-w-xl text-gray-700 z-10">
-            Dive into the world of robotics! Build, code, and compete with your bot
-            in challenges that test creativity, mechanics, and AI.
-          </p>
-
           <img
             src={circle}
             alt=""
