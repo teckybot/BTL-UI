@@ -3,7 +3,7 @@ import Facebook from "../data/All/Facebook.png";
 import Instagram from "../data/All/Instagram.png";
 import Linkedin from "../data/All/Linkedin.png";
 import Youtube from "../data/All/Youtube.png";
-
+import Teckybotlogo from '../data/All/Teckybot TM_Inv.png'
 const Footer = () => {
   return (
     <footer className="relative text-white overflow-hidden">
@@ -12,24 +12,24 @@ const Footer = () => {
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(113.74% 101.12% at 50% 0%, #040521 50%, #092267 70%, #2053CA 85%,rgb(94, 143, 255) 100%)",
+            "radial-gradient(95% 130% at 50% 0%, #040521 50%, #092267 70%, #2053CA 85%,rgb(94, 143, 255) 100%)",
         }}
       />
 
       {/* Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
-        {/* Logo */}
+        {/* Logo (Mobile) and "Where innovation Meets Space" text */}
         <div className="block sm:hidden mb-8 lg:h-24 lg:pl-[-25px] w-full flex-col justify-center md:justify-start">
           <img
             src={BTL_LOGO}
             alt="BTL Logo"
-            className="h-48 pl-[108px] w-auto object-contain"
+            className="h-48 pl-[120px] w-auto object-contain"
           />
         </div>
 
         {/* MOBILE LAYOUT */}
-        <div className="sm:hidden w-full mb-10">
-          <div className="grid grid-cols-2  gap-6 text-sm">
+        <div className="sm:hidden w-full mb-6">
+          <div className="grid grid-cols-2 gap-6 text-sm">
             {/* Left Column: Explore Links */}
             <div className="flex flex-col space-y-3 pl-10">
               <h3 className="font-semibold text-white">Explore</h3>
@@ -39,7 +39,6 @@ const Footer = () => {
               <a href="/registration/school" className="hover:underline text-gray-300">Registration</a>
               <a href="/gallery" className="hover:underline text-gray-300">Gallery</a>
               <a href="/contactus" className="hover:underline text-gray-300">Contact us</a>
-
             </div>
 
             {/* Right Column: Address Items */}
@@ -54,11 +53,17 @@ const Footer = () => {
               </div>
             </div>
           </div>
+          <div className="flex flex-col space-y-3 pt-6 text-sm pl-[124px] w-full sm:w-auto sm:min-w-[150px] lg:mt-10">
+            <h3 className="font-normal text-white pl-12">Powered by</h3>
+            <img src={Teckybotlogo} alt="Teckybot Logo" className="w-48 h-auto" />
+          </div>
+
         </div>
 
         {/* DESKTOP LAYOUT */}
         <div className="relative hidden lg:mt-[60px] sm:flex w-full justify-between flex-wrap gap-y-10">
-          {/* Explore */}
+          
+          {/* BTL Logo Section and "Where innovation Meets Space" */}
           <div className="flex flex-col space-y-3 text-sm w-full sm:w-auto sm:min-w-[150px]">
             <img
               src={BTL_LOGO}
@@ -67,7 +72,13 @@ const Footer = () => {
             />
           </div>
 
-          {/* Quick Links */}
+          {/* Powered by Section (Teckybot Logo and text) */}
+          <div className="flex flex-col space-y-3 text-sm w-full sm:w-auto sm:min-w-[150px] lg:mt-10">
+            <h3 className="font-normal text-white md:pl-12">Powered by</h3>
+            <img src={Teckybotlogo} alt="Teckybot Logo" className="w-48 h-auto" />
+          </div>
+          
+          {/* Quick Links Section */}
           <div className="flex flex-col space-y-3 text-sm w-full sm:w-auto sm:min-w-[150px]">
             <h3 className="font-semibold text-white">Quick Links</h3>
             <a href="/" className="hover:underline text-gray-300">Home</a>
@@ -78,20 +89,19 @@ const Footer = () => {
             <a href="/contactus" className="hover:underline text-gray-300">Contact us</a>
           </div>
 
-          {/* Address 1 */}
+          {/* Address 1 Section */}
           <div className="flex flex-col space-y-3 text-sm w-full sm:w-auto sm:min-w-[150px] lg:pr-14">
-            <h3 className="font-semibold text-white  ">Address - 1</h3>
+            <h3 className="font-semibold text-white">Address - 1</h3>
             <p className="text-gray-300 text-[13px] ">
               Dr.NO:1,20/1, Juttada Rd, <br />Pulaganipalem,<br /> Visakapatanam, <br />Andhra Pradesh, 531143.
             </p>
             <h4 className="font-semibold text-white md:pt-10">Any Queries </h4>
             <p className="text-gray-300 text-[13px]">Email: <a href="btl@teckybot.com" className="text-gray-300 hover:underline">btl@teckybot.com</a></p>
           </div>
-
         </div>
 
         {/* Social Icons Section */}
-        <div className="mt-12  w-full flex flex-col items-center">
+        <div className="mt-6 w-full flex flex-col items-center">
           {/* Divider with text */}
           <div className="w-full flex items-center justify-center my-6">
             <div className="h-px flex-grow bg-gradient-to-r from-transparent to-white" />
@@ -117,24 +127,18 @@ const Footer = () => {
             </a>
           </div>
         </div>
-
-        {/* Copyright and Season Info */}
-        <div className="mt-4 w-full flex flex-col sm:flex-row items-center justify-between text-sm text-white font-semibold px-4 sm:px-0">
-          <p className="mb-2 sm:mb-0">Copyrights © 2025 BTL</p>
-          <p>Season - S2</p>
-        </div>
-
-
-        {/* Footer Text */}
+        {/* BTL 2025 - SEASON S2 banner (Full width, added based on image) */}
+      <div className="w-full text-center py-8 font-bold text-white text-3xl">
+        BTL 2025 - <span className="font-normal">SEASON S2</span>
+      </div>
 
       </div>
-      {/* <div className="mt-5 w-full text-center">
-          <h2 className="text-white font-extrabold tracking-wide leading-tight
-                        text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
-                        px-2 ">
-            BHARAT TECK LEAGUE 2025
-          </h2>
-        </div> */}
+
+      
+      {/* Copyright text (Bottom left, added based on image) */}
+      <div className="absolute pl-20 md:pl-0 bottom-4 left-4 text-xs text-white font-normal">
+        © 2025 Bharat Teck League. All rights reserved.
+      </div>
     </footer>
   );
 };
