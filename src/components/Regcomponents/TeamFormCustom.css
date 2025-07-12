@@ -1,0 +1,36 @@
+/* Gradient for competition select */
+.custom-gradient-select .ant-select-selector {
+  background: linear-gradient(93.58deg, #112481 0%, #2054CC 70%, #307DE3 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  font-weight: 600;
+}
+.custom-gradient-select .ant-select-arrow {
+  color: #fff !important;
+}
+
+/* Outlined style for all selects and inputs */
+.custom-select .ant-select-selector,
+.custom-input {
+  border: 1.5px solid #2563EB !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  font-weight: 500;
+}
+.custom-input:disabled,
+.custom-select .ant-select-selector:disabled {
+  background: #f3f4f6 !important;
+  color: #b0b0b0 !important;
+}
+
+/* Disabled look for member fields */
+.opacity-60.pointer-events-none {
+  background: #f3f4f6 !important;
+  color: #b0b0b0 !important;
+}
+
+/* Button tweaks for consistency */
+.bg-gradient-to-r {
+  background: linear-gradient(93.58deg, #112481 0%, #2054CC 70%, #307DE3 100%) !important;
+  border: none !important;
+} 

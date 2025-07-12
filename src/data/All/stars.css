@@ -1,0 +1,44 @@
+/* Star background animation */
+.stars, .twinkling {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: repeat;
+  z-index: 0;
+}
+
+.stars {
+  background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  animation: moveStars 200s linear infinite;
+}
+
+.twinkling {
+  background: url('https://www.transparenttextures.com/patterns/tiny-grid.png') repeat;
+  animation: twinkle 100s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  50% { opacity: 0.5; }
+  to { opacity: 0.3; }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+.floating-astro {
+  animation: float 6s ease-in-out infinite;
+}
