@@ -26,19 +26,21 @@ export default function HeroWithLogoAndTagline() {
               alt="Bharat Teck League Logo"
               className="w-[280px] sm:w-[320px] md:w-[400px] lg:w-[400px] h-auto select-none"
               style={{ filter: 'drop-shadow(0 2px 8px #0008)' }}
-            />            
+            />
           </div>
 
           {/* Powered by Teckybot Section */}
           {/* Teckybot Section for Desktop */}
-          <div className="hidden lg:block absolute bottom-80 right-[35%] text-left">
+          <div className="hidden lg:block absolute bottom-72 right-[35%] text-left">
             <p className="text-white text-lg pl-14 font-light">Powered by</p>
             <div className="flex items-center gap-3 mt-2">
-              <img
-                src={teckybotLogo}
-                alt="Teckybot Logo"
-                className="w-[250px] h-auto object-contain"
-              />
+              <a href="https://teckybot.com/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={teckybotLogo}
+                  alt="Teckybot Logo"
+                  className="w-[250px] h-auto object-contain cursor-pointer"
+                />
+              </a>
             </div>
           </div>
 
@@ -46,11 +48,13 @@ export default function HeroWithLogoAndTagline() {
           <div className="block lg:hidden absolute bottom-[34%] left-1/2 -translate-x-1/2 text-center z-10">
             <p className="text-white text-base font-light">Powered by</p>
             <div className="flex items-center justify-center gap-3 mt-2">
-              <img
-                src={teckybotLogo}
-                alt="Teckybot Logo"
-                className="w-[150px] h-auto object-contain"
-              />
+              <a href="https://teckybot.com/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={teckybotLogo}
+                  alt="Teckybot Logo"
+                  className="w-[150px] h-auto object-contain cursor-pointer"
+                />
+              </a>
             </div>
           </div>
 
