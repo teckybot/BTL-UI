@@ -25,3 +25,5 @@ dist-ssr
 
 # components
 src/pages/Footer.jsx
+
+.env
