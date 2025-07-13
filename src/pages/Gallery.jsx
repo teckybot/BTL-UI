@@ -70,8 +70,7 @@ const Gallery = () => {
           className="w-full h-full object-cover rounded-b-[40px]"
         />
         <div className="absolute inset-0 rounded-b-[40px] bg-black bg-opacity-40 flex flex-col justify-center items-center text-white text-center">
-          <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">GALLERY</h1>
-          <h2 className="text-lg sm:text-xl md:text-3xl font-bold mt-1">OF</h2>
+          <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">GALLERY OF</h1>
           <h3 className="text-lg sm:text-xl md:text-3xl font-bold mt-1">BHARAT TECK LEAGUE</h3>
         </div>
       </div>

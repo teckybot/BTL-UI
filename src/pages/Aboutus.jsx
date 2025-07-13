@@ -6,7 +6,6 @@ import blob from '../data/All/blob.png';
 import { Helmet } from "react-helmet";
 
 
-
 export default function Aboutus() {
   return (
     <>
@@ -47,8 +46,6 @@ export default function Aboutus() {
           >
             THE JOURNEY
           </h1>
-
-
           <div className="relative mt-[50px]">
             {/* White Translucent Layer */}
             <div className="absolute inset-0 -z-10 bg-white/10 backdrop-blur-[30px] rounded-2xl shadow-2xl" />

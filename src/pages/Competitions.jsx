@@ -12,6 +12,9 @@ import mob13 from "../data/pdfs/DroneMobile.png";
 import mob14 from "../data/pdfs/CodexMobile.png";
 import mob15 from "../data/pdfs/InnoverseMobile.png";
 import { Link } from 'react-router-dom';
+import { Helmet } from "react-helmet";
+
+
 
 const competitions = [
     { title: "ASTROBOT", image: img12, mobileImage: mob11 },
@@ -26,7 +29,16 @@ export default function DummyCompetitions() {
 
     return (
         <>
+            <Helmet>
+                <title>Student Competitions – Robotics, AI, Drone & More | BTL India</title>
+                <meta
+                    name="description"
+                    content="Explore exciting student competitions at Bharat Teck League 2025! Compete in Robotics, AI, Drone & more. Organized by Teckybot. Register now!"
+                />
+            </Helmet>
+
             <Navbar />
+
 
             <div className="pt-[60px] flex flex-col min-h-screen">
                 <div className="flex-1">

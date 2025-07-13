@@ -16,7 +16,7 @@ const Home = () => {
   return (
   <>
     <Helmet>
-        <title>Bharat Teck League 2024 – National Innovation Challenge</title>
+        <title>Bharat Teck League 2025 – National Innovation Challenge</title>
         <meta
           name="description"
           content="Join Bharat Teck League 2024 by Teckybot – India’s leading tech competition platform for students to showcase innovation in robotics, AI, drones & more!"

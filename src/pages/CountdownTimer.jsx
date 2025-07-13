@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react';
 import spaceDesktop from '../data/All/Technical Competition.jpg';
 import spaceMobile from '../data/All/Technical competiton.png';
 import Footer from '../components/Footer';
+import { Helmet } from "react-helmet";
+
+
+
+
 
 export default function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
@@ -14,8 +19,15 @@ export default function CountdownTimer() {
   }, []);
 
   function calculateTimeLeft() {
-    const targetDate = new Date('2025-07-13T00:00:00');
     const now = new Date();
+    const targetDate = new Date();
+    targetDate.setHours(15, 0, 0, 0); // Set to today at 16:00:00.000 (4 PM)
+
+    // If current time is past 4 PM, target next day's 4 PM
+    if (now > targetDate) {
+      targetDate.setDate(targetDate.getDate() + 1);
+    }
+
     const difference = targetDate - now;
 
     let time = {
@@ -33,12 +45,19 @@ export default function CountdownTimer() {
         seconds: String(Math.floor((difference / 1000) % 60)).padStart(2, '0'),
       };
     }
-
     return time;
   }
 
+
   return (
     <>
+    <Helmet>
+        <title>Register Now – Bharat Teck League 2025 by Teckybot</title>
+        <meta
+          name="description"
+          content="Secure your spot in Bharat Teck League 2025! Fill out the registration form and take the first step toward innovation. Limited slots available!"
+        />
+      </Helmet>
       <div className="relative w-full h-screen text-white overflow-hidden">
         {/* Background Images */}
         <div
