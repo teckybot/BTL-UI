@@ -6,12 +6,23 @@ import SchoolRegistrationForm from '../School/SchoolRegistrationForm';
 import TabbedRegistrationView from '../TabbedRegistrationView';
 import TeamForm from '../../../components/Regcomponents/TeamForm'
 import CheckpointPage from '../Team/TeamChekckPointCard';
+import { Helmet } from "react-helmet";
+
+
 
 export default function TeamRegistrationPage() {
   const location = useLocation();
 
   return (
     <>
+      <Helmet>
+        <title>Register Now – Bharat Teck League 2025 by Teckybot</title>
+        <meta
+          name="description"
+          content="Secure your spot in Bharat Teck League 2025! Fill out the registration form and take the first step toward innovation. Limited slots available!"
+        />
+      </Helmet>
+
       <div className="min-h-screen bg-blue-50 flex flex-col items-center px-4 pt-24 pb-16">
         {/* Desktop Title */}
         <h1 className="hidden md:block text-4xl lg:text-6xl font-normal uppercase text-right w-full pr-4 md:pr-32 bg-gradient-schoolReg bg-clip-text text-transparent mb-5">
@@ -26,7 +37,7 @@ export default function TeamRegistrationPage() {
         {/* Desktop layout */}
         <div className="hidden md:flex flex-col md:flex-row gap-10 w-full max-w-6xl justify-center items-start">
           <SchoolRegistrationCard width="w-[500px]" />
-          <CheckpointPage/>
+          <CheckpointPage />
         </div>
 
         {/* Mobile Tabbed Layout */}

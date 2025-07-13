@@ -15,10 +15,14 @@ import img12 from '../data/gallery_images/img12.png'
 import img13 from '../data/gallery_images/img13.png'
 import Footer from '../components/Footer';
 // import img1 from '../data/globe.png';
+import { Helmet } from "react-helmet";
+
+
 
 // Reusable Gallery Card Component
 const GalleryCard = ({ image, height, className = '' }) => {
   return (
+    
     <div className={`bg-gray-100 rounded-lg overflow-hidden group relative ${height} ${className}`}>
       <img
         src={image.src}
@@ -49,6 +53,14 @@ const Gallery = () => {
 
   return (
 <>
+<Helmet>
+  <title>BTL Moments & Highlights – Bharat Teck League Gallery</title>
+  <meta
+    name="description"
+    content="Explore photos & videos from previous Bharat Teck League events. Witness student innovations, tech exhibits & competition highlights in action."
+  />
+</Helmet>
+
     <div className="bg-white">
       {/* Hero Section */}
       <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px]">

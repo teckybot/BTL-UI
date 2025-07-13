@@ -8,6 +8,9 @@ import img14 from "../data/images/img4.png";
 import img15 from "../data/images/img5.png";
 import { Link } from 'react-router-dom';
 import ComingSoon from '../components/comingsoon'
+import { Helmet } from "react-helmet";
+
+
 
 const competitions = [
   { title: "ASTROBOT", image: img12 },
@@ -23,6 +26,14 @@ export default function Competitions() {
 
   return (
     <>
+      <Helmet>
+        <title>Student Competitions – Robotics, AI, Drone & More | BTL India</title>
+        <meta
+          name="description"
+          content="Explore exciting student competitions at Bharat Teck League 2025! Compete in Robotics, AI, Drone & more. Organized by Teckybot. Register now!"
+        />
+      </Helmet>
+
       <Navbar />
 
       {/* Make full page flex column */}

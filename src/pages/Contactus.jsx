@@ -2,10 +2,21 @@
 import bgImageLg from '../data/All/BTL_contact_us.jpg';
 import bgImageSm from '../data/All/contact us_BTL.png';
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet";
+
+
 
 export default function ContactUs() {
   return (
     <>
+      <Helmet>
+        <title>Contact Us – Bharat Teck League Support & Queries</title>
+        <meta
+          name="description"
+          content="Have questions about Bharat Teck League 2024? Contact our team for support, partnership, or registration help. We're here to assist you!"
+        />
+      </Helmet>
+
       <div className="relative w-full min-h-screen">
         {/* Background images with responsive switching */}
         <div

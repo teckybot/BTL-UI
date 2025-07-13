@@ -9,10 +9,21 @@ import space from '../data/All/space.png'
 import orbit from '../data/All/orbit.png'
 import blob from '../data/All/blob.png';
 import newbgImageDesktop1 from '../data/All/about_us_our_mission.jpg';
+import { Helmet } from "react-helmet";
+
+
 
 export default function Aboutus() {
   return (
     <>
+      <Helmet>
+        <title>About Bharat Teck League – Powered by Teckybot</title>
+        <meta
+          name="description"
+          content="Discover the vision & mission of Bharat Teck League by Teckybot. A national stage for students to compete, innovate & lead in emerging tech fields."
+        />
+      </Helmet>
+
       {/* ---------- DESKTOP / TABLET VERSION (md & up) ---------- */}
       <div className="hidden md:block relative min-h-screen bg-black text-white">
         <div className="absolute inset-0 z-0">
@@ -101,7 +112,7 @@ export default function Aboutus() {
                 by Teckybot that fosters innovation, creativity,  and technical skills among young minds across India
               </p>
               <p>
-                Through a series of engaging  competitions conducted across various states, 
+                Through a series of engaging  competitions conducted across various states,
                 BTL provides a dynamic platform for students  to explore emerging technologies, showcase their talents, and develop problem-solving  abilities
               </p>
             </div>

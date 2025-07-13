@@ -121,8 +121,6 @@ export default function DummyCompetitions() {
                         </div>
                     </div>
                 </div>
-
-                <Footer />
             </div >
         </>
     );
