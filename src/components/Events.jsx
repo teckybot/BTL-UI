@@ -6,7 +6,7 @@ import starAlt from "../data/All/star3.png";
 
 export default function EventsTimeline() {
   const events = [
-    { date: "11 July 2025", title: "Releasing problem statement", desc: "Exciting tech challenges will be unveiled. Participants can begin brainstorming their tech solutions." },
+    { date: "13 July 2025", title: "Releasing problem statement", desc: "Exciting tech challenges will be unveiled. Participants can begin brainstorming their tech solutions." },
     { date: "13 July 2025", title: "Registrations open", desc: "Schools will be invited to nominate their teams. Participants can start enrolling for the competitions." },
     { date: "11 Aug 2025", title: "Registration close", desc: "Enrollment will end after the registration deadline. No entries will be accepted beyond the cut-off." },
     { date: "17 Aug 2025", title: "Qualifier level close", desc: "All team submissions will be finalized and reviewed. No edits or uploads will be allowed post deadline." },
