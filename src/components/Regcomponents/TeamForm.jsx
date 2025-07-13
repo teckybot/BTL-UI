@@ -238,6 +238,7 @@ const TeamForm = () => {
                       <Select.Option value="7">7</Select.Option>
                       <Select.Option value="8">8</Select.Option>
                       <Select.Option value="9">9</Select.Option>
+                      <Select.Option value="9">10</Select.Option>
                     </Select>
                   </Form.Item>
 
@@ -341,6 +342,7 @@ const TeamForm = () => {
                   <Select.Option value="7">7</Select.Option>
                   <Select.Option value="8">8</Select.Option>
                   <Select.Option value="9">9</Select.Option>
+                  <Select.Option value="9">10</Select.Option>
                 </Select>
                 <Select
                   placeholder="Gender"

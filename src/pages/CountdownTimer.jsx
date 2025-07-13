@@ -6,8 +6,6 @@ import { Helmet } from "react-helmet";
 
 
 
-
-
 export default function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
@@ -21,7 +19,7 @@ export default function CountdownTimer() {
   function calculateTimeLeft() {
     const now = new Date();
     const targetDate = new Date();
-    targetDate.setHours(17, 0, 0, 0); // Set to today at 16:00:00.000 (4 PM)
+    targetDate.setHours(18, 0, 0, 0); // Set to today at 16:00:00.000 (4 PM)
 
     // If current time is past 4 PM, target next day's 4 PM
     if (now > targetDate) {
