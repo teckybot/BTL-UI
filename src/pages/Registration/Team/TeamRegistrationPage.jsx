@@ -25,7 +25,7 @@ export default function TeamRegistrationPage() {
 
       <div className="min-h-screen bg-blue-50 flex flex-col items-center px-4 pt-24 pb-16">
         {/* Desktop Title */}
-        <h1 className="hidden md:block text-4xl lg:text-6xl font-normal uppercase text-right w-full pr-4 md:pr-32 bg-gradient-schoolReg bg-clip-text text-transparent mb-5">
+        <h1 className="hidden md:block text-4xl lg:text-6xl font-normal uppercase text-right w-full pr-4 md:pr-[300px] bg-gradient-schoolReg bg-clip-text text-transparent mb-5">
           Team Registration
         </h1>
 

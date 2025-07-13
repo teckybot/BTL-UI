@@ -24,7 +24,7 @@ export default function SchoolRegistrationPage() {
       </Helmet>
       <div className="min-h-screen bg-blue-50 flex flex-col items-center px-4 pt-24 pb-16">
         {/* Desktop Title */}
-        <h1 className="hidden md:block text-4xl lg:text-6xl font-normal uppercase text-center md:text-left w-full px-4 md:px-0 md:pl-32 bg-gradient-schoolReg bg-clip-text text-transparent mb-5">
+        <h1 className="hidden md:block text-4xl lg:text-6xl font-normal uppercase text-center md:text-left w-full px-4 md:px-0 md:pl-[280px] bg-gradient-schoolReg bg-clip-text text-transparent mb-5">
           School Registration
         </h1>
 

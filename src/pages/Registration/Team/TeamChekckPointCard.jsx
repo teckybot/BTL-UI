@@ -135,7 +135,7 @@ const CheckpointPage = () => {
   };
 
   return (
-    <div className="mt-[20px] bg-white flex flex-col items-center justify-center">
+    <div className="mt-[10px]  bg-white flex flex-col items-center justify-center">
       {/* Toast Notification */}
       <Toast
         message={toast.message}
@@ -147,7 +147,7 @@ const CheckpointPage = () => {
       {/* Desktop & Tablet View (Hidden if validated) */}
       {!validated && (
         <div
-          className="hidden md:flex rounded-3xl shadow-xl overflow-hidden w-[795px] h-[505px] flex-row"
+          className="hidden md:flex rounded-3xl  shadow-3xl overflow-hidden w-[795px] h-[565px] flex-row"
           style={{
             backgroundImage: `url(${bgImg1})`,
             backgroundSize: "cover",
@@ -156,7 +156,7 @@ const CheckpointPage = () => {
           }}
         >
           {/* Right side content */}
-          <div className="ml-auto flex flex-col justify-center items-center w-[60%] h-[85%]">
+          <div className="ml-auto flex flex-col justify-center items-center w-[60%] h-[81%]">
 
             {/* School Registration ID section */}
             <h3 className="text-lg md:text-[18px] font-bold text-gray-800 text-center mb-2">

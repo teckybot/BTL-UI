@@ -3,7 +3,7 @@ import Navbar from '../../components/Header';
 import Footer from '../../components/Footer';
 import inno from '../../data/images/img1.png';
 import innoPDF from "../../data/pdfs/Innoverse.pdf";
-// import innoMobile from "../../data/pdfs/InnoverseMobile.png";
+import innoMobile from "../../data/pdfs/InnoverseMobile.png";
 
 export default function Innoverse() {
   return (
@@ -28,7 +28,7 @@ export default function Innoverse() {
             </h1>
             <div className="rounded-lg overflow-hidden shadow-md mb-4">
               <img
-                src={inno}
+                src={innoMobile}
                 alt="Innoverse Mobile Hero"
                 className="w-full object-cover"
               />

@@ -17,7 +17,6 @@ import SchoolRegistrationSuccess from './pages/Registration/School/SchoolRegistr
 import ComingSoon from './components/comingsoon';
 import CountdownTimer from './pages/CountdownTimer'
 import ErrorScreen from './components/errorScreen';
-import DummyCompetitions from './pages/DummyCompetitions';
 import Gallery from './pages/Gallery';
 import { TeamDraftProvider } from './context/TeamDraftContext';
 import TeamModulesPage from './pages/Registration/TeamModulesPage';
@@ -34,7 +33,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<Aboutus />} />
-          {/* <Route path="/competitions" element={<Competitions />} /> */}
           <Route path="/competitions/robotics" element={<Robotics />} />
           <Route path="/competitions/3d-maker" element={<ThreeDMaker />} />
           <Route path="/competitions/space-pilot" element={<SpacePilot />} />
@@ -46,14 +44,13 @@ function App() {
           <Route path="/registration/success" element={<SchoolRegistrationSuccess />} />
           <Route path="/registration-success" element={<SchoolRegistrationSuccess />} />
           <Route path="/registration" element={<CountdownTimer />} />
-          <Route path="/coming-soon" element={<ComingSoon />} />
+          {/* <Route path="/coming-soon" element={<ComingSoon />} /> */}
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/competitions" element={<DummyCompetitions />} />
+          <Route path="/competitions" element={<Competitions />} />
           <Route path="/modules" element={<TeamModulesPage />} />
           <Route path="/team-form/:teamNumber" element={<TeamForm />} />
           <Route path="/teamRegistration-success" element={<TeamRegistrationSuccess />} />
           <Route path="/regform" element={<SchoolRegistrationForm />} />
-          {/* <Route path="/gallery" element={<Gallery />} /> */}
         </Routes>
         <ScrollToTopButton />
       </TeamDraftProvider>

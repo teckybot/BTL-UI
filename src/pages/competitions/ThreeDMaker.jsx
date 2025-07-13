@@ -3,7 +3,7 @@ import Navbar from '../../components/Header';
 import Footer from '../../components/Footer';
 import Td from '../../data/images/img3.png';
 import pdf3DMaker from "../../data/pdfs/3D Maker.pdf";
-// import mobileHero3D from "../../data/pdfs/3DMakerMobile.png";
+import mobileHero3D from "../../data/pdfs/3DMakerMobile.png";
 
 export default function Robotics() {
   return (
@@ -28,7 +28,7 @@ export default function Robotics() {
             </h1>
             <div className="rounded-lg overflow-hidden shadow-md mb-4">
               <img
-                src={Td}
+                src={mobileHero3D}
                 alt="3D Maker Mobile Hero"
                 className="w-full object-cover"
               />

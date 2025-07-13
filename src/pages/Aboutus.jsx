@@ -2,13 +2,7 @@ import React from "react";
 import Footer from "../components/Footer";
 import bgImageDesktop from '../data/All/BTL_about us.png';
 import bgImageMobile from '../data/All/BTL_about_us.png';
-import level from '../data/All/levelbg.jpg'
-import globe from '../data/All/world-globe.png'
-import rocket from '../data/All/rocket.png'
-import space from '../data/All/space.png'
-import orbit from '../data/All/orbit.png'
 import blob from '../data/All/blob.png';
-import newbgImageDesktop1 from '../data/All/about_us_our_mission.jpg';
 import { Helmet } from "react-helmet";
 
 

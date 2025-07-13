@@ -3,7 +3,7 @@ import Navbar from '../../components/Header';
 import Footer from '../../components/Footer';
 import drone from '../../data/images/img4.png';
 import dronePDF from "../../data/pdfs/Space Pilot.pdf";
-// import droneMobile from "../../data/pdfs/DroneMobile.png";
+import droneMobile from "../../data/pdfs/DroneMobile.png";
 
 export default function SpacePilot() {
   return (
@@ -28,7 +28,7 @@ export default function SpacePilot() {
             </h1>
             <div className="rounded-lg overflow-hidden shadow-md mb-4">
               <img
-                src={drone}
+                src={droneMobile}
                 alt="Drone Mobile Hero"
                 className="w-full object-cover"
               />
