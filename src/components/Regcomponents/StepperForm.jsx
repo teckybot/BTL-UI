@@ -657,12 +657,12 @@ const StepperForm = () => {
                         });
 
                         if (!verifyRes || !verifyRes.data) {
-                            console.error("❌ No response data received from verification API.");
+                            console.error(" No response data received from verification API.");
                             message.error("Verification failed: No response from server.");
                             return;
                         }
 
-                        console.log("✅ Verification Response:", verifyRes.data);
+                        console.log(" Verification Response:", verifyRes.data);
 
                         const { schoolRegId } = verifyRes.data;
 
@@ -690,7 +690,7 @@ const StepperForm = () => {
                         setSelectedState(null);
 
                     } catch (error) {
-                        console.error("❌ Payment verification error:", error);
+                        console.error("Payment verification error:", error);
 
                         if (error.response?.data?.message) {
                             message.error(error.response.data.message);
@@ -706,7 +706,7 @@ const StepperForm = () => {
                     coordinator: values.coordinatorName
                 },
 
-                timeout: 900  // 15-minute timeout (optional)
+                timeout: 500  // 15-minute timeout (optional)
             };
 
 
