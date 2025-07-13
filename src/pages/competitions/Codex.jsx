@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../../components/Header';
 import Footer from '../../components/Footer';
 import code from '../../data/images/img5.png';
-import codexPDF from "../../data/pdfs/Codex.pdf";
+import codexPDF from "../../data/pdfs/CodeX.pdf";
 // import codexMobile from "../../data/pdfs/CodexMobile.png";
 
 export default function Codex() {
