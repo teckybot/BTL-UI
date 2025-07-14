@@ -94,7 +94,7 @@ export default function CountdownTimer() {
                 key={`1-${idx}`}
                 className="inline-block bg-white text-black font-semibold text-sm sm:text-base px-4 py-2 rounded-md shadow-md min-w-fit mx-2"
               >
-                Bharat Teck League is only for students of 6th to 9th standard.
+                Bharat Teck League is only for students of 6th to 10th standard.
               </div>
             ))}
             {Array.from({ length: 20 }).map((_, idx) => (
@@ -102,7 +102,7 @@ export default function CountdownTimer() {
                 key={`2-${idx}`}
                 className="inline-block bg-white text-black font-semibold text-sm sm:text-base px-4 py-2 rounded-md shadow-md min-w-fit mx-2"
               >
-                Bharat Teck League is only for students of 6th to 9th standard.
+                Bharat Teck League is only for students of 6th to 10th standard.
               </div>
             ))}
           </div>

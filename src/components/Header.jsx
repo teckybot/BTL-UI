@@ -58,7 +58,7 @@ export default function Navbar() {
     { name: 'Home', to: '/' },
     { name: 'About BTL', to: '/aboutus' },
     { name: 'Competitions', to: '/competitions' },
-    { name: 'Registration', to: '/registration/school' },
+    { name: 'Registration', to: '/registration' },
     { name: 'Gallery', to: '/gallery' },
     { name: 'Contact us', to: '/contactus', isSpecial: true },
   ];
