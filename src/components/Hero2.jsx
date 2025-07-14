@@ -57,6 +57,26 @@ export default function HeroWithLogoAndTagline() {
               </a>
             </div>
           </div>
+          <div className="absolute top-[75%] md:top-[88%] left-0 w-screen overflow-hidden group">
+          <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused]">
+            {Array.from({ length: 20 }).map((_, idx) => (
+              <div
+                key={`1-${idx}`}
+                className="inline-block bg-white text-black font-semibold text-sm sm:text-base px-4 py-2 rounded-md shadow-md min-w-fit mx-2"
+              >
+                Bharat Teck League is only for students of 6th to 10th standard.
+              </div>
+            ))}
+            {Array.from({ length: 20 }).map((_, idx) => (
+              <div
+                key={`2-${idx}`}
+                className="inline-block bg-white text-black font-semibold text-sm sm:text-base px-4 py-2 rounded-md shadow-md min-w-fit mx-2"
+              >
+                Bharat Teck League is only for students of 6th to 10th standard.
+              </div>
+            ))}
+          </div>
+        </div>
 
 
         </div>
