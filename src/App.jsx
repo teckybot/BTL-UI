@@ -42,7 +42,7 @@ function App() {
           <Route path="/registration/school" element={<SchoolRegistrationPage />} />
           <Route path="/registration/team" element={<TeamRegistrationPage />} />
           <Route path="/registration-success" element={<SchoolRegistrationSuccess />} />
-          <Route path="/registration" element={<CountdownTimer />} />
+          {/* <Route path="/registration" element={<CountdownTimer />} /> */}
           {/* <Route path="/coming-soon" element={<ComingSoon />} /> */}
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/competitions" element={<Competitions />} />
