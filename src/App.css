@@ -42,5 +42,12 @@
   color: #888;
 }
 
+/* Add this to your global CSS or inside a <style> tag */
+.slanted-container {
+  position: relative;
+  background: #d1d1d1;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  border: 2px solid #1e90ff; /* Optional: outer stroke like in your image */
+}
 
 

@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 
 
 
+
 export default function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
@@ -49,7 +50,7 @@ export default function CountdownTimer() {
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Register Now – Bharat Teck League 2025 by Teckybot</title>
         <meta
           name="description"
@@ -86,27 +87,49 @@ export default function CountdownTimer() {
             <TimeUnit value={timeLeft.seconds} label="SECONDS" />
           </div>
         </div>
+
+
         {/* Marquee Announcement */}
-        <div className="absolute top-[75%] md:top-[88%] left-0 w-screen overflow-hidden group">
-          <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused]">
-            {Array.from({ length: 20 }).map((_, idx) => (
-              <div
-                key={`1-${idx}`}
-                className="inline-block bg-white text-black font-semibold text-sm sm:text-base px-4 py-2 rounded-md shadow-md min-w-fit mx-2"
-              >
-                Bharat Teck League is only for students of 6th to 10th standard.
-              </div>
-            ))}
-            {Array.from({ length: 20 }).map((_, idx) => (
-              <div
-                key={`2-${idx}`}
-                className="inline-block bg-white text-black font-semibold text-sm sm:text-base px-4 py-2 rounded-md shadow-md min-w-fit mx-2"
-              >
-                Bharat Teck League is only for students of 6th to 10th standard.
-              </div>
-            ))}
+        {/* marque */}
+          <div className="absolute top-[75%] md:top-[88%] left-0 w-screen overflow-hidden group">
+            <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused]">
+              {Array.from({ length: 50 }).map((_, idx) => (
+                <div
+                  key={`1-${idx}`}
+                  className="h-[50px] flex items-center justify-center px-6 text-black font-semibold text-sm sm:text-base flex-shrink-0"
+                  style={{
+                    backgroundColor: '#d1d1d1',
+                    clipPath: 'polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%)',
+                  }}
+                >
+                  Bharat Teck League is only for students of 6th to 10th standard.
+                </div>
+              ))}
+              {Array.from({ length: 50 }).map((_, idx) => (
+                <div
+                  key={`2-${idx}`}
+                  className="h-[50px] flex items-center justify-center px-6 text-black font-semibold text-sm sm:text-base flex-shrink-0 mx-2"
+                  style={{
+                    backgroundColor: '#d1d1d1',
+                    clipPath: 'polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%)',
+                  }}
+                >
+                  Bharat Teck League is only for students of 6th to 10th standard.
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+
+          <style>{`
+              @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+              .animate-marquee {
+                animation: marquee 10s linear infinite;
+              }
+            `}</style>
+
       </div>
       <Footer />
     </>
