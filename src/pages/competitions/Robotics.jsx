@@ -76,7 +76,7 @@ export default function Robotics() {
               <li>Robot Dimensions (max 40 cm × 35 cm [L × W], excluding gripper size).</li>
               <li>Overall robot weight should be under 5 kg.</li>
               <li>Height of the robot is not considered in dimensions.</li>
-              <li>Video file name should be the Team ID (Ex: TeamX).</li>
+              <li>Video file name should be the Team ID (Example ID: APASB001).</li>
               <li>Video file size should not exceed 30 MB.</li>
               <li>
                 Upload the video at: {" "}

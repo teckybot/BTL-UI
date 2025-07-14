@@ -73,7 +73,7 @@ export default function SpacePilot() {
               <li>Mention your name, school, and location in the video</li>
               <li>Include a short clip of your drone assembling</li>
               <li>Drone Size: Max 25 cm x 25 cm (including propellers)</li>
-              <li>Video file name should be the Team ID (Ex: TeamX)</li>
+              <li>Video file name should be the Team ID (Example ID: APTDM001)</li>
               <li>Video file size should not be more than 30 MB</li>
               <li>
                 Upload the video in: <a href="https://www.bharatteckleague.com/" target="_blank" rel="noreferrer" className="text-blue-700 underline">https://www.bharatteckleague.com/</a>

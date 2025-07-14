@@ -129,7 +129,6 @@ export default function CountdownTimer() {
                 animation: marquee 10s linear infinite;
               }
             `}</style>
-
       </div>
       <Footer />
     </>

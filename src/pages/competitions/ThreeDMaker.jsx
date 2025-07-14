@@ -73,7 +73,7 @@ export default function Robotics() {
                 (<a href="https://autodesk-123d-design.en.lo4d.com/windows" target="_blank" rel="noreferrer" className="text-blue-700 underline">Download link</a>)
               </li>
               <li>Record a 2-minute video explaining your design process</li>
-              <li>Video file name should be the Team ID (Ex: TeamX)</li>
+              <li>Video file name should be the Team ID (Example ID: APTDM001)</li>
               <li>Video file size should not be more than 30 MB</li>
               <li>
                 Upload the video in: <a href="https://www.bharatteckleague.com/" target="_blank" rel="noreferrer" className="text-blue-700 underline">https://www.bharatteckleague.com/</a>

@@ -75,7 +75,7 @@ export default function Innoverse() {
               </ul>
               <li>Submission Guidelines:</li>
               <ul className="list-[circle] pl-5 mt-1 space-y-1">
-                <li>PDF must be named using your Team ID</li>
+                <li>PDF must be named using your Team ID (Example ID: APINV001)</li>
                 <li>Maximum file size: 10 MB</li>
                 <li>
                   Upload your PDF at: <a href="https://www.bharatteckleague.com" target="_blank" rel="noreferrer" className="text-blue-700 underline">https://www.bharatteckleague.com</a>
