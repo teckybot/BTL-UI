@@ -70,7 +70,7 @@ export default function HeroWithLogoAndTagline() {
                     clipPath: 'polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%)',
                   }}
                 >
-                  Bharat Teck League is only for students of 6th to 10th standard.
+                  Bharat Teck League 2025 - A National Wide Event  - Open to Students of Classes 6–10
                 </div>
               ))}
               {Array.from({ length: 50 }).map((_, idx) => (
@@ -82,7 +82,7 @@ export default function HeroWithLogoAndTagline() {
                     clipPath: 'polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%)',
                   }}
                 >
-                  Bharat Teck League is only for students of 6th to 10th standard.
+                  Bharat Teck League 2025 - A National Wide Event  - Open to Students of Classes 6–10
                 </div>
               ))}
             </div>

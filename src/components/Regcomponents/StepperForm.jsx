@@ -45,12 +45,12 @@ const StepperForm = () => {
                 if (savedData) {
                     const parsedData = JSON.parse(savedData);
                     setFormData(parsedData);
-                    
+
                     // Use setTimeout to ensure form is ready before setting values
                     setTimeout(() => {
                         form.setFieldsValue(parsedData);
                     }, 0);
-                    
+
                     if (parsedData.state) {
                         setSelectedState(parsedData.state);
                     }
@@ -653,7 +653,7 @@ const StepperForm = () => {
                             razorpay_payment_id: response.razorpay_payment_id,
                             razorpay_order_id: response.razorpay_order_id,
                             razorpay_signature: response.razorpay_signature,
-                            registrationData: values
+                            // registrationData: values 
                         });
 
                         if (!verifyRes || !verifyRes.data) {
@@ -664,38 +664,39 @@ const StepperForm = () => {
 
                         console.log(" Verification Response:", verifyRes.data);
 
-                        const { schoolRegId } = verifyRes.data;
+                        const { status, schoolRegId, message: statusMessage } = verifyRes.data;
 
-                        if (!schoolRegId) {
-                            message.error("Verification succeeded but school ID missing. Please contact support.");
-                            return;
+                        if (status === 'registered' && schoolRegId) {
+                            message.success('🎉 Registration successful! A confirmation email has been sent.');
+
+                            // Save regId for success page
+                            sessionStorage.setItem('schoolRegId', schoolRegId);
+
+                            // Clear saved form data
+                            sessionStorage.removeItem('schoolRegistrationData');
+                            sessionStorage.removeItem('currentStep');
+
+                            // Redirect to success
+                            window.location.href = '/registration-success';
+
+                            // Reset local state (optional safety)
+                            form.resetFields();
+                            setFormData({});
+                            setCurrentStep(0);
+                            setSelectedState(null);
+
+                        } else if (status === 'pending') {
+                            message.info('✅ Payment successful. Your registration is being processed. Please check back soon.');
+                        } else {
+                            message.error(statusMessage || '❌ Payment verification failed. Please contact support.');
                         }
-
-                        message.success('🎉 Registration successful! A confirmation email has been sent.');
-
-                        // Save schoolRegId to sessionStorage for later use
-                        sessionStorage.setItem('schoolRegId', schoolRegId);
-
-                        // Clean up temp form data
-                        sessionStorage.removeItem(STORAGE_KEY);
-                        sessionStorage.removeItem(STEP_KEY);
-
-                        // Redirect to success page
-                        window.location.href = '/registration-success';
-
-                        // Reset form state
-                        form.resetFields();
-                        setFormData({});
-                        setCurrentStep(0);
-                        setSelectedState(null);
-
                     } catch (error) {
-                        console.error("Payment verification error:", error);
+                        console.error("❌ Payment verification error:", error);
 
                         if (error.response?.data?.message) {
                             message.error(error.response.data.message);
                         } else {
-                            message.error("Payment verification failed. Please try again or contact support.");
+                            message.error("Verification failed. Please try again or contact support.");
                         }
                     }
                 },
@@ -760,18 +761,16 @@ const StepperForm = () => {
                         {steps.map((item, idx) => (
                             <div key={item.title} className="flex items-center">
                                 <div
-                                    className={`w-8 h-8 flex items-center justify-center rounded-full border-2 text-sm font-medium ${
-                                        currentStep === idx 
-                                            ? 'bg-[#112481] text-white border-[#112481]' 
+                                    className={`w-8 h-8 flex items-center justify-center rounded-full border-2 text-sm font-medium ${currentStep === idx
+                                            ? 'bg-[#112481] text-white border-[#112481]'
                                             : 'bg-white border-[#b6c6e3] text-[#b6c6e3]'
-                                    }`}
+                                        }`}
                                 >
                                     {idx + 1}
                                 </div>
                                 {idx < steps.length - 1 && (
-                                    <div className={`w-8 h-0.5 mx-1 ${
-                                        currentStep > idx ? 'bg-[#112481]' : 'bg-[#b6c6e3]'
-                                    }`} />
+                                    <div className={`w-8 h-0.5 mx-1 ${currentStep > idx ? 'bg-[#112481]' : 'bg-[#b6c6e3]'
+                                        }`} />
                                 )}
                             </div>
                         ))}
