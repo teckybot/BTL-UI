@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import Navbar from './components/Header';
@@ -25,6 +26,32 @@ import TeamRegistrationSuccess from './pages/Registration/Team/TeamRegistrationS
 import SchoolRegistrationForm from './pages/Registration/School/SchoolRegistrationForm';
 
 function App() {
+  useEffect(() => {
+    const handleContextmenu = (e) => {
+      e.preventDefault();
+    };
+    const handleKeydown = (e) => {
+      // Prevent F12
+      if (e.key === 'F12') {
+        e.preventDefault();
+      }
+      // Prevent Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+      if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
+        e.preventDefault();
+      }
+      // Prevent Ctrl+U (View Source)
+      if (e.ctrlKey && e.key.toUpperCase() === 'U') {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener("contextmenu", handleContextmenu);
+    document.addEventListener("keydown", handleKeydown);
+    return () => {
+      document.removeEventListener("contextmenu", handleContextmenu);
+      document.removeEventListener("keydown", handleKeydown);
+    };
+  }, []);
   return (
     <Router>
       <TeamDraftProvider>
