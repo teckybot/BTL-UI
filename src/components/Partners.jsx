@@ -13,7 +13,7 @@ export default function PartnersSection() {
   ];
 
   return (
-    <div className="bg-[#ffffff] px-4 sm:px-10 py-20">
+    <div id="partners-section" className="bg-[#ffffff] px-4 sm:px-10 py-20">
       {/* Heading */}
       <h2 className="text-center text-2xl sm:text-3xl font-semibold text-[#0f172a] mb-4">
         Esteemed Partners

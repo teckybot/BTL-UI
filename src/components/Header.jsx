@@ -11,23 +11,29 @@ export default function Navbar() {
   const isMaintenance = location.pathname.toLowerCase() === '/gallery';
   const isContactus = location.pathname.toLowerCase() === '/contactus';
   const [scrolled, setScrolled] = useState(false);
-  const [inAndhraSection, setInAndhraSection] = useState(false);
+  const [inBharatSection, setInBharatSection] = useState(false);
+  const [inJourneySection, setInJourneySection] = useState(true);
+  const [inPartnersSection, setInPartnersSection] = useState(false);
   const [inEventTimelineSection, setInEventTimelineSection] = useState(false);
 
   useEffect(() => {
     if (!isAboutus && !isHome && !isRegistration) return;
-    
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setScrolled(scrollY > 10);
-      
+
       // Check if we're in the Andhra Tech League section (only for About Us page)
       if (isAboutus) {
-        const andhraSection = document.querySelector('h2');
-        if (andhraSection && andhraSection.textContent.includes('ANDHRA TECK LEAGUE 2023')) {
-          const sectionTop = andhraSection.offsetTop - 100; // Offset for navbar height
-          setInAndhraSection(scrollY >= sectionTop);
+        const bharatSection = document.getElementById('bharat-section');
+        if (bharatSection) {
+          const rect = bharatSection.getBoundingClientRect();
+          const inView = rect.top <= 120 && rect.bottom >= 120;
+          setInBharatSection(inView);
         }
+        const journeyTop = 0;
+        const journeyBottom = document.getElementById("bharat-section")?.offsetTop || 0;
+        setInJourneySection(scrollY >= journeyTop && scrollY < journeyBottom);
       }
       // Check if we're in the Event Timelines section (only for Home page)
       if (isHome) {
@@ -38,8 +44,8 @@ export default function Navbar() {
         } else {
           // Fallback: try to find by text content if ID is not found
           const h2Elements = document.querySelectorAll('h2');
-          const eventTimelineH2 = Array.from(h2Elements).find(h2 => 
-            h2.textContent.toLowerCase().includes('events timeline') || 
+          const eventTimelineH2 = Array.from(h2Elements).find(h2 =>
+            h2.textContent.toLowerCase().includes('events timeline') ||
             h2.textContent.toLowerCase().includes('event timeline')
           );
           if (eventTimelineH2) {
@@ -47,12 +53,18 @@ export default function Navbar() {
             setInEventTimelineSection(scrollY >= sectionTop);
           }
         }
+        const partnersSection = document.getElementById('partners-section');
+        if (partnersSection) {
+          const rect = partnersSection.getBoundingClientRect();
+          const inView = rect.top <= 120 && rect.bottom >= 120;
+          setInPartnersSection(inView);
+        }
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isAboutus, isHome, isRegistration]);
+  }, [isAboutus, isHome, isRegistration, inJourneySection, inBharatSection]);
 
   const navItems = [
     { name: 'Home', to: '/' },
@@ -67,19 +79,19 @@ export default function Navbar() {
   let navClass = 'fixed w-full top-0 z-50 font-poppins transition-all duration-300';
   let textColor = '';
   let mobileButtonClass = '';
-  
+
   if (isMaintenance || isContactus) {
     navClass += 'bg-white/10 backdrop-blur-[25px]';
     textColor = 'text-white';
     mobileButtonClass = 'text-white hover:text-gray-300 hover:bg-white/20';
   } else if (isAboutus) {
-    if (!scrolled) {
+    if (!scrolled || inJourneySection) {
       // At rest: no glass effect, white text
       navClass += 'bg-white/10 backdrop-blur-[15px] shadow-md';
       textColor = 'text-white';
       mobileButtonClass = 'text-white hover:text-gray-300 hover:bg-white/20';
-    } else if (scrolled && !inAndhraSection) {
-      // Scrolled but not in Andhra section: white text with glass effect
+    } else if (scrolled && !inBharatSection) {
+      // Scrolled but not in Bharat section: white text with glass effect
       navClass += ' bg-white/10 backdrop-blur-[25px] shadow-md';
       textColor = 'text-white';
       mobileButtonClass = 'text-white hover:text-gray-300 hover:bg-white/20';
@@ -98,10 +110,17 @@ export default function Navbar() {
     } else {
       // Scrolled: check if in Event Timelines section
       navClass += ' bg-white/10 backdrop-blur-[25px] shadow-md';
-      if (isHome && inEventTimelineSection) {
+      
+      if (isHome && inPartnersSection) {
+      //  Gray navbar
+      navClass += ' bg-gray-100';
+      textColor = 'text-gray-700';
+      mobileButtonClass = 'text-gray-700 hover:text-gray-900 hover:bg-gray-200';
+    } 
+      else if (isHome && inEventTimelineSection) {
         // In Event Timelines section: gray text
-        textColor = 'text-gray-700';
-        mobileButtonClass = 'text-gray-700 bg-white/10 backdrop-blur-[25px] rounded-md';
+        textColor = 'text-white';
+        mobileButtonClass = 'text-gray-300 bg-white/10 backdrop-blur-[25px] rounded-md';
       } else {
         // Scrolled but not in Event Timelines: white text
         textColor = 'text-white';
@@ -140,7 +159,7 @@ export default function Navbar() {
                         ? 'bg-white rounded-full text-gray-700'
                         : `${textColor} hover:text-gray-200`)
                       : (item.isSpecial
-                        ? ((isAboutus && !inAndhraSection) || isHome || isRegistration ? 'bg-white rounded-full text-gray-700' : 'bg-[#E7EEFF] rounded-full text-gray-700')
+                        ? ((isAboutus && !inBharatSection) || isHome || isRegistration ? 'bg-white rounded-full text-gray-700' : 'bg-[#E7EEFF] rounded-full text-gray-700')
                         : ((isAboutus || isHome || isRegistration) ? `${textColor} hover:text-gray-200` : 'text-[#050728] hover:text-gray-900')))
                   }
                 >
@@ -157,7 +176,7 @@ export default function Navbar() {
                         ? 'bg-white rounded-full text-gray-700'
                         : `${textColor} hover:text-gray-200`)
                       : (item.isSpecial
-                        ? ((isAboutus && !inAndhraSection) || isHome || isRegistration ? 'bg-white rounded-full text-gray-700' : 'bg-[#E7EEFF] rounded-full text-gray-700')
+                        ? ((isAboutus && !inBharatSection) || isHome || isRegistration ? 'bg-white rounded-full text-gray-700' : 'bg-[#E7EEFF] rounded-full text-gray-700')
                         : ((isAboutus || isHome || isRegistration) ? `${textColor} hover:text-gray-200` : 'text-[#050728] hover:text-gray-900')))
                   }
                 >
@@ -197,11 +216,10 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.to}
-                className={`block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                  (isAboutus || isHome || isRegistration || isMaintenance || isContactus)
-                    ? `${textColor} hover:bg-white/20 hover:text-gray-200`
-                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
-                }`}
+                className={`block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${(isAboutus || isHome || isRegistration || isMaintenance || isContactus)
+                  ? `${textColor} hover:bg-white/20 hover:text-gray-200`
+                  : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
+                  }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -210,11 +228,10 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 to={item.to}
-                className={`block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                  (isAboutus || isHome || isRegistration || isMaintenance || isContactus)
-                    ? `${textColor} hover:bg-white/20 hover:text-gray-200`
-                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
-                }`}
+                className={`block w-full text-center px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${(isAboutus || isHome || isRegistration || isMaintenance || isContactus)
+                  ? `${textColor} hover:bg-white/20 hover:text-gray-200`
+                  : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
+                  }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
