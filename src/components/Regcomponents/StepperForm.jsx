@@ -7,7 +7,7 @@ import { stateDistrictCodeMap } from '../../data/stateDistrictMap.jsx';
 const { Step } = Steps;
 const { TextArea } = Input;
 
-const validEmailDomains = ['@gmail.com', '@yahoo.com', '@outlook.com', '@teckybot.com'];
+const validEmailDomains = ['@gmail.com', '@yahoo.com', '@yahoo.in','@outlook.com', '@teckybot.com'];
 const isAllCaps = (text) => text === text?.toUpperCase();
 const isValidEmail = (email) => validEmailDomains.some((domain) => email.endsWith(domain));
 
@@ -351,7 +351,7 @@ const StepperForm = () => {
                         label="School Email"
                         rules={[
                             { required: true, message: 'Please input email!' },
-                            { type: 'email', message: 'Please enter a valid email! (Only @gmail.com or @yahoo.com or @outlook.com are accepted)' },
+                            { type: 'email', message: 'Please enter a valid email! (Only @gmail.com or @yahoo.com or @yahoo.in or @outlook.com are accepted)' },
                             {
                                 validator: (_, value) => {
                                     if (!value || !value.includes('@')) {
@@ -446,7 +446,7 @@ const StepperForm = () => {
                         dependencies={['schoolEmail']}
                         rules={[
                             { required: true, message: 'Please input email!' },
-                            { type: 'email', message: 'Please enter a valid email! (Only @gmail.com or @yahoo.com or @outlook.com are accepted)' },
+                            { type: 'email', message: 'Please enter a valid email! (Only @gmail.com or @yahoo.com or @yahoo.in or @outlook.com are accepted)' },
                             {
                                 validator: (_, value) => {
                                     if (!value || !value.includes('@')) {
