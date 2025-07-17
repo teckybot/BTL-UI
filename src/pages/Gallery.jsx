@@ -122,7 +122,7 @@ const Gallery = () => {
       </div>
     </div>
 
-<Videoscroll />
+{/* <Videoscroll /> */}
     <Footer />
   </>
   );
