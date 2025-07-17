@@ -16,13 +16,11 @@ import img13 from '../data/gallery_images/img13.png'
 import Footer from '../components/Footer';
 // import img1 from '../data/globe.png';
 import { Helmet } from "react-helmet";
-
-
+import Videoscroll from '../components/videoscroll';
 
 // Reusable Gallery Card Component
 const GalleryCard = ({ image, height, className = '' }) => {
   return (
-    
     <div className={`bg-gray-100 rounded-lg overflow-hidden group relative ${height} ${className}`}>
       <img
         src={image.src}
@@ -123,6 +121,8 @@ const Gallery = () => {
         <GalleryCard image={images[11]} height="h-[350px]" className="col-span-2" />
       </div>
     </div>
+
+<Videoscroll />
     <Footer />
   </>
   );
