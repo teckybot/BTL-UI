@@ -7,7 +7,7 @@ import img3 from '../data/BotExpo/Robotics.png';
 import img4 from '../data/BotExpo/Certificates.png';
 import img5 from '../data/BotExpo/Network_oppurtunities.png';
 import img6 from '../data/BotExpo/Student_lead.png';
-
+import Footer from '../components/BotExpo_footer'
 const highlights = [
      { image: img1, title: <>40+ Tech Projects <br /> Exhibit</> },
      { image: img2, title: <>AI Workshop for <br /> Teachers</> },
@@ -129,6 +129,7 @@ const BotExpoPage = () => {
                          This hands-on workshop of two and half hours, specially crafted for teachers ready to embrace the next wave of EdTech, is available for a registration fee of just INR 299/-. Don’t miss this opportunity <strong>register now</strong> and transform your approach to education.
                     </p>
                </section>
+                <Footer />
 
 
           </div>
