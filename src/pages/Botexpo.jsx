@@ -7,7 +7,9 @@ import img3 from '../data/BotExpo/Robotics.png';
 import img4 from '../data/BotExpo/Certificates.png';
 import img5 from '../data/BotExpo/Network_oppurtunities.png';
 import img6 from '../data/BotExpo/Student_lead.png';
+import Footer from '../components/BotExpo_footer';
 import AIworkshopRegForm from '../components/Regcomponents/AIworkshopRegForm';
+
 
 const highlights = [
      { image: img1, title: <>40+ Tech Projects <br /> Exhibit</> },
@@ -132,7 +134,7 @@ const BotExpoPage = () => {
                </section>
 
                <AIworkshopRegForm/>
-
+               <Footer/>
           </div>
      );
 };
