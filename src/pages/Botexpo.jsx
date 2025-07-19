@@ -4,9 +4,9 @@ import Postermob from '../data/BotExpo/poster_mob.jpg';
 import img1 from '../data/BotExpo/Tech_Projects.png';
 import img2 from '../data/BotExpo/Ai_workshop.png';
 import img3 from '../data/BotExpo/Robotics.png';
-import img4 from '../data/BotExpo/Certificates.png';
-import img5 from '../data/BotExpo/Network_oppurtunities.png';
-import img6 from '../data/BotExpo/Student_lead.png';
+// import img4 from '../data/BotExpo/Certificates.png';
+// import img5 from '../data/BotExpo/Network_oppurtunities.png';
+import img6 from '../data/BotExpo/About_Bot_expo.png';
 import Footer from '../components/BotExpo_footer';
 import AIworkshopRegForm from '../components/Regcomponents/AIworkshopRegForm';
 
@@ -15,20 +15,26 @@ const highlights = [
      { image: img1, title: <>40+ Tech Projects <br /> Exhibit</> },
      { image: img2, title: <>AI Workshop for <br /> Teachers</> },
      { image: img3, title: 'Robotic Games & Live Demos' },
-     { image: img4, title: 'Certificate Distribution Ceremony' },
-     { image: img5, title: 'Networking Opportunities for Educators' },
-     { image: img6, title: 'Student led Tech – Talks & Idea Showcase' }
 ];
 
 const BotExpoPage = () => {
      return (
-          <div className="pt-[60px]">
+
+          <div className="pt-[80px]">
+               <section className="bg-[#16565F] text-white  md:py-1 md:pt-5  text-center text-[14px]  md:text-[26px] leading-relaxed">
+                    <p className="font-normal">
+                         <span className="font-bold">BotExpo</span> on <span className="font-bold">August 2nd</span> is free for everyone to attend...
+                         <br />                         <span className="font-bold">AI Workshop</span> is exclusively for teachers with limited seats. Register below to join...
+
+                    </p>
+
+               </section>
                {/* Poster Section */}
                <div className="flex justify-center mb-8">
                     <img
                          src={Poster}
                          alt="Bot Expo 2025 Poster"
-                         className="hidden md:block h-[700px] w-full max-w-[1350px] rounded-lg"
+                         className="hidden md:block h-[700px] w-full max-w-[1250px] rounded-lg"
                     />
                     <img
                          src={Postermob}
@@ -37,46 +43,37 @@ const BotExpoPage = () => {
                     />
                </div>
 
-               {/* ABOUT SECTION */}
-               <section className="max-w-[1450px] mx-auto mb-12 px-4">
-                    <h2 className="text-[36px] md:text-[48px] font-bold text-center text-cyan-800 pt-4 mb-6">
-                         ABOUT BOT EXPO 2025
-                    </h2>
-                    <div
-                         className="text-white p-6 md:p-9 md:pt-12 rounded-[30px] md:rounded-[50px] shadow-md text-center"
-                         style={{
-                              background: 'linear-gradient(280.87deg, #248B9A 0%, #0C2F34 100%)'
-                         }}
-                    >
-                         <p className="text-[18px] md:text-[24px] leading-relaxed">
-                              Bot Expo is an interactive tech event by Teckybot and Pen Schools, showcasing the latest in robotics, automation, and AI. Designed to empower students with futuristic tech exposure, it offers live demos, exhibits, and hands-on activities for students, educators, and tech enthusiasts alike.
-                         </p>
-                    </div>
-               </section>
 
                {/* IMPORTANCE SECTION */}
-               <section className="max-w-[1450px] mx-auto mb-12 px-4">
-                    <h2 className="text-[36px] md:text-[48px] font-bold mt-12 md:mt-[105px] text-center text-cyan-800 mb-[-6px]">
-                         IMPORTANCE OF BOT EXPO 2025
+               <section className="max-w-[1450px] mx-auto px-4">
+                    <h2 className="text-[36px] md:text-[48px] font-bold mt-12  text-center text-cyan-800 mb-[-6px]">
+                         About Bot Expo 2025
                     </h2>
                     <div className="bg-white md:p-12 rounded-lg text-center">
                          <p className="text-[18px] md:text-[24px] leading-relaxed md:mt-0 mt-6 px-6">
-                              In today's rapidly evolving technological landscape, it is essential to equip the younger generation with the
-                              knowledge and exposure needed to thrive in a digital world. Bot Expo encourages hands-on learning,
-                              problem-solving, and innovation, all of which are key drivers of 21st-century education and industry readiness.
+                             <span className="font-bold"> BotExpo </span> is an interactive technology event organized by <span className="font-bold">Teckybot</span> and <span className="font-bold">PEN Schools</span>  in <span className="font-bold">Visakhapatnam</span> , showcasing innovations in Robotics, Artificial Intelligence, Embedded Systems, 3D Printing, and more.
                          </p>
                          <p className="text-[20px] md:text-[24px] leading-relaxed px-6">
-                              This expo brings together a wide array of projects, from 3D printing and humanoid robots to AI-based systems
-                              and autonomous machines—providing an opportunity for learners to understand the intersection of science,
-                              engineering, and creativity.
+                              The event aims to empower students by providing exposure to futuristic technologies through various tech models designed and displayed for students, educators, and tech enthusiasts.
                          </p>
                     </div>
                </section>
-
               
+               {/* Poster Section */}
+               <div className="flex justify-center mb-8">
+                    <img
+                         src={img6}
+                         alt="Bot Expo 2025 Poster"
+                         className=" h-full w-full max-w-full rounded-lg"
+                    />
+               </div>
+
+
+
+
 
                {/* WHAT YOU WILL EXPLORE SECTION */}
-               <section className="max-w-[1450px] mx-auto mt-16 px-4">
+               {/* <section className="max-w-[1450px] mx-auto mt-16 px-4">
                     <h2 className="text-[36px] md:text-[48px] font-bold text-cyan-800 mb-10 text-center">
                          WHAT YOU WILL EXPLORE AT THE BOT EXPO 2025
                     </h2>
@@ -95,46 +92,93 @@ const BotExpoPage = () => {
                               </div>
                          ))}
                     </div>
-               </section>
+               </section> */}
 
-                {/* EVENT HIGHLIGHTS SECTION */}
-               <section className="max-w-[1450px] mx-auto mt-0 px-4 pb-20">
-                    <h2 className="text-[36px] md:text-[48px] font-bold text-center text-cyan-800 mb-12">
-                         EVENT HIGHLIGHTS
+               {/* EVENT HIGHLIGHTS SECTION */}
+               <section className="max-w-[1300px] mx-auto px-4 py-20 ">
+                    <h2 className="text-center text-[26px] md:text-[32px] font-bold text-[#0B3B4D] mb-12 uppercase">
+                         What You Will Explore at the BOT Expo 2025
                     </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-[80%] mx-auto gap-10">
-                         {highlights.map((item, index) => (
-                              <div
-                                   key={index}
-                                   className="rounded-[40px] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-                              >
-                                   <img src={item.image} alt={item.title} className="w-full h-[300px] object-cover" />
-                                   <div className=" pt-[30px] text-white text-center text-[20px] h-[120px] md:text-[22px] font-semibold p-4 " style={{
-                                        background: "linear-gradient(279.15deg, #248B9A 2.43%, #0C2F34 100.9%)"
-                                   }}>
-                                        {item.title}
+
+                    <div className="space-y-10">
+                         {/* Card 1 (Already Perfect) */}
+                         <div className="bg-white rounded-[20px] border border-gray-300 shadow-xl shadow-gray-400 flex flex-col md:flex-row overflow-hidden"
+                              style={{ border: "1px solid #16565F" }}>
+                              <img
+                                   src={img1}
+                                   alt="Tech Projects"
+                                   className="w-full md:w-[26%] h-[220px] md:h-auto object-cover"
+                              />
+                              <div className="flex flex-col justify-between md:w-[80%] relative">
+                                   <div className="p-6">
+                                        <p className="font-poppins font-normal text-[20px] px-4 leading-[40px] tracking-normal text-gray-800  md:w-[95%]">
+                                             We are showcasing <strong>40+ Innovative Projects</strong> built on a range of cutting-edge <strong>Industry 4.0 technologies</strong>, including Electric Vehicles (EVs), Drone Technology, Robotics, Artificial Intelligence (AI), Internet of Things (IoT), and 3D Printing. These projects highlight the future of tech and innovation across multiple domains.
+                                        </p>
+                                   </div>
+                                   <div className="bg-gradient-to-r from-[#248B9A] to-[#0C2F34]  px-8 py-6 text-white font-semibold text-[16px] md:text-center  md:text-[30px] md:text-[18px] rounded-br-xl">
+                                        40+ Tech Projects&nbsp;&nbsp;Exhibit
                                    </div>
                               </div>
-                         ))}
-                    </div>
-               </section>
+                         </div>
 
-               {/* AI WORKSHOP FOR TEACHERS SECTION */}
-               <section className="max-w-[1350px] mx-auto mt-20 px-4 pb-20 text-center ">
-                    <h2 className="text-[28px] md:text-[40px] font-bold text-cyan-800 mb-8">
+                         {/* ✅ Card 2: AI Workshop */}
+                         <div className="bg-white rounded-[20px] shadow-xl shadow-gray-400 border border-gray-300 flex flex-col md:flex-row-reverse overflow-hidden border-shadow-md"
+                              style={{ border: "1px solid #16565F" }}>
+                              <img
+                                   src={img2}
+                                   alt="AI Workshop"
+                                   className="w-full md:w-[26%] h-[220px] md:h-auto object-cover"
+                              />
+                              <div className="flex flex-col justify-between md:w-[80%] relative">
+                                   <div className="p-6">
+                                        <p className="font-poppins font-normal text-[20px] px-4 leading-[40px] tracking-normal text-gray-800 md:w-[95%]   leading-relaxed">
+                                             Join us for an exclusive hands-on workshop on <strong>Artificial Intelligence in Education</strong>. Explore AI tools like smart grading and AI-driven lesson planning to enhance your teaching and streamline your workflow. This specially curated <strong>2.5-hour session</strong> is for educators at just <strong>INR 299/-</strong>. Register now and step into the future of teaching.
+                                        </p>
+                                   </div>
+                                   <div className="bg-gradient-to-r from-[#248B9A] to-[#0C2F34] px-8 py-6 text-white font-semibold text-[16px] md:text-center  md:text-[30px] rounded-bl-xl text-left">
+                                        AI Workshop for Teachers
+                                   </div>
+                              </div>
+                         </div>
+
+                         {/* ✅ Card 3: Robotic Games */}
+                         <div className="bg-white rounded-[20px] shadow-xl shadow-gray-400 flex flex-col md:flex-row overflow-hidden"
+                              style={{ border: "1px solid #16565F" }}>
+                              <img
+                                   src={img3}
+                                   alt="Robotic Demos"
+                                   className="w-full md:w-[26%] h-[220px] md:h-auto object-cover"
+                              />
+                              <div className="flex flex-col justify-between md:w-[80%] relative">
+                                   <div className="p-6">
+                                        <p className="font-poppins font-normal text-[20px] px-4 leading-[40px] tracking-normal text-gray-800 md:w-[95%]">
+                                             We are also organizing <strong>robotics games and live demonstrations</strong>, offering an exciting, hands-on experience for attendees. These activities aim to engage participants in real-time applications of robotics, making technology both fun and interactive.
+                                        </p>
+                                   </div>
+                                   <div className="bg-gradient-to-r from-[#248B9A] to-[#0C2F34] px-8 py-6 text-white font-semibold text-[16px] md:text-center  md:text-[30px] rounded-br-xl">
+                                        Robotic Games & Live Demos
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </section >
+
+
+
+                    <h2 className="text-[28px] text-center md:text-[48px] font-bold text-cyan-800 mb-8">
                          ARTIFICIAL INTELLIGENCE WORKSHOP FOR TEACHERS
-                    </h2>
-                    <p className="text-[18px] md:text-[22px] text-gray-800 leading-relaxed px-6 mb-6">
+                    </h2> 
+                    {/* <p className="text-[18px] md:text-[22px] text-gray-800 leading-relaxed px-6 mb-6">
                          Join us at <strong>Bullayya College on August 2nd</strong> for an exclusive <strong>Artificial Intelligence Workshop</strong> for Educators/Teachers, where innovation meets the classroom. Dive into the latest AI tools designed to enhance teaching from smart grading systems to AI-driven lesson planning. Discover how to streamline your workflow, personalize learning experiences, and future-proof your teaching strategies.
                     </p>
                     <p className="text-[18px] md:text-[22px] text-gray-800 px-6 leading-relaxed">
                          This hands-on workshop of two and half hours, specially crafted for teachers ready to embrace the next wave of EdTech, is available for a registration fee of just INR 299/-. Don’t miss this opportunity <strong>register now</strong> and transform your approach to education.
                     </p>
-               </section>
+               </section >  */}
 
                <AIworkshopRegForm />
                <Footer />
-          </div>
+          </div >
      );
 };
 

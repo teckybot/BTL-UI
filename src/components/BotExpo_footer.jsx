@@ -7,7 +7,9 @@ import instagramIcon from '../data/BotExpo/instagram.png';
 
 const Bot_Expo_Footer = () => {
      return (
-          <footer className="bg-[#F4E5CC] py-12 px-6">
+          <footer className="bg-[#F4E5CC] py-12 px-6"
+          style={{background: "linear-gradient(180deg, #FFFFFF 33.17%, #248B9A 100%)"
+}}>
                <div className="max-w-[900px] mx-auto flex flex-col md:flex-row justify-between gap-10">
                     {/* Left - Logo and Contact */}
                     <div className="flex flex-col gap-5">
