@@ -28,7 +28,7 @@ const BotExpoPage = () => {
                     <img
                          src={Poster}
                          alt="Bot Expo 2025 Poster"
-                         className="hidden md:block w-full max-w-[1550px] rounded-lg"
+                         className="hidden md:block h-[700px] w-full max-w-[1350px] rounded-lg"
                     />
                     <img
                          src={Postermob}
@@ -43,17 +43,13 @@ const BotExpoPage = () => {
                          ABOUT BOT EXPO 2025
                     </h2>
                     <div
-                         className="text-white p-6 md:p-12 rounded-[30px] md:rounded-[50px] shadow-md text-center"
+                         className="text-white p-6 md:p-9 md:pt-12 rounded-[30px] md:rounded-[50px] shadow-md text-center"
                          style={{
                               background: 'linear-gradient(280.87deg, #248B9A 0%, #0C2F34 100%)'
                          }}
                     >
                          <p className="text-[18px] md:text-[24px] leading-relaxed">
-                              Bot Expo is an interactive and educational event dedicated to showcasing cutting-edge innovations in robotics,
-                              automation, and artificial intelligence. This expo is proudly celebrated through a collaborative effort between
-                              Teckybot and P.E.N Schools, aiming to empower students with futuristic technological exposure. It serves as a
-                              dynamic platform for students, educators, technologists, and enthusiasts to explore real-world applications of
-                              robotics through live demonstrations, technical exhibits, and engaging activities.
+                              Bot Expo is an interactive tech event by Teckybot and Pen Schools, showcasing the latest in robotics, automation, and AI. Designed to empower students with futuristic tech exposure, it offers live demos, exhibits, and hands-on activities for students, educators, and tech enthusiasts alike.
                          </p>
                     </div>
                </section>
@@ -77,6 +73,8 @@ const BotExpoPage = () => {
                     </div>
                </section>
 
+              
+
                {/* WHAT YOU WILL EXPLORE SECTION */}
                <section className="max-w-[1450px] mx-auto mt-16 px-4">
                     <h2 className="text-[36px] md:text-[48px] font-bold text-cyan-800 mb-10 text-center">
@@ -99,8 +97,8 @@ const BotExpoPage = () => {
                     </div>
                </section>
 
-               {/* EVENT HIGHLIGHTS SECTION */}
-               <section className="max-w-[1450px] mx-auto mt-20 px-4 pb-20">
+                {/* EVENT HIGHLIGHTS SECTION */}
+               <section className="max-w-[1450px] mx-auto mt-0 px-4 pb-20">
                     <h2 className="text-[36px] md:text-[48px] font-bold text-center text-cyan-800 mb-12">
                          EVENT HIGHLIGHTS
                     </h2>
@@ -120,6 +118,7 @@ const BotExpoPage = () => {
                          ))}
                     </div>
                </section>
+
                {/* AI WORKSHOP FOR TEACHERS SECTION */}
                <section className="max-w-[1350px] mx-auto mt-20 px-4 pb-20 text-center ">
                     <h2 className="text-[28px] md:text-[40px] font-bold text-cyan-800 mb-8">
@@ -133,8 +132,8 @@ const BotExpoPage = () => {
                     </p>
                </section>
 
-               <AIworkshopRegForm/>
-               <Footer/>
+               <AIworkshopRegForm />
+               <Footer />
           </div>
      );
 };

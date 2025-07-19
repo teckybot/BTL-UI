@@ -17,7 +17,7 @@ import TeamRegistrationPage from './pages/Registration/Team/TeamRegistrationPage
 import SchoolRegistrationSuccess from './pages/Registration/School/SchoolRegistrationSuccess'
 // import ComingSoon from './components/comingsoon';
 import CountdownTimer from './pages/CountdownTimer'
-// import ErrorScreen from './components/errorScreen';
+import ErrorScreen from './components/errorScreen';
 import Gallery from './pages/Gallery';
 import { TeamDraftProvider } from './context/TeamDraftContext';
 import TeamModulesPage from './pages/Registration/TeamModulesPage';
@@ -71,10 +71,11 @@ function App() {
           <Route path="/competitions/innoverse" element={<Innoverse />} />
           <Route path="/contactus" element={<ContactCard />} />
           <Route path="/registration/school" element={<SchoolRegistrationPage />} />
-          <Route path="/registration/team" element={<TeamRegistrationPage />} />
+          {/* <Route path="/registration/team" element={<TeamRegistrationPage />} /> */}
           <Route path="/registration-success" element={<SchoolRegistrationSuccess />} />
           {/* <Route path="/registration" element={<CountdownTimer />} /> */}
           {/* <Route path="/coming-soon" element={<ComingSoon />} /> */}
+          <Route path="/registration/team" element={<ErrorScreen />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/competitions" element={<Competitions />} />
           <Route path="/modules" element={<TeamModulesPage />} />
