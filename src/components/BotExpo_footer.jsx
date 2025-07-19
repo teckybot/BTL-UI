@@ -31,7 +31,7 @@ const Bot_Expo_Footer = () => {
                </div>
 
                {/* Social Icons */}
-               <div className="mt-12 flex justify-center gap-[140px]">
+               <div className="mt-12 flex justify-center gap-12 md:gap-[140px]">
                     <img src={linkedinIcon} alt="LinkedIn" className="w-10 h-10" />
                     <img src={youtubeIcon} alt="YouTube" className="w-11 h-11" />
                     <img src={facebookIcon} alt="Facebook" className="w-10 h-10" />
