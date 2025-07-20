@@ -72,7 +72,8 @@ export default function Navbar() {
     { name: 'Competitions', to: '/competitions' },
     { name: 'Registration', to: '/registration/school' },
     { name: 'Gallery', to: '/gallery' },
-    { name: 'Contact us', to: '/contactus', isSpecial: true },
+    {name:'Contact us', to:'/contactus'},
+    { name: 'BotExpo', to: '/Botexpo', isSpecial: true },
   ];
 
   // Navbar style logic for different pages
@@ -244,7 +245,7 @@ export default function Navbar() {
             className="mt-4 mb-2 w-full block text-center px-3 py-3 rounded-full text-base font-semibold transition-colors duration-200 bg-white text-gray-700 shadow-md"
             onClick={() => setIsMenuOpen(false)}
           >
-            Contact us
+            BotExpo
           </Link>
         </div>
       </div>
