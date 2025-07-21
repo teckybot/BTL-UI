@@ -17,21 +17,6 @@
 	<priority>1.0</priority>
 </url>
 <url>
-	<loc>https://www.bharatteckleague.com/registration/school</loc>
-	<lastmod>2025-07-17T09:47:34+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://www.bharatteckleague.com/gallery</loc>
-	<lastmod>2025-07-17T09:47:34+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://www.bharatteckleague.com/contactus</loc>
-	<lastmod>2025-07-17T09:47:34+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
 	<loc>https://www.bharatteckleague.com/competitions/robotics</loc>
 	<lastmod>2025-07-17T09:47:34+01:00</lastmod>
 	<priority>0.8</priority>
@@ -57,27 +42,22 @@
 	<priority>0.8</priority>
 </url>
 <url>
+	<loc>https://www.bharatteckleague.com/registration/school</loc>
+	<lastmod>2025-07-17T09:47:34+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
 	<loc>https://www.bharatteckleague.com/registration/team</loc>
 	<lastmod>2025-07-17T09:47:34+01:00</lastmod>
 	<priority>0.8</priority>
 </url>
 <url>
-	<loc>https://www.bharatteckleague.com/registration-success</loc>
+	<loc>https://www.bharatteckleague.com/gallery</loc>
 	<lastmod>2025-07-17T09:47:34+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
-	<loc>https://www.bharatteckleague.com/modules</loc>
-	<lastmod>2025-07-17T09:47:34+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://www.bharatteckleague.com/teamRegistration-success</loc>
-	<lastmod>2025-07-17T09:47:34+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://www.bharatteckleague.com/regform</loc>
+	<loc>https://www.bharatteckleague.com/contactus</loc>
 	<lastmod>2025-07-17T09:47:34+01:00</lastmod>
 	<priority>1.0</priority>
 </url>

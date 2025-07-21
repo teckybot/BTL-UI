@@ -81,7 +81,7 @@ function App() {
           <Route path="/modules" element={<TeamModulesPage />} />
           <Route path="/team-form/:teamNumber" element={<TeamForm />} />
           <Route path="/teamRegistration-success" element={<TeamRegistrationSuccess />} />
-          <Route path="/regform" element={<SchoolRegistrationForm />} />
+          {/* <Route path="/regform" element={<SchoolRegistrationForm />} /> */}
           <Route path="/Botexpo" element={<BotExpoPage />} />
         </Routes>
         <ScrollToTopButton />
