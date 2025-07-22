@@ -28,32 +28,32 @@ import BotExpoPage from './pages/Botexpo';
 
 
 function App() {
-  // useEffect(() => {
-  //   const handleContextmenu = (e) => {
-  //     e.preventDefault();
-  //   };
-  //   const handleKeydown = (e) => {
-  //     // Prevent F12
-  //     if (e.key === 'F12') {
-  //       e.preventDefault();
-  //     }
-  //     // Prevent Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
-  //     if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
-  //       e.preventDefault();
-  //     }
-  //     // Prevent Ctrl+U (View Source)
-  //     if (e.ctrlKey && e.key.toUpperCase() === 'U') {
-  //       e.preventDefault();
-  //     }
-  //   };
+  useEffect(() => {
+    const handleContextmenu = (e) => {
+      e.preventDefault();
+    };
+    const handleKeydown = (e) => {
+      // Prevent F12
+      if (e.key === 'F12') {
+        e.preventDefault();
+      }
+      // Prevent Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+      if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
+        e.preventDefault();
+      }
+      // Prevent Ctrl+U (View Source)
+      if (e.ctrlKey && e.key.toUpperCase() === 'U') {
+        e.preventDefault();
+      }
+    };
 
-  //   document.addEventListener("contextmenu", handleContextmenu);
-  //   document.addEventListener("keydown", handleKeydown);
-  //   return () => {
-  //     document.removeEventListener("contextmenu", handleContextmenu);
-  //     document.removeEventListener("keydown", handleKeydown);
-  //   };
-  // }, []);
+    document.addEventListener("contextmenu", handleContextmenu);
+    document.addEventListener("keydown", handleKeydown);
+    return () => {
+      document.removeEventListener("contextmenu", handleContextmenu);
+      document.removeEventListener("keydown", handleKeydown);
+    };
+  }, []);
 
   
   return (
@@ -71,11 +71,11 @@ function App() {
           <Route path="/competitions/innoverse" element={<Innoverse />} />
           <Route path="/contactus" element={<ContactCard />} />
           <Route path="/registration/school" element={<SchoolRegistrationPage />} />
-          <Route path="/registration/team" element={<TeamRegistrationPage />} />
+          {/* <Route path="/registration/team" element={<TeamRegistrationPage />} /> */}
           <Route path="/registration-success" element={<SchoolRegistrationSuccess />} />
           {/* <Route path="/registration" element={<CountdownTimer />} /> */}
           {/* <Route path="/coming-soon" element={<ComingSoon />} /> */}
-          {/* <Route path="/registration/team" element={<ErrorScreen />} /> */}
+          <Route path="/registration/team" element={<ErrorScreen />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/competitions" element={<Competitions />} />
           <Route path="/modules" element={<TeamModulesPage />} />
