@@ -25,5 +25,7 @@ dist-ssr
 
 # components
 src/pages/Footer.jsx
+src/pages/AIWorkshopDashboard.jsx
 
+# environment variables
 .env

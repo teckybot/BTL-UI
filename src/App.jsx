@@ -26,34 +26,36 @@ import TeamRegistrationSuccess from './pages/Registration/Team/TeamRegistrationS
 import SchoolRegistrationForm from './pages/Registration/School/SchoolRegistrationForm';
 import BotExpoPage from './pages/Botexpo';
 
+import AIWorkshopSuccess from './pages/AIWorkshopSuccess';
+import AIWorkshopDashboard from './pages/AIWorkshopDashboard';
 
 function App() {
-  useEffect(() => {
-    const handleContextmenu = (e) => {
-      e.preventDefault();
-    };
-    const handleKeydown = (e) => {
-      // Prevent F12
-      if (e.key === 'F12') {
-        e.preventDefault();
-      }
-      // Prevent Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
-      if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
-        e.preventDefault();
-      }
-      // Prevent Ctrl+U (View Source)
-      if (e.ctrlKey && e.key.toUpperCase() === 'U') {
-        e.preventDefault();
-      }
-    };
+  // useEffect(() => {  
+  //   const handleContextmenu = (e) => {
+  //     e.preventDefault();
+  //   };
+  //   const handleKeydown = (e) => {
+  //     // Prevent F12
+  //     if (e.key === 'F12') {
+  //       e.preventDefault();
+  //     }
+  //     // Prevent Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+  //     if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
+  //       e.preventDefault();
+  //     }
+  //     // Prevent Ctrl+U (View Source)
+  //     if (e.ctrlKey && e.key.toUpperCase() === 'U') {
+  //       e.preventDefault();
+  //     }
+  //   };
 
-    document.addEventListener("contextmenu", handleContextmenu);
-    document.addEventListener("keydown", handleKeydown);
-    return () => {
-      document.removeEventListener("contextmenu", handleContextmenu);
-      document.removeEventListener("keydown", handleKeydown);
-    };
-  }, []);
+  //   document.addEventListener("contextmenu", handleContextmenu);
+  //   document.addEventListener("keydown", handleKeydown);
+  //   return () => {
+  //     document.removeEventListener("contextmenu", handleContextmenu);
+  //     document.removeEventListener("keydown", handleKeydown);
+  //   };
+  // }, []);
 
   
   return (
@@ -83,6 +85,8 @@ function App() {
           <Route path="/teamRegistration-success" element={<TeamRegistrationSuccess />} />
           {/* <Route path="/regform" element={<SchoolRegistrationForm />} /> */}
           <Route path="/Botexpo" element={<BotExpoPage />} />
+          <Route path="/ai-workshop-pending" element={<AIWorkshopSuccess />} />
+          {/* <Route path="/ai-workshop-dashboard" element={<AIWorkshopDashboard />} /> */}
         </Routes>
         <ScrollToTopButton />
       </TeamDraftProvider>
