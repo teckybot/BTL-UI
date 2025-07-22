@@ -38,14 +38,17 @@ const TeamModulesPage = () => {
       try {
         const res = await api.get(`/team/list?schoolRegId=${draft.schoolRegId}`);
         console.log('Fetched teams for', draft.schoolRegId, res.data);
-        if (Array.isArray(res.data)) {
-          setRegisteredTeams(res.data.map(team => ({ teamNumber: team.teamNumber, teamRegId: team.teamRegId })));
-          // Auto-cleanup: remove any draft teams that are now registered
-          const registeredNumbers = new Set(res.data.map(team => team.teamNumber));
-          removeTeams(Array.from(registeredNumbers));
-        }
+        const teams = Array.isArray(res.data.data) ? res.data.data : [];
+        setRegisteredTeams(teams.map(team => ({
+          teamNumber: team.teamNumber,
+          teamRegId: team.teamRegId
+        })));
+        const registeredNumbers = new Set(teams.map(team => team.teamNumber));
+        removeTeams(Array.from(registeredNumbers));
+
       } catch (err) {
-        // Optionally handle error
+        console.error('Failed to fetch registered teams:', err);
+        setError('Could not load registered teams. Please refresh.');
       }
     };
     fetchRegisteredTeams();
@@ -142,8 +145,8 @@ const TeamModulesPage = () => {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
         <div className="bg-white border border-[#B6C6E3] rounded-xl p-5 mb-4 md:mb-0 w-full">
           <h2 className="text-[#2563EB] font-semibold text-lg mb-3 flex items-center gap-2">
-            <PushpinOutlined  className="text-xl text-[#2563EB] md:pl-40" ></PushpinOutlined>
-              Important Instructions
+            <PushpinOutlined className="text-xl text-[#2563EB] md:pl-40" ></PushpinOutlined>
+            Important Instructions
           </h2>
           <ul className="list-disc marker:text-[#2563EB] pl-5 text-[15px] text-[#222] space-y-3 md:pl-52 leading-relaxed  md:leading-normal">
             <li>Each team must have a minimum of 2 and a maximum of 4 participants to be eligible.</li>
