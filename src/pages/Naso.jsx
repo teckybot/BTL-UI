@@ -1,7 +1,7 @@
 import React from "react";
 import starBullet from "../data/Naso/Star 5.png";
 import bgImage from "../data/Naso/Star 5.png";
-import Nasoimg from "../data/Naso/tempImageE0obcq 1.png";
+import Nasoimg from "../data/Naso/naso_poster(1).jpg";
 import Footer from "../components/Footer";
 // Import your decorative icons (replace with your actual paths)
 import icon1 from "../data/Naso/astronaut 1 (1).png";
@@ -33,12 +33,21 @@ export default function NasoInfoCard() {
           style={{ backgroundImage: `url(${bgImage})` }}
         >
           {/* Left Side - Image */}
-          <div className="w-full md:w-1/2 md:ml-[80px] md:mt-[80px] mt-[80px] shadow-lg">
+          <div className="w-full md:w-1/2 md:ml-[80px] md:mt-[80px] mt-[80px] shadow-lg flex flex-col items-center">
             <img
               src={Nasoimg}
               alt="NASO Poster"
               className="w-full h-auto rounded-3xl md:rounded-[50px]"
             />
+            <a
+              href={Nasoimg}
+              download="NASO_Poster.jpg"
+              className="mt-4 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-400 
+               text-white text-sm md:text-base font-semibold rounded-lg 
+               shadow-md hover:scale-105 hover:shadow-lg transition"
+            >
+              Download Poster
+            </a>
           </div>
 
           {/* Right Side - Content */}
