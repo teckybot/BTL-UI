@@ -149,7 +149,7 @@ const TeamCheckoutPage = () => {
               <tr className="bg-blue-50 text-gray-700">
                 <th className="p-2 border">Team #</th>
                 <th className="p-2 border">Team Size</th>
-                <th className="p-2 border">Event</th>
+                <th className="p-2 border">Competition</th>
                 <th className="p-2 border">Amount (₹)</th>
               </tr>
             </thead>

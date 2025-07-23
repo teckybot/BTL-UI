@@ -86,11 +86,11 @@ const TeamRegistrationSuccess = () => {
         </motion.div>
 
         <h1 className="text-3xl font-bold text-blue-700 mb-2">
-          Team Registration Successful!
+          Teams Registration Successful!
         </h1>
 
         <p className="text-gray-700 text-lg">
-          Your team has been successfully registered for <strong>Bharat Tech League 2025</strong>.
+          Your teams has been successfully registered for <strong>Bharat Teck League 2025</strong>.
         </p>
 
         {registeredTeams.length > 0 ? (
@@ -120,7 +120,7 @@ const TeamRegistrationSuccess = () => {
           <ul className="list-disc list-inside text-gray-700 text-sm space-y-2">
             <li>Keep your Team ID safe for future reference</li>
             <li>Check your email for important updates about the competition</li>
-            <li>Start preparing for your selected event category</li>
+            <li>Start preparing for your selected competition category</li>
           </ul>
         </div>
 
