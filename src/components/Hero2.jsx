@@ -3,6 +3,7 @@ import spaceMobile from '../data/All/galaxy-night-mobile.png';
 import logo from '../data/All/BTL2025_logo.png';
 import BTL_LOGO from "../data/All/BTL2025_logo.png";
 import teckybotLogo from '../data/All/Teckybot TM_Inv.png';
+import FunscholarLogo from '../data/All/funscholar.jpg';
 
 export default function HeroWithLogoAndTagline() {
   return (
@@ -19,7 +20,7 @@ export default function HeroWithLogoAndTagline() {
         <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between w-full max-w-[1200px]">
 
           {/* BTL Logo and Tagline Section */}
-          <div className="flex flex-col items-center lg:items-start mb-10 lg:mb-0 -mt-20 md:mt-16">
+          <div className="flex flex-col items-center lg:items-start mb-10 md:ml-[-100px]  lg:mb-0 -mt-72 md:mt-16">
             {/* BTL Logo */}
             <img
               src={logo}
@@ -31,7 +32,7 @@ export default function HeroWithLogoAndTagline() {
 
           {/* Powered by Teckybot Section */}
           {/* Teckybot Section for Desktop */}
-          <div className="hidden lg:block absolute bottom-72 right-[35%] text-left">
+          <div className="hidden lg:block absolute bottom-[340px] right-[45%] text-left">
             <p className="text-white text-lg pl-14 font-light">Powered by</p>
             <div className="flex items-center gap-3 mt-2">
               <a href="https://teckybot.com/" target="_blank" rel="noopener noreferrer">
@@ -43,14 +44,39 @@ export default function HeroWithLogoAndTagline() {
               </a>
             </div>
           </div>
-
+          
+          <div className="hidden lg:block absolute bottom-[355px] right-[26%] text-left">
+            <p className="text-white text-lg pl-14 font-light">Proud Partner</p>
+            <div className="flex items-center gap-3 mt-2">
+              <a href="https://funscholar.com/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={FunscholarLogo}
+                  alt="Teckybot Logo"
+                  className="w-[250px] h-auto object-contain cursor-pointer"
+                />
+              </a>
+            </div>
+          </div>
+         
           {/* Teckybot Section for Mobile  */}
-          <div className="block lg:hidden absolute bottom-[34%] left-1/2 -translate-x-1/2 text-center z-10">
+          <div className="block lg:hidden absolute bottom-[48%] left-1/2 -translate-x-1/2 text-center z-10">
             <p className="text-white text-base font-light">Powered by</p>
             <div className="flex items-center justify-center gap-3 mt-2">
               <a href="https://teckybot.com/" target="_blank" rel="noopener noreferrer">
                 <img
                   src={teckybotLogo}
+                  alt="Teckybot Logo"
+                  className="w-[150px] h-auto object-contain cursor-pointer"
+                />
+              </a>
+            </div>
+          </div>
+          <div className="block lg:hidden absolute bottom-[36%] left-1/2 -translate-x-1/2 text-center z-10">
+            <p className="text-white text-base font-light">Proud Partner</p>
+            <div className="flex items-center justify-center gap-3 mt-2">
+              <a href="https://funscholar.com/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={FunscholarLogo}
                   alt="Teckybot Logo"
                   className="w-[150px] h-auto object-contain cursor-pointer"
                 />

@@ -14,8 +14,7 @@ const Bot_Expo_Footer = () => {
                     {/* Left - Logo and Contact */}
                     <div className="flex flex-col gap-5">
                          <img src={teckybotLogo} alt="Teckybot Logo" className="w-[180px] mt-[60px]" />
-                         <p className="text-lg font-semibold">Contact no : <span className="font-normal">8886122885</span><br />
-                         Email : <span className="font-normal">info@teckybot.com</span></p>
+                         <p className="text-lg font-semibold">Contact no : <span className="font-normal">8523885963</span></p>
                     </div>
 
                     {/* Right - Address */}
