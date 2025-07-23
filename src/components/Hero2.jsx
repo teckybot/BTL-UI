@@ -20,7 +20,7 @@ export default function HeroWithLogoAndTagline() {
         <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between w-full max-w-[1200px]">
 
           {/* BTL Logo and Tagline Section */}
-          <div className="flex flex-col items-center lg:items-start mb-10 md:ml-[-100px]  lg:mb-0 -mt-72 md:mt-16">
+          <div className="flex flex-col items-center lg:items-start mb-0 md:ml-[-100px]  lg:mb-0 -mt-72 md:mt-16">
             {/* BTL Logo */}
             <img
               src={logo}
@@ -59,7 +59,7 @@ export default function HeroWithLogoAndTagline() {
           </div>
          
           {/* Teckybot Section for Mobile  */}
-          <div className="block lg:hidden absolute bottom-[48%] left-1/2 -translate-x-1/2 text-center z-10">
+          <div className="block lg:hidden absolute bottom-[45%] left-1/2 -translate-x-1/2 text-center z-10">
             <p className="text-white text-base font-light">Powered by</p>
             <div className="flex items-center justify-center gap-3 mt-2">
               <a href="https://teckybot.com/" target="_blank" rel="noopener noreferrer">
@@ -71,7 +71,7 @@ export default function HeroWithLogoAndTagline() {
               </a>
             </div>
           </div>
-          <div className="block lg:hidden absolute bottom-[36%] left-1/2 -translate-x-1/2 text-center z-10">
+          <div className="block lg:hidden absolute bottom-[32%] left-1/2 -translate-x-1/2 text-center z-10">
             <p className="text-white text-base font-light">Proud Partner</p>
             <div className="flex items-center justify-center gap-3 mt-2">
               <a href="https://funscholar.com/" target="_blank" rel="noopener noreferrer">
