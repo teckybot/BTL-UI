@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
@@ -25,8 +25,20 @@ import TeamForm from './components/Regcomponents/TeamForm';
 import TeamRegistrationSuccess from './pages/Registration/Team/TeamRegistrationSuccess';
 import SchoolRegistrationForm from './pages/Registration/School/SchoolRegistrationForm';
 import BotExpoPage from './pages/Botexpo';
-
 import AIWorkshopSuccess from './pages/AIWorkshopSuccess';
+import TeamCheckoutPage from './pages/Registration/TeamCheckoutPage';
+import NasoInfoCard from './pages/Naso';
+
+function ScrollButtonWrapper() {
+  const location = useLocation();
+  const hideScrollToTopOn = [
+    '/registration/team/checkout',
+    '/modules',
+  ];
+  const shouldShowScrollToTop = !hideScrollToTopOn.includes(location.pathname);
+
+  return shouldShowScrollToTop ? <ScrollToTopButton /> : null;
+}
 
 function App() {
   // useEffect(() => {  
@@ -86,8 +98,10 @@ function App() {
           <Route path="/Botexpo" element={<BotExpoPage />} />
           <Route path="/ai-workshop-pending" element={<AIWorkshopSuccess />} />
           {/* <Route path="/ai-workshop-dashboard" element={<AIWorkshopDashboard />} /> */}
+          <Route path="/registration/team/checkout" element={<TeamCheckoutPage />} />
+          <Route path="/naso" element={<NasoInfoCard />} />
         </Routes>
-        <ScrollToTopButton />
+        <ScrollButtonWrapper />
       </TeamDraftProvider>
     </Router>
   );

@@ -27,6 +27,7 @@ export default function TeamRegistrationCard() {
         <div onClick={() => navigate('/registration/team')}
             className="relative w-[460px] h-[550px] -mt-0 bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col cursor-pointer hover:shadow-2xl transition-shadow duration-300">
             {/* Header */}
+
             <div className="bg-gradient-to-r from-[#004AAD] to-[#2684FC] text-white font-bold  text-center py-3 rounded-t-[24px] text-sm tracking-wide">
                 TEAM REGISTRATION
             </div>

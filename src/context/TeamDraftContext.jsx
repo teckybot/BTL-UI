@@ -3,38 +3,56 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 export const TeamDraftContext = createContext();
 
 const getStorageKey = (schoolRegId) => `teamDraftData_${schoolRegId}`;
+const LAST_SCHOOL_KEY = 'lastTeamSchoolRegId';
 
 export const TeamDraftProvider = ({ children }) => {
-  const [draft, setDraft] = useState({ schoolRegId: "", teams: {} });
+  const [draft, setDraft] = useState({ schoolRegId: "", teams: {}, coordinatorEmail: "" });
   const [filledCount, setFilledCount] = useState(0);
 
-  // Load draft for a specific school
   const loadDraft = useCallback((schoolRegId) => {
-    if (!schoolRegId) return { schoolRegId: "", teams: {} };
-    const saved = localStorage.getItem(getStorageKey(schoolRegId));
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        return parsed;
-      } catch {}
+    if (!schoolRegId) return { schoolRegId: "", teams: {}, coordinatorEmail: "" };
+    try {
+      const saved = localStorage.getItem(getStorageKey(schoolRegId));
+      return saved ? JSON.parse(saved) : { schoolRegId, teams: {}, coordinatorEmail: "" };
+    } catch {
+      return { schoolRegId, teams: {}, coordinatorEmail: "" };
     }
-    return { schoolRegId, teams: {} };
   }, []);
 
-  // Switch to a new school (called at checkpoint)
-  const switchToSchool = (schoolRegId) => {
-    setDraft(loadDraft(schoolRegId));
-  };
+  // On mount, try to restore last used schoolRegId if not set
+  useEffect(() => {
+    if (!draft.schoolRegId) {
+      // Try to get last used schoolRegId
+      const lastSchoolRegId = localStorage.getItem(LAST_SCHOOL_KEY);
+      if (lastSchoolRegId) {
+        setDraft(loadDraft(lastSchoolRegId));
+        return;
+      }
+      // Fallback: Find any key starting with "teamDraftData_"
+      const lastKey = Object.keys(localStorage).find((k) => k.startsWith("teamDraftData_"));
+      if (lastKey) {
+        try {
+          const saved = JSON.parse(localStorage.getItem(lastKey));
+          setDraft(saved);
+        } catch {
+          // ignore parse errors
+        }
+      }
+    } else {
+      // If we already know the school, reload it
+      setDraft(loadDraft(draft.schoolRegId));
+    }
+  }, []); // run once
 
-  // Save draft to localStorage whenever it changes
+  // Save draft and last used schoolRegId on change
   useEffect(() => {
     if (draft.schoolRegId) {
       localStorage.setItem(getStorageKey(draft.schoolRegId), JSON.stringify(draft));
+      localStorage.setItem(LAST_SCHOOL_KEY, draft.schoolRegId); // <-- persist last used
       setFilledCount(Object.keys(draft.teams || {}).length);
     }
   }, [draft]);
 
-  // Update a single team in the draft
   const updateTeam = (teamNumber, teamData) => {
     setDraft((prev) => ({
       ...prev,
@@ -42,7 +60,6 @@ export const TeamDraftProvider = ({ children }) => {
     }));
   };
 
-  // Remove a team from the draft
   const removeTeam = (teamNumber) => {
     setDraft((prev) => {
       const newTeams = { ...prev.teams };
@@ -51,31 +68,46 @@ export const TeamDraftProvider = ({ children }) => {
     });
   };
 
-  // Remove multiple teams from the draft
   const removeTeams = (teamNumbers) => {
     setDraft((prev) => {
       const newTeams = { ...prev.teams };
-      teamNumbers.forEach(num => delete newTeams[num]);
+      teamNumbers.forEach((num) => delete newTeams[num]);
       return { ...prev, teams: newTeams };
     });
   };
 
-  // Set schoolRegId (for backward compatibility)
+  const switchToSchool = (schoolRegId) => {
+    setDraft(loadDraft(schoolRegId));
+  };
+
   const setSchoolRegId = (schoolRegId) => {
     setDraft((prev) => ({ ...prev, schoolRegId }));
   };
 
-  // Clear all draft data for the current school
+  const setCoordinatorEmail = (email) => {
+    setDraft((prev) => ({ ...prev, coordinatorEmail: email }));
+  };
+
   const clearDraft = () => {
     if (draft.schoolRegId) {
       localStorage.removeItem(getStorageKey(draft.schoolRegId));
     }
-    setDraft({ schoolRegId: "", teams: {} });
+    setDraft({ schoolRegId: "", teams: {}, coordinatorEmail: "" });
   };
 
   return (
     <TeamDraftContext.Provider
-      value={{ draft, filledCount, updateTeam, removeTeam, setSchoolRegId, clearDraft, switchToSchool, removeTeams }}
+      value={{
+        draft,
+        filledCount,
+        updateTeam,
+        removeTeam,
+        removeTeams,
+        setSchoolRegId,
+        setCoordinatorEmail,
+        clearDraft,
+        switchToSchool,
+      }}
     >
       {children}
     </TeamDraftContext.Provider>

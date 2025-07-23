@@ -20,7 +20,7 @@ const TeamModulesPage = () => {
 
   // Handle school switch
   useEffect(() => {
-    const schoolRegId = location.state?.schoolRegId;
+    const schoolRegId = location.state?.schoolRegId || draft.schoolRegId;
     if (!schoolRegId) {
       navigate("/registration/team", { replace: true });
       return;
@@ -70,42 +70,42 @@ const TeamModulesPage = () => {
   const registeredCount = registeredTeamNumbers.length;
   const totalAfterSubmit = registeredCount + newTeamsCount;
 
-  const handleSubmit = async () => {
-    setShowConfirm(false);
-    setSubmitting(true);
-    setError("");
+  // const handleSubmit = async () => {
+  //   setShowConfirm(false);
+  //   setSubmitting(true);
+  //   setError("");
 
-    try {
-      const teamsArr = newTeamsToSubmit.map(([teamNumber, teamData]) => ({
-        ...teamData,
-        teamNumber: Number(teamNumber)
-      }));
-      const res = await api.post("/team/registerBatch", {
-        schoolRegId: draft.schoolRegId,
-        teams: teamsArr,
-      });
+  //   try {
+  //     const teamsArr = newTeamsToSubmit.map(([teamNumber, teamData]) => ({
+  //       ...teamData,
+  //       teamNumber: Number(teamNumber)
+  //     }));
+  //     const res = await api.post("/team/registerBatch", {
+  //       schoolRegId: draft.schoolRegId,
+  //       teams: teamsArr,
+  //     });
 
-      if (res.data.success) {
-        const submittedTeamNumbers = (res.data.teams || []).map(t => t.teamNumber);
-        removeTeams(submittedTeamNumbers); // Remove only submitted teams from draft
-        setSubmitted(true);
-        navigate("/teamRegistration-success", {
-          state: {
-            registeredTeams: res.data.teams || [],
-            pdfBase64: res.data.pdfBase64,      // <-- add this
-            pdfFileName: res.data.pdfFileName,  // <-- and this
-          },
-        });
-      } else {
-        setError(res.data.message || "Submission failed.");
-      }
-    } catch (err) {
-      setError(err.response?.data?.message || "Submission failed.");
-    } finally {
-      setSubmitting(false);
-      setPopupStep(0);
-    }
-  };
+  //     if (res.data.success) {
+  //       const submittedTeamNumbers = (res.data.teams || []).map(t => t.teamNumber);
+  //       removeTeams(submittedTeamNumbers); // Remove only submitted teams from draft
+  //       setSubmitted(true);
+  //       navigate("/teamRegistration-success", {
+  //         state: {
+  //           registeredTeams: res.data.teams || [],
+  //           pdfBase64: res.data.pdfBase64,      // <-- add this
+  //           pdfFileName: res.data.pdfFileName,  // <-- and this
+  //         },
+  //       });
+  //     } else {
+  //       setError(res.data.message || "Submission failed.");
+  //     }
+  //   } catch (err) {
+  //     setError(err.response?.data?.message || "Submission failed.");
+  //   } finally {
+  //     setSubmitting(false);
+  //     setPopupStep(0);
+  //   }
+  // };
 
   const canSubmit = newTeamsCount > 0 && !submitting && !submitted;
 
@@ -217,10 +217,7 @@ const TeamModulesPage = () => {
         <button
           className="px-8 py-2 rounded-lg bg-[#2563EB] text-white font-semibold shadow hover:bg-[#174EA6] transition"
           disabled={!canSubmit}
-          onClick={() => {
-            setShowConfirm(true);
-            setPopupStep(0);
-          }}
+          onClick={() => navigate('/registration/team/checkout')}
         >
           NEXT
         </button>

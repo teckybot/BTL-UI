@@ -19,12 +19,17 @@ export default {
           '0%': { transform: "translateX(100%)" },
           '100%': { transform: 'translateX(-100%)' },
         },
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
       },
 
       animation: {
         'partner-scroll': 'scrollPartnerRow 40s linear infinite',
         'spinSlow': 'spin 18s linear infinite',
         'marquee': 'marquee 30s linear infinite',
+        'blink': 'blink 1.5s infinite',
       },
       backgroundImage: {
         'gradient-3dmaker': 'linear-gradient(180deg, #D23D0B 25%, #F9C696 100%)',

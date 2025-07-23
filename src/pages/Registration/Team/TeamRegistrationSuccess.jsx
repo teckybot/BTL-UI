@@ -69,9 +69,9 @@ const TeamRegistrationSuccess = () => {
   }, []); // Empty dependency array means this runs once on mount
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100 flex items-center justify-center px-4 pt-20">
       <motion.div
-        className="bg-white shadow-2xl rounded-2xl w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl p-10 text-center"
+        className="bg-white shadow-2xl rounded-2xl w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-3xl p-10 text-center"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
@@ -112,7 +112,7 @@ const TeamRegistrationSuccess = () => {
         )}
 
         <p className="text-gray-600 mb-6">
-          A confirmation email has been sent to the coordinator's email. You can also download your team registration details below.
+          A confirmation email has been sent to the school & coordinator's email. You can also download your team registration details below.
         </p>
 
         <div className="bg-blue-50 p-4 rounded-md text-left mb-6">

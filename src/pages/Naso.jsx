@@ -57,9 +57,10 @@ export default function NasoInfoCard() {
                 "NASO is officially partnered with ISRO and accredited by STEM.ORG, making its certification globally recognized.",
               ].map((point, idx) => (
                 <li key={idx} className="flex flex-col space-y-2 md:space-y-3">
-                  <hr
-                    className="border-0 h-[2px] bg-gradient-to-l from-white/50 via-white/30 to-transparent"
-                  />
+                  {/* Render line only for all but the first item */}
+                  {idx !== 0 && (
+                    <hr className="border-0 h-[2px] bg-gradient-to-l from-white/50 via-white/30 to-transparent" />
+                  )}
                   <div className="flex items-start pt-2 md:pt-6">
                     <img src={starBullet} alt="star" className="w-4 h-4 md:w-5 md:h-5 mt-1 mr-2" />
                     <p className="text-base md:text-[20px] leading-relaxed">{point}</p>
