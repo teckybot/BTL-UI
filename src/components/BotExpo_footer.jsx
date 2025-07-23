@@ -35,10 +35,10 @@ const Bot_Expo_Footer = () => {
 
                {/* Social Icons */}
                <div className="mt-12 flex justify-center gap-12 md:gap-[140px]">
-                    <img src={linkedinIcon} alt="LinkedIn" className="w-10 h-10" />
-                    <img src={youtubeIcon} alt="YouTube" className="w-11 h-11" />
-                    <img src={facebookIcon} alt="Facebook" className="w-10 h-10" />
-                    <img src={instagramIcon} alt="Instagram" className="w-10 h-10" />
+                    <a href="https://www.linkedin.com/company/teckybot/posts/?feedView=all"><img src={linkedinIcon} alt="LinkedIn" className="w-10 h-10" /></a>
+                    <a href="https://www.youtube.com/@teckybot23"><img src={youtubeIcon} alt="YouTube" className="w-11 h-11" /></a>
+                    <a href="https://www.facebook.com/teckybot?mibextid=ZbWKwL"><img src={facebookIcon} alt="Facebook" className="w-10 h-10" /></a>
+                    <a href="https://www.instagram.com/teckybot/"><img src={instagramIcon} alt="Instagram" className="w-10 h-10" /></a>
                </div>
           </footer>
      );
