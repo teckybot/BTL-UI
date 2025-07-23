@@ -8,8 +8,9 @@ import instagramIcon from '../data/BotExpo/instagram.png';
 const Bot_Expo_Footer = () => {
      return (
           <footer className="bg-[#F4E5CC] py-12 px-6"
-          style={{background: "linear-gradient(180deg, #FFFFFF 33.17%, #248B9A 100%)"
-}}>
+               style={{
+                    background: "linear-gradient(180deg, #FFFFFF 33.17%, #248B9A 100%)"
+               }}>
                <div className="max-w-[900px] mx-auto flex flex-col md:flex-row justify-between gap-10">
                     {/* Left - Logo and Contact */}
                     <div className="flex flex-col gap-5">
@@ -21,12 +22,13 @@ const Bot_Expo_Footer = () => {
                     <div className='mb-[60px]'>
                          <p className="text-[20px] font-semibold mb-4">Address</p>
                          <p className="text-[18px] leading-relaxed">
-                              Dr No 1, 20/1,<br />
-                              Juttada Rd,<br />
-                              Pulaganipalem,<br />
-                              Pendurthi,<br />
+
+                              52-14-75 Survey No:44, <br />
+                              National Highway 16,<br />
+                              Near Rama Talkies Rd <br />
+                              Resapuvanipalem, <br />
                               Visakhapatnam,<br />
-                              Andhra Pradesh - 531143
+                              Andhra Pradesh 530013
                          </p>
                     </div>
                </div>
