@@ -99,7 +99,7 @@ export default function Aboutus() {
             {/* Actual Card */}
             <div className="bg-white/10 p-4 rounded-xl text-sm leading-relaxed text-gray-100 shadow-md border border-white/10">
               <p>
-                Bharat Tech League (BTL) is a national initiative
+                Bharat Teck League (BTL) is a national initiative
                 by Teckybot that fosters innovation, creativity,  and technical skills among young minds across India
               </p>
               <p>
