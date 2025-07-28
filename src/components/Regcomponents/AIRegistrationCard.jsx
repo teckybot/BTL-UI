@@ -114,8 +114,8 @@ const RegistrationCard = () => {
   };
 
   return (
-    <div className="bg-white text-black p-6 pt-6 pb-12 md:p-10 md:pt-12 md:pb-6 rounded-2xl shadow-xl max-w-lg w-full z-20">
-      <h2 className="text-[22px] md:text-[26px] font-bold text-center mb-6">
+    <div className="bg-white text-black p-6 pt-6 pb-12 md:p-10 md:-mt-10 md:pt-12 md:pb-6 rounded-2xl shadow-xl max-w-lg w-full z-20">
+      <h2 className="text-[22px] md:text-[26px] font-bold text-center mb-3">
         EXCLUSIVELY FOR TEACHERS
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
