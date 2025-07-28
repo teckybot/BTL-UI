@@ -45,7 +45,7 @@ const AIWorkshopSuccess = () => {
             <p className="text-gray-700 text-base sm:text-lg">
               Our coordinators will be in touch with you shortly and<br />
               will share the payment link along with detailed instructions.<br />
-              <span className="font-semibold text-black">Your registration is not complete until payment is confirmed.</span>
+              <span className="font-semibold text-black">You’re almost registered just complete the payment to confirm your spot.</span>
             </p>
           </div>
           <button
