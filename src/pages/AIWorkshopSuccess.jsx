@@ -43,9 +43,8 @@ const AIWorkshopSuccess = () => {
             <p className="text-lg md:text-3xl font-semibold text-blue-800 mb-4">
               The registration fee for the workshop is <span className="font-semibold text-gray-900">₹299.</span><br /></p>
             <p className="text-gray-700 text-base sm:text-lg">
-              Please contact the admin team to confirm your registration.<br />
-              Use the phone numbers in the <span className="font-bold text-blue-700">Contact Us</span> page.<br />
-              The payment link and instructions will be sent by the admin team.<br />
+              Our coordinators will be in touch with you shortly and<br />
+              will share the payment link along with detailed instructions.<br />
               <span className="font-semibold text-black">Your registration is not complete until payment is confirmed.</span>
             </p>
           </div>

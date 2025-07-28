@@ -12,8 +12,16 @@ const RegistrationCard = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
-  const validEmailDomains = ['@gmail.com', '@yahoo.com', '@yahoo.in', '@outlook.com', '@teckybot.com'];
-  const isValidEmail = (email) => validEmailDomains.some((domain) => email.endsWith(domain));
+  // const validEmailDomains = ['@gmail.com', '@yahoo.com', '@yahoo.in', '@outlook.com', '@teckybot.com'];
+  // const isValidEmail = (email) => validEmailDomains.some((domain) => email.endsWith(domain));
+
+  // Allow any domain, just check basic email format
+  const isValidEmail = (email) => {
+    if (!email || typeof email !== 'string') return false;
+    email = email.trim().toLowerCase();
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const isAllCaps = (text) => text === text?.toUpperCase();
 
   const validateForm = () => {
@@ -36,8 +44,9 @@ const RegistrationCard = () => {
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email! (Only @gmail.com, @yahoo.com, @yahoo.in, @outlook.com are accepted)';
+      newErrors.email = 'Please enter a valid email address!';
     }
+
     if (!formData.school.trim()) {
       newErrors.school = 'School name is required';
     } else if (!isAllCaps(formData.school)) {
@@ -95,7 +104,7 @@ const RegistrationCard = () => {
         setErrors(error.response.data.errors);
         message.error(error.response.data.message || 'Validation failed.');
       } else if (error.response?.data?.message?.includes('Maximum registrations')) {
-        message.error('Maximum registrations (100) reached for AI Workshop. Registration is now closed.');
+        message.error('Maximum registrations (300) reached for AI Workshop. Registration is now closed.');
       } else {
         message.error(error.response?.data?.error || error.message || 'Failed to submit form');
       }
@@ -120,9 +129,8 @@ const RegistrationCard = () => {
             onChange={handleInputChange}
             placeholder='ENTER YOUR NAME IN CAPITAL LETTERS'
             required
-            className={`mt-1 block w-full p-3 bg-white text-black border rounded-md shadow-sm focus:ring-black focus:border-black ${
-              errors.name ? 'border-red-500' : 'border-gray-300'
-            }`}
+            className={`mt-1 block w-full p-3 bg-white text-black border rounded-md shadow-sm focus:ring-black focus:border-black ${errors.name ? 'border-red-500' : 'border-gray-300'
+              }`}
           />
           {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
         </div>
@@ -137,9 +145,8 @@ const RegistrationCard = () => {
             placeholder="Enter the no. linked to WhatsApp"
             required
             maxLength={10}
-            className={`mt-1 block w-full p-3 bg-white text-black border rounded-md shadow-sm focus:ring-black focus:border-black ${
-              errors.contact ? 'border-red-500' : 'border-gray-300'
-            }`}
+            className={`mt-1 block w-full p-3 bg-white text-black border rounded-md shadow-sm focus:ring-black focus:border-black ${errors.contact ? 'border-red-500' : 'border-gray-300'
+              }`}
           />
           {errors.contact && <p className="text-red-500 text-xs mt-1">{errors.contact}</p>}
         </div>
@@ -153,9 +160,8 @@ const RegistrationCard = () => {
             onChange={handleInputChange}
             placeholder='Enter your email id'
             required
-            className={`mt-1 block w-full p-3 bg-white text-black border rounded-md shadow-sm focus:ring-black focus:border-black ${
-              errors.email ? 'border-red-500' : 'border-gray-300'
-            }`}
+            className={`mt-1 block w-full p-3 bg-white text-black border rounded-md shadow-sm focus:ring-black focus:border-black ${errors.email ? 'border-red-500' : 'border-gray-300'
+              }`}
           />
           {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
         </div>
@@ -169,9 +175,8 @@ const RegistrationCard = () => {
             onChange={handleInputChange}
             placeholder='ENTER YOUR SCHOOL NAME IN CAPITAL LETTERS'
             required
-            className={`mt-1 block w-full p-3 bg-white text-black border rounded-md shadow-sm focus:ring-black focus:border-black ${
-              errors.school ? 'border-red-500' : 'border-gray-300'
-            }`}
+            className={`mt-1 block w-full p-3 bg-white text-black border rounded-md shadow-sm focus:ring-black focus:border-black ${errors.school ? 'border-red-500' : 'border-gray-300'
+              }`}
           />
           {errors.school && <p className="text-red-500 text-xs mt-1">{errors.school}</p>}
         </div>
@@ -183,6 +188,14 @@ const RegistrationCard = () => {
           {loading ? 'Processing...' : 'SUBMIT'}
         </button>
       </form>
+
+      {/* Highlighted Note */}
+      <div className="mt-6 p-4 bg-[rgba(22,86,95,0.1)] border-l-4 border-[rgba(22,86,95,1)] rounded-md text-center">
+        <p className="text-lg font-semibold text-[rgba(22,86,95,1)]">
+          AI Registration Workshop fee – <span className="font-bold text-black">₹299</span>
+        </p>
+        <p className="text-sm text-gray-700">Inclusive of Hands-on training & Certification.</p>
+      </div>
     </div>
   );
 };
