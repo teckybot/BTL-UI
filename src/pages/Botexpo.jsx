@@ -1,5 +1,5 @@
 import React from 'react';
-import Poster from '../data/BotExpo/BotExpo_Poster.png';
+import Poster from '../data/BotExpo/BotExpo_Poster.jpg';
 import Postermob from '../data/BotExpo/poster_mob.jpg';
 import img1 from '../data/BotExpo/Tech_Projects.png';
 import img2 from '../data/BotExpo/Ai_workshop.png';
@@ -34,7 +34,7 @@ const BotExpoPage = () => {
                     <img
                          src={Poster}
                          alt="Bot Expo 2025 Poster"
-                         className="hidden md:block h-[700px] w-full max-w-[1250px] rounded-lg"
+                         className="hidden md:block h-[700px] w-full max-w-[1250px] rounded-lg md:pt-8"
                     />
                     <img
                          src={Postermob}
