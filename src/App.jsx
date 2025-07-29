@@ -41,32 +41,32 @@ function ScrollButtonWrapper() {
 }
 
 function App() {
-  // useEffect(() => {  
-  //   const handleContextmenu = (e) => {
-  //     e.preventDefault();
-  //   };
-  //   const handleKeydown = (e) => {
-  //     // Prevent F12
-  //     if (e.key === 'F12') {
-  //       e.preventDefault();
-  //     }
-  //     // Prevent Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
-  //     if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
-  //       e.preventDefault();
-  //     }
-  //     // Prevent Ctrl+U (View Source)
-  //     if (e.ctrlKey && e.key.toUpperCase() === 'U') {
-  //       e.preventDefault();
-  //     }
-  //   };
+  useEffect(() => {  
+    const handleContextmenu = (e) => {
+      e.preventDefault();
+    };
+    const handleKeydown = (e) => {
+      // Prevent F12
+      if (e.key === 'F12') {
+        e.preventDefault();
+      }
+      // Prevent Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+      if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
+        e.preventDefault();
+      }
+      // Prevent Ctrl+U (View Source)
+      if (e.ctrlKey && e.key.toUpperCase() === 'U') {
+        e.preventDefault();
+      }
+    };
 
-  //   document.addEventListener("contextmenu", handleContextmenu);
-  //   document.addEventListener("keydown", handleKeydown);
-  //   return () => {
-  //     document.removeEventListener("contextmenu", handleContextmenu);
-  //     document.removeEventListener("keydown", handleKeydown);
-  //   };
-  // }, []);
+    document.addEventListener("contextmenu", handleContextmenu);
+    document.addEventListener("keydown", handleKeydown);
+    return () => {
+      document.removeEventListener("contextmenu", handleContextmenu);
+      document.removeEventListener("keydown", handleKeydown);
+    };
+  }, []);
 
   
   return (
