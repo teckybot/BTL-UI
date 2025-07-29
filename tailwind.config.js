@@ -25,16 +25,17 @@ export default {
         },
         blueGlow: {
           '0%, 100%': {
-            opacity: '8',
+            opacity: '0.8',
             textShadow: '0 0 15px #3b82f6, 0 0 30px #2563eb', // Blue glow
             transform: 'scale(1.25)', 
           },
           '50%': {
-            opacity: '8',
-            textShadow: '0 0 25px #3b82f6, 0 0 50px #1e40af', // Stronger glow mid-pulse
-            transform: 'scale(1.10)', // Grows slightly
+            opacity: '1',
+            textShadow: '0 0 40px #3b82f6, 0 0 50px #1e40af', // Stronger glow mid-pulse
+            transform: 'scale(1.1)', // Grows slightly
           },
         },
+        
       },
 
       animation: {

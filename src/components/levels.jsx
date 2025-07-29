@@ -18,7 +18,7 @@ export default function Levels() {
     >
       {/* Badge */}
       <span
-        className={`absolute top-5 right-5 text-white text-sm px-4 py-1 rounded-full font-semibold border border-blue-400
+        className={`absolute top-5 right-5 text-white text-sm px-4 py-1 rounded-full font-semibold border border-blue-600
     ${badgeText === 'Online'|| 'Offline' ? 'animate-blueGlow bg-transparent' : 'bg-gradient-to-r from-slate-300 to-slate-100 text-gray-800'}
   `}
       >
