@@ -4,6 +4,8 @@ import Instagram from "../data/All/Instagram.png";
 import Linkedin from "../data/All/Linkedin.png";
 import Youtube from "../data/All/Youtube.png";
 import Teckybotlogo from '../data/All/Teckybot TM_Inv.png'
+import FunscholarLogo from '../data/All/funscholar.jpg';
+
 const Footer = () => {
   return (
     <footer className="relative text-white overflow-hidden">
@@ -58,6 +60,11 @@ const Footer = () => {
             <img src={Teckybotlogo} alt="Teckybot Logo" className="w-48 h-auto" />
           </div>
 
+          <div className="flex flex-col space-y-3 pt-6 text-sm pl-[75px] w-full sm:w-auto sm:min-w-[150px] lg:mt-10">
+            <h3 className="font-normal text-white pl-12">Proud Partner</h3>
+            <img src={FunscholarLogo} alt="Teckybot Logo" className="w-48 h-auto" />
+          </div>
+
         </div>
 
         {/* DESKTOP LAYOUT */}
@@ -77,7 +84,12 @@ const Footer = () => {
             <h3 className="font-normal text-white md:pl-12">Powered by</h3>
             <img src={Teckybotlogo} alt="Teckybot Logo" className="w-48 h-auto" />
           </div>
-          
+
+           <div className="flex flex-col space-y-3 text-sm w-full sm:w-auto sm:min-w-[150px] lg:mt-10">
+            <h3 className="font-normal text-white md:pl-12">Proud Partner</h3>
+            <img src={FunscholarLogo} alt="Teckybot Logo" className="w-48 h-auto" />
+          </div>
+
           {/* Quick Links Section */}
           <div className="flex flex-col space-y-3 text-sm w-full sm:w-auto sm:min-w-[150px]">
             <h3 className="font-semibold text-white">Quick Links</h3>

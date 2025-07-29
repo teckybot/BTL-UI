@@ -17,9 +17,14 @@ export default function Levels() {
       }}
     >
       {/* Badge */}
-      <span className="absolute top-5 right-5 bg-gradient-to-r from-slate-300 to-slate-100 text-gray-800 text-xs px-4 py-1 rounded-full font-semibold shadow-sm">
+      <span
+        className={`absolute top-5 right-5 text-white text-sm px-4 py-1 rounded-full font-semibold border border-blue-400
+    ${badgeText === 'Online'|| 'Offline' ? 'animate-blueGlow bg-transparent' : 'bg-gradient-to-r from-slate-300 to-slate-100 text-gray-800'}
+  `}
+      >
         {badgeText}
       </span>
+      
 
       {/* Content */}
       <div className="relative z-10 mt-6">
@@ -62,19 +67,19 @@ export default function Levels() {
       {/* Big LEVEL text */}
 
 
-        {/* h1 goes here */}
+      {/* h1 goes here */}
 
-        <h1
-          className="absolute select-none pointer-events-none font-poppins font-extrabold text-left leading-none tracking-tight uppercase text-[#A8C8F4]/10
+      <h1
+        className="absolute select-none pointer-events-none font-poppins font-extrabold text-left leading-none tracking-tight uppercase text-[#A8C8F4]/10
     text-[120px] sm:text-[200px] md:text-[300px] lg:text-[400px]
     left-0 sm:left-1/2 sm:-translate-x-1/2 pl-4
     filter blur-[7px] mt-0 sm:mt-10
     whitespace-nowrap sm:whitespace-normal overflow-hidden">
-          <span className="block sm:hidden leading-none">
-            L<br />E<br />V<br />E<br />L
-          </span>
-          <span className="hidden sm:inline">LEVEL</span>
-        </h1>
+        <span className="block sm:hidden leading-none">
+          L<br />E<br />V<br />E<br />L
+        </span>
+        <span className="hidden sm:inline">LEVEL</span>
+      </h1>
 
 
       {/* Title */}
