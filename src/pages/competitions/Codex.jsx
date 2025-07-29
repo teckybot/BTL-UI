@@ -47,6 +47,8 @@ export default function Codex() {
             <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-codex bg-clip-text text-transparent">
               CodeX
             </h1>
+            <a href="/competitions" 
+            className="md:mr-[-570px] bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
             <a
               href={codexPDF}
               download="CODEX PROBLEM STATEMENT.pdf"
@@ -57,7 +59,7 @@ export default function Codex() {
           </div>
 
           {/* Scrollable Card */}
-          <div className="relative bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6 sm:mb-5 md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
+          <div className="relative bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6  md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
             <h2 className="text-base sm:text-lg font-bold text-blue-700 sm:mb-8">
               Qualifier Level (Online Quiz)
             </h2>
@@ -83,18 +85,23 @@ export default function Codex() {
                 <li>Results will be announced on the Bharat Teck League website</li>
               </ul>
             </ul>
+           
+            <p className="text-sm text-blue-700 font-semibold italic mb-6 text-justify">
+              Note: Students who follow all the Guidelines in the Qualifier round will be selected for the Finale.
+            </p>
 
             <hr className="my-6" />
 
             <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
               Finale Level (Offline Coding Challenge)
             </h2>
+             <p className="mb-4 text-sm sm:text-base text-justify">Mission: Solve a Space Problem through Code for a space-themed task, announced on the spot.</p>
+              
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
-              <li>Mission: Solve a Space Problem through Code for a space-themed task, announced on the spot.</li>
               <li>Eligibility: Teams who qualify from the online round</li>
               <li>Challenge Format:</li>
               <ul className="list-[circle] pl-5 mt-1 space-y-1">
-                <li>Grades 6 & 7:
+                <li>Grades 6 & 7: 
                   <ul className="list-[circle] pl-5 mt-1">
                     <li>Create a Scratch game or story</li>
                     <li>The exact theme/story will be revealed at the venue</li>

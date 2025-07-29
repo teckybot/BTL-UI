@@ -47,6 +47,8 @@ export default function Robotics() {
             <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-3dmaker bg-clip-text text-transparent">
               3D Printing
             </h1>
+            <a href="/competitions" 
+            className="md:mr-[-300px] bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
             <a
               href={pdf3DMaker}
               download="3D MAKER PROBLEM STATEMENT.pdf"
@@ -57,7 +59,7 @@ export default function Robotics() {
           </div>
 
           {/* Scrollable Card */}
-          <div className="relative  bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6 sm:mb-5 md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
+          <div className="relative  bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6 md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
             <h2 className="text-base sm:text-lg font-bold text-blue-700 sm:mb-8">
               Qualifier Level (Online Submission)
             </h2>
@@ -69,8 +71,8 @@ export default function Robotics() {
                 Design any object/tool useful in space exploration (e.g., astronaut tool etc.)
               </li>
               <li>
-                Use Autodesk 123D Design software
-                (<a href="https://autodesk-123d-design.en.lo4d.com/windows" target="_blank" rel="noreferrer" className="text-blue-700 underline">Download link</a>)
+                Use Tinkercad Design software
+                (<a href="https://www.tinkercad.com/" target="_blank" rel="noreferrer" className="text-blue-700 underline">Download link</a>)
               </li>
               <li>Record a 2-minute video explaining your design process</li>
               <li>Video file name should be the Team ID (Example ID: APTDM001)</li>
@@ -79,6 +81,10 @@ export default function Robotics() {
                 Upload the video in: <a href="https://www.bharatteckleague.com/" target="_blank" rel="noreferrer" className="text-blue-700 underline">https://www.bharatteckleague.com/</a>
               </li>
             </ul>
+           
+            <p className="text-sm text-blue-700 font-semibold italic mb-6 text-justify">
+              Note: Students who follow all the Guidelines in the Qualifier round will be selected for the Finale.
+            </p>
 
             <hr className="my-6" />
 
@@ -90,7 +96,7 @@ export default function Robotics() {
               <li>Participants will have 2 hours to complete the 3D model design</li>
               <li>No 3D printing is required in the final round</li>
               <li>
-                Bring your own laptop along with a mouse and with Autodesk 123D design software installed (Atleast 1 laptop per team)
+                Bring your own laptop along with a mouse and with Tinkercad design software installed (Atleast 1 laptop per team)
               </li>
               <li>Judging: Innovation, functionality, and quality of the 3D model design</li>
             </ul>

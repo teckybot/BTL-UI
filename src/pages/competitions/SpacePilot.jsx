@@ -47,6 +47,8 @@ export default function SpacePilot() {
             <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-spacepilot bg-clip-text text-transparent">
               Space Pilot
             </h1>
+            <a href="/competitions" 
+            className="md:mr-[-300px] bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
             <a
               href={dronePDF}
               download="SPACE PILOT PROBLEM STATEMENT.pdf"
@@ -57,7 +59,7 @@ export default function SpacePilot() {
           </div>
 
           {/* Scrollable Card */}
-          <div className="relative bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6 sm:mb-5 md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
+          <div className="relative bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6  md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
             <h2 className="text-base sm:text-lg font-bold text-blue-700 sm:mb-8">
               Qualifier Level (Online Submission)
             </h2>
@@ -79,14 +81,19 @@ export default function SpacePilot() {
                 Upload the video in: <a href="https://www.bharatteckleague.com/" target="_blank" rel="noreferrer" className="text-blue-700 underline">https://www.bharatteckleague.com/</a>
               </li>
             </ul>
+            
+            <p className="text-sm text-blue-700 font-semibold italic mb-6 text-justify">
+              Note: Students who follow all the Guidelines in the Qualifier round will be selected for the Finale.
+            </p>
 
             <hr className="my-6" />
 
             <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
               Finale Level (Offline Competition)
             </h2>
+            <p className="mb-4 text-sm sm:text-base text-justify">Mission: Rescue Lost Space Problem Challenge.</p>
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
-              <li>Mission: Rescue Lost Space Probe</li>
+              
               <li>Fly your drone through a challenging arena designed to resemble an interplanetary environment</li>
               <li>Navigate through multiple space-themed obstacles including tunnels, hoops, and turns</li>
               <li>Complete 2 laps, switching pilot/co-pilot if in 4-member team</li>

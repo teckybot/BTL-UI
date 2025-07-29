@@ -47,6 +47,8 @@ export default function Innoverse() {
             <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-innoverse bg-clip-text text-transparent">
               Innoverse
             </h1>
+            <a href="/competitions" 
+            className="md:mr-[-360px] bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
             <a
               href={innoPDF}
               download="INNOVERSE PROBLEM STATEMENT.pdf"
@@ -57,7 +59,7 @@ export default function Innoverse() {
           </div>
 
           {/* Scrollable Card */}
-          <div className="relative bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6 sm:mb-5 md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
+          <div className="relative bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6  md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
             <h2 className="text-base sm:text-lg font-bold text-blue-700 sm:mb-8">
               Qualifier Level (Online Submission)
             </h2>
@@ -83,6 +85,10 @@ export default function Innoverse() {
                 <li>Only shortlisted teams will be invited to the Finale Level</li>
               </ul>
             </ul>
+            
+            <p className="text-sm text-blue-700 font-semibold italic mb-6 text-justify">
+              Note: Students who follow all the Guidelines in the Qualifier round will be selected for the Finale.
+            </p>
 
             <hr className="my-6" />
 

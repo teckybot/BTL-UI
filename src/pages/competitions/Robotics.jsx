@@ -48,6 +48,8 @@ export default function Robotics() {
             <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-astrobot bg-clip-text text-transparent">
               Astrobot
             </h1>
+            <a href="/competitions" 
+            className="md:-mr-96 bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
             <a
               href={astrobotPDF}
               download="ASTROBOT PROBLEM STATEMENT.pdf"
@@ -58,7 +60,7 @@ export default function Robotics() {
           </div>
 
           {/* Scrollable Card */}
-          <div className="relative bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6 sm:mb-5 md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
+          <div className="relative bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6  md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
             <h2 className="text-base sm:text-lg font-bold text-blue-700  sm:mb-8">
               Qualifier Level (Online Submission)
             </h2>
@@ -89,15 +91,21 @@ export default function Robotics() {
                   https://www.bharatteckleague.com/
                 </a>
               </li>
+              
             </ul>
+         
+            <p className="text-sm text-blue-700 font-semibold italic mb-6 text-justify">
+              Note: Students who follow all the Guidelines in the Qualifier round will be selected for the Finale.
+            </p>
 
             <hr className="my-6" />
 
             <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
               Finale Level (Offline Competition)
             </h2>
-            <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
-              <li>Mission: Mini Space Station Build Challenge.</li>
+           
+              <p className="mb-4 text-sm sm:text-base text-justify">Mission: Mini Space Station Build Challenge.</p>
+               <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
               <li>Navigate your robot through a lunar surface-themed arena.</li>
               <li>Pick and place space-module blocks by crossing different terrains/surfaces.</li>
               <li>Complete the laps (number of laps will be mentioned on the spot).</li>
