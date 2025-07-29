@@ -70,7 +70,7 @@ export default function Navbar() {
     { name: 'Home', to: '/' },
     { name: 'About BTL', to: '/aboutus' },
     { name: 'Competitions', to: '/competitions' },
-    {name:'Naso', to:'/naso'},
+    {name:'NASO', to:'/naso'},
     { name: 'Registration', to: '/registration/school' },
     { name: 'Gallery', to: '/gallery' },
     {name:'Contact us', to:'/contactus'},

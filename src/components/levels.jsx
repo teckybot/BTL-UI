@@ -19,12 +19,12 @@ export default function Levels() {
       {/* Badge */}
       <span
         className={`absolute top-5 right-5 text-white text-sm px-4 py-1 rounded-full font-semibold border border-blue-600
-    ${badgeText === 'Online'|| 'Offline' ? 'animate-blueGlow bg-transparent' : 'bg-gradient-to-r from-slate-300 to-slate-100 text-gray-800'}
+    ${badgeText === 'Online' || 'Offline' ? 'animate-blueGlow bg-transparent' : 'bg-gradient-to-r from-slate-300 to-slate-100 text-gray-800'}
   `}
       >
         {badgeText}
       </span>
-      
+
 
       {/* Content */}
       <div className="relative z-10 mt-6">
@@ -35,7 +35,7 @@ export default function Levels() {
 
       {/* Explore Button */}
 
-      <button
+      {/* <button
         className={`mt-6 px-6 py-[10px] rounded-[10px] text-sm font-semibold transition-all flex items-center gap-2 w-fit
     ${disabled ? ' cursor-not-allowed' : 'hover:brightness-110 active:scale-[0.97]'}`}
         style={{
@@ -48,6 +48,21 @@ export default function Levels() {
       >
         Explore
         <img src={arrow} alt="arrow" className="w-5 h-5" />
+      </button> */}
+
+      <button
+        className={`mt-6 px-6 py-[10px] rounded-[10px] text-sm font-semibold transition-all flex items-center gap-2 w-fit
+  ${disabled ? 'cursor-not-allowed' : 'hover:brightness-110 active:scale-[0.97]'}`}
+        style={{
+          background: 'linear-gradient(180deg, #FFFFFF 0%, #93AFC2 100%)',
+          color: '#000',
+          boxShadow: disabled ? 'none' : '0 0 10px rgba(147, 175, 194, 0.4)',
+        }}
+        onClick={onExplore}
+        disabled={disabled}
+      >
+        {disabled ? 'Finale in Hyderabad' : 'Explore'}
+        {!disabled && <img src={arrow} alt="arrow" className="w-5 h-5" />}
       </button>
 
       {/* Icon */}

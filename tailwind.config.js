@@ -27,7 +27,7 @@ export default {
           '0%, 100%': {
             opacity: '0.8',
             textShadow: '0 0 15px #3b82f6, 0 0 30px #2563eb', // Blue glow
-            transform: 'scale(1.25)', 
+            transform: 'scale(1.27)', 
           },
           '50%': {
             opacity: '1',
