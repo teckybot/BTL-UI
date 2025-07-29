@@ -47,8 +47,8 @@ export default function Robotics() {
             <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-3dmaker bg-clip-text text-transparent">
               3D Printing
             </h1>
-            <a href="/competitions" 
-            className="md:mr-[-300px] bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
+            <a href="/competitions"
+              className="md:mr-[-300px] bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
             <a
               href={pdf3DMaker}
               download="3D MAKER PROBLEM STATEMENT.pdf"
@@ -68,20 +68,22 @@ export default function Robotics() {
             </p>
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify  ">
               <li>
-                Design any object/tool useful in space exploration (e.g., astronaut tool etc.)
+                Design any object/tool useful in space exploration (e.g., astronaut
+                tool, satellite model, Mini Rocket etc.)
               </li>
               <li>
                 Use Tinkercad Design software
                 (<a href="https://www.tinkercad.com/" target="_blank" rel="noreferrer" className="text-blue-700 underline">Download link</a>)
               </li>
               <li>Record a 2-minute video explaining your design process</li>
+              <li>Ensure you record your screen while designing or making your project and include it in the video</li>
               <li>Video file name should be the Team ID (Example ID: APTDM001)</li>
-              <li>Video file size should not be more than 30 MB</li>
+              <li>Only MP4 videos under 30 MB will be accepted.</li>
               <li>
                 Upload the video in: <a href="https://www.bharatteckleague.com/" target="_blank" rel="noreferrer" className="text-blue-700 underline">https://www.bharatteckleague.com/</a>
               </li>
             </ul>
-           
+
             <p className="text-sm text-blue-700 font-semibold italic mb-6 text-justify">
               Note: Students who follow all the Guidelines in the Qualifier round will be selected for the Finale.
             </p>
@@ -91,6 +93,12 @@ export default function Robotics() {
             <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
               Finale Level (Offline Competition)
             </h2>
+            <p className="mb-4 text-sm sm:text-base text-justify ">
+              Mission: Look at the space object you’re given and try to make the
+              same thing using 3D design. Try to copy how it looks and works
+              just like building your own version
+
+            </p>
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
               <li>A surprise space-themed design problem will be announced on the spot</li>
               <li>Participants will have 2 hours to complete the 3D model design</li>

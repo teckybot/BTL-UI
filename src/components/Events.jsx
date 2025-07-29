@@ -8,9 +8,9 @@ export default function EventsTimeline() {
   const events = [
     { date: "13 July 2025", title: "Releasing problem statement", desc: "Exciting tech challenges will be unveiled. Participants can begin brainstorming their tech solutions." },
     { date: "15 July 2025", title: "Registrations open", desc: "Schools will be invited to nominate their teams. Participants can start enrolling for the competitions." },
-    { date: "11 Aug 2025", title: "Registration close", desc: "Enrollment will end after the registration deadline. No entries will be accepted beyond the cut-off." },
-    { date: "17 Aug 2025", title: "Qualifier level close", desc: "All team submissions will be finalized and reviewed. No edits or uploads will be allowed post deadline." },
-    { date: "24 Aug 2025", title: "Results of Qualifier level", desc: "Selected teams will move forward to the grand stage. Results will be officially published after evaluation." },
+    { date: "17 Aug 2025", title: "Registration close", desc: "Enrollment will end after the registration deadline. No entries will be accepted beyond the cut-off." },
+    { date: "24 Aug 2025", title: "Qualifier level close", desc: "All team submissions will be finalized and reviewed. No edits or uploads will be allowed post deadline." },
+    { date: "30 Aug 2025", title: "Results of Qualifier level", desc: "Selected teams will move forward to the grand stage. Results will be officially published after evaluation." },
     { date: "14 Sep 2025", title: "Finale", desc: "Finalists will compete for the BTL championship title, showcasing creativity and teamwork on the grand stage." },
   ];
 
@@ -77,7 +77,7 @@ export default function EventsTimeline() {
               >
                 <div className="w-full sm:w-1/2 flex justify-end sm:justify-start px-5">
                   <div className="relative bg-white rounded-xl p-6 max-w-[600px] w-full shadow-md">
-                    <div className="absolute -top-[40px] ml-[-20px] sm:left-6 bg-white px-4 py-1 rounded-full text-sm font-semibold shadow z-10 italic">
+                    <div className="absolute -top-[48px] ml-[-20px] sm:left-6 bg-white px-5 py-2 rounded-full text-[18px] font-semibold shadow z-10 italic">
                       {event.date}
                     </div>
                     <h3 className="md:text-[18px] sm:text-lg font-bold text-black mb-1">{event.title}</h3>

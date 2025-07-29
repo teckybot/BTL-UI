@@ -66,7 +66,9 @@ export default function Codex() {
             <p className="mb-4 text-sm sm:text-base text-justify">
               Mission: Put your logical thinking, programming knowledge, and space science awareness to the test.
             </p>
+            
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
+              <li>Codex's online examination will be held on 17th August.</li>
               <li>Eligibility:</li>
               <ul className="list-[circle] pl-5 mt-1 space-y-1">
                 <li>Grades 6 & 7: Scratch + Space Basics</li>

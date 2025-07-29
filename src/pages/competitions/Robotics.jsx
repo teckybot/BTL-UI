@@ -48,8 +48,8 @@ export default function Robotics() {
             <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-astrobot bg-clip-text text-transparent">
               Astrobot
             </h1>
-            <a href="/competitions" 
-            className="md:-mr-96 bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
+            <a href="/competitions"
+              className="md:-mr-96 bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
             <a
               href={astrobotPDF}
               download="ASTROBOT PROBLEM STATEMENT.pdf"
@@ -64,22 +64,26 @@ export default function Robotics() {
             <h2 className="text-base sm:text-lg font-bold text-blue-700  sm:mb-8">
               Qualifier Level (Online Submission)
             </h2>
-            <p className="mb-4 text-sm sm:text-base text-justify">Mission: Simulate how a robot works like a Mars Rover.</p>
+            <p className="mb-4 text-sm sm:text-base text-justify">Mission: Your mission is to design, simulate, and operate a robot
+              inspired by the Mars Rover navigating unknown terrain,
+              performing tasks, and showcasing innovation, just like real space
+              explorers on the Red Planet.</p>
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
-              <li>
-                Submit a video (max 2 minutes) showing:
+              <li>Robot Dimensions (max 40 cm × 35 cm [L × W], excluding gripper size).</li>
+              <li>Overall robot weight should be under 5 kg.</li>
+              <li>Height of the robot is not considered in dimensions.</li>
+              <li>Submit a video (max 2 minutes) showing:
                 <ul className="list-[circle] pl-5 mt-1 space-y-1">
+
                   <li>Robot movements: Forward, backward, left, right.</li>
                   <li>Gripper action: Pick and place a small object.</li>
                   <li>A short explanation of how your team has built the robot.</li>
                 </ul>
               </li>
               <li>Mention your name, school, and location in the video.</li>
-              <li>Robot Dimensions (max 40 cm × 35 cm [L × W], excluding gripper size).</li>
-              <li>Overall robot weight should be under 5 kg.</li>
-              <li>Height of the robot is not considered in dimensions.</li>
+
               <li>Video file name should be the Team ID (Example ID: APASB001).</li>
-              <li>Video file size should not exceed 30 MB.</li>
+              <li>Only MP4 videos under 30 MB will be accepted.</li>
               <li>
                 Upload the video at: {" "}
                 <a
@@ -91,9 +95,9 @@ export default function Robotics() {
                   https://www.bharatteckleague.com/
                 </a>
               </li>
-              
+
             </ul>
-         
+
             <p className="text-sm text-blue-700 font-semibold italic mb-6 text-justify">
               Note: Students who follow all the Guidelines in the Qualifier round will be selected for the Finale.
             </p>
@@ -103,9 +107,11 @@ export default function Robotics() {
             <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
               Finale Level (Offline Competition)
             </h2>
-           
-              <p className="mb-4 text-sm sm:text-base text-justify">Mission: Mini Space Station Build Challenge.</p>
-               <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
+
+            <p className="mb-4 text-sm sm:text-base text-justify">Mission: Create a mini space station with robots that help
+              astronauts in space. Use your ideas to build and control your own
+              smart space hub.</p>
+            <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
               <li>Navigate your robot through a lunar surface-themed arena.</li>
               <li>Pick and place space-module blocks by crossing different terrains/surfaces.</li>
               <li>Complete the laps (number of laps will be mentioned on the spot).</li>

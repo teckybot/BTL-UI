@@ -95,19 +95,22 @@ export default function Innoverse() {
             <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
               Finale Level (Offline Project Expo)
             </h2>
+            <p className="mb-4 text-sm sm:text-base text-justify">
+              Mission: Your mission at Innoverse is to display your project at the Project Expo. Show how it works, what problem it solves, and share your ideas with the world.
+            </p>
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
               <li>Bring a fully working, upgraded version of your proposed model</li>
               <li>Prepare a presentation (PPT format) to explain your concept, design, and innovation</li>
               <li>The project must fit within a 50 cm x 50 cm table space</li>
               <li>Presentation Includes:</li>
-              <ul className="list-[circle] pl-5 mt-1">
+              <ul className="list-[circle] pl-5 mt-1 space-y-1">
                 <li>Problem your project addresses</li>
                 <li>How it benefits space missions</li>
                 <li>Demonstration of working model</li>
                 <li>Teamwork and explanation clarity</li>
               </ul>
               <li>Judging Criteria:</li>
-              <ul className="list-[circle] pl-5 mt-1">
+              <ul className="list-[circle] pl-5 mt-1 space-y-1">
                 <li>Innovation & Uniqueness of the idea</li>
                 <li>Functionality & Working Demonstration</li>
                 <li>Relevance to Space Applications</li>

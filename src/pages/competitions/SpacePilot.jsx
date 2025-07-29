@@ -47,8 +47,8 @@ export default function SpacePilot() {
             <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-spacepilot bg-clip-text text-transparent">
               Space Pilot
             </h1>
-            <a href="/competitions" 
-            className="md:mr-[-300px] bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
+            <a href="/competitions"
+              className="md:mr-[-300px] bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
             <a
               href={dronePDF}
               download="SPACE PILOT PROBLEM STATEMENT.pdf"
@@ -64,24 +64,25 @@ export default function SpacePilot() {
               Qualifier Level (Online Submission)
             </h2>
             <p className="mb-4 text-sm sm:text-base text-justify">
-              Mission: Become a space drone pilot.
+              Mission: Fly your drone like it's in space. Your job is to guide it
+              through challenges, land safely, and complete fun space missions.
             </p>
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
+              <li>Include a short clip of your drone assembling</li>
+              <li>Drone Size: Max 25 cm x 25 cm (including propellers)</li>
               <li>Submit a video (max 2 minutes) showing:</li>
               <ul className="list-[circle] pl-5 mt-1 space-y-1">
                 <li>Drone take-off, landing, left/right/forward/backward movement, 360° turn (if possible)</li>
-                <li>A short explanation of drone specs</li>
+                <li>A short explanation of drone specifications</li>
               </ul>
               <li>Mention your name, school, and location in the video</li>
-              <li>Include a short clip of your drone assembling</li>
-              <li>Drone Size: Max 25 cm x 25 cm (including propellers)</li>
               <li>Video file name should be the Team ID (Example ID: APTDM001)</li>
-              <li>Video file size should not be more than 30 MB</li>
+              <li>Only MP4 videos under 30 MB will be accepted.</li>
               <li>
                 Upload the video in: <a href="https://www.bharatteckleague.com/" target="_blank" rel="noreferrer" className="text-blue-700 underline">https://www.bharatteckleague.com/</a>
               </li>
             </ul>
-            
+
             <p className="text-sm text-blue-700 font-semibold italic mb-6 text-justify">
               Note: Students who follow all the Guidelines in the Qualifier round will be selected for the Finale.
             </p>
@@ -91,9 +92,10 @@ export default function SpacePilot() {
             <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
               Finale Level (Offline Competition)
             </h2>
-            <p className="mb-4 text-sm sm:text-base text-justify">Mission: Rescue Lost Space Problem Challenge.</p>
+            <p className="mb-4 text-sm sm:text-base text-justify">Mission: Fly your drone to find and rescue a lost space probe. Avoid
+              obstacles and bring it back safely</p>
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
-              
+
               <li>Fly your drone through a challenging arena designed to resemble an interplanetary environment</li>
               <li>Navigate through multiple space-themed obstacles including tunnels, hoops, and turns</li>
               <li>Complete 2 laps, switching pilot/co-pilot if in 4-member team</li>
