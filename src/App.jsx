@@ -83,7 +83,7 @@ function App() {
           <Route path="/competitions/codex" element={<Codex />} />
           <Route path="/competitions/innoverse" element={<Innoverse />} />
           <Route path="/contactus" element={<ContactCard />} />
-          <Route path="/registration/school" element={<ErrorScreen />} />
+          <Route path="/registration/school" element={<SchoolRegistrationPage />} />
           <Route path="/registration/team" element={<TeamRegistrationPage />} />
           <Route path="/registration-success" element={<SchoolRegistrationSuccess />} />
           {/* <Route path="/registration" element={<CountdownTimer />} /> */}

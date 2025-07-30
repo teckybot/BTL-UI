@@ -7,7 +7,7 @@ import { stateDistrictCodeMap } from '../../data/stateDistrictMap.jsx';
 const { Step } = Steps;
 const { TextArea } = Input;
 
-const validEmailDomains = ['@gmail.com', '@yahoo.com', '@yahoo.in','@outlook.com', '@teckybot.com'];
+const validEmailDomains = ['@gmail.com', '@yahoo.com', '@yahoo.in', '@outlook.com', '@teckybot.com'];
 const isAllCaps = (text) => text === text?.toUpperCase();
 const isValidEmail = (email) => validEmailDomains.some((domain) => email.endsWith(domain));
 
@@ -590,129 +590,19 @@ const StepperForm = () => {
                 return;
             }
 
-            // Create Razorpay order
-            const orderResponse = await api.post('/payments/create-order', {
-                // amount: 99900, // Amount in paise (999 INR)
-                // currency: 'INR',
-                // receipt: `receipt_${Date.now()}`,
-                notes: {
-                    schoolName: values.schoolName,
-                    principalName: values.principalName,
-                    schoolContact: values.schoolContact,
-                    schoolEmail: values.schoolEmail,
-                    coordinatorName: values.coordinatorName,
-                    coordinatorNumber: values.coordinatorNumber,
-                    coordinatorEmail: values.coordinatorEmail,
-                    schoolAddress: values.schoolAddress,
-                    state: values.state,
-                    district: values.district,
-                    schoolWebsite: values.schoolWebsite || '',
-                }
+            const registerRes = await api.post('/school/register', values);
 
-            });
-
-            // Initialize Razorpay
-
-            const options = {
-                key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-                amount: orderResponse.data.order.amount, // ₹999 in paise
-                currency: orderResponse.data.order.currency,
-                name: 'BTL School Registration',
-                description: 'School Registration Payment',
-                image: '/logo.png', // optional
-                prefill: {
-                    name: values.principalName,
-                    email: values.schoolEmail,
-                    contact: values.schoolContact
-                },
-                method: {
-                    netbanking: true,
-                    card: true,
-                    upi: true,
-                    wallet: true,
-                    paylater: false,
-                },
-                theme: {
-                    color: '#1890ff'
-                },
-                modal: {
-                    backdropclose: false,   // Prevent closing on outside click
-                    escape: false,          // Disable ESC key closing
-                    handleback: true,       // Android back button
-                    confirm_close: true,    // Ask before closing
-                    animation: true         // Smooth open/close animation
-                },
-                readonly: {
-                    email: true,
-                    contact: true
-                },
-                order_id: orderResponse.data.order.id,
-                handler: async (response) => {
-                    try {
-                        const verifyRes = await api.post('/payments/verify', {
-                            razorpay_payment_id: response.razorpay_payment_id,
-                            razorpay_order_id: response.razorpay_order_id,
-                            razorpay_signature: response.razorpay_signature,
-                            // registrationData: values 
-                        });
-
-                        if (!verifyRes || !verifyRes.data) {
-                            console.error(" No response data received from verification API.");
-                            message.error("Verification failed: No response from server.");
-                            return;
-                        }
-
-                        console.log(" Verification Response:", verifyRes.data);
-
-                        const { status, schoolRegId, message: statusMessage } = verifyRes.data;
-
-                        if (status === 'registered' && schoolRegId) {
-                            message.success('🎉 Registration successful! A confirmation email has been sent.');
-
-                            // Save regId for success page
-                            sessionStorage.setItem('schoolRegId', schoolRegId);
-
-                            // Clear saved form data
-                            sessionStorage.removeItem('schoolRegistrationData');
-                            sessionStorage.removeItem('currentStep');
-
-                            // Redirect to success
-                            window.location.href = '/registration-success';
-
-                            // Reset local state (optional safety)
-                            form.resetFields();
-                            setFormData({});
-                            setCurrentStep(0);
-                            setSelectedState(null);
-
-                        } else if (status === 'pending') {
-                            message.info('✅ Payment successful. Your registration is being processed. Please check back soon.');
-                        } else {
-                            message.error(statusMessage || '❌ Payment verification failed. Please contact support.');
-                        }
-                    } catch (error) {
-                        console.error("❌ Payment verification error:", error);
-
-                        if (error.response?.data?.message) {
-                            message.error(error.response.data.message);
-                        } else {
-                            message.error("Verification failed. Please try again or contact support.");
-                        }
-                    }
-                },
+            if (registerRes.data.success) {
+                message.success('🎉 Registration successful! Confirmation email has been sent.');
+                sessionStorage.setItem('schoolRegId', registerRes.data.schoolRegId);
+                sessionStorage.removeItem('schoolRegistrationData');
+                sessionStorage.removeItem('currentStep');
+                window.location.href = '/registration-success';
+            } else {
+                message.error(registerRes.data.error || 'Registration failed.');
+            }
 
 
-                notes: {
-                    schoolName: values.schoolName,
-                    coordinator: values.coordinatorName
-                },
-
-                timeout: 500  // 15-minute timeout (optional)
-            };
-
-
-            const razorpay = new window.Razorpay(options);
-            razorpay.open();
         } catch (error) {
             console.error('Submit failed:', error);
             message.error(error.message || 'Failed to submit form');
@@ -762,8 +652,8 @@ const StepperForm = () => {
                             <div key={item.title} className="flex items-center">
                                 <div
                                     className={`w-8 h-8 flex items-center justify-center rounded-full border-2 text-sm font-medium ${currentStep === idx
-                                            ? 'bg-[#112481] text-white border-[#112481]'
-                                            : 'bg-white border-[#b6c6e3] text-[#b6c6e3]'
+                                        ? 'bg-[#112481] text-white border-[#112481]'
+                                        : 'bg-white border-[#b6c6e3] text-[#b6c6e3]'
                                         }`}
                                 >
                                     {idx + 1}
@@ -908,7 +798,7 @@ const StepperForm = () => {
                             {currentStep === steps.length - 1 && (
                                 <Button type="primary" onClick={handleSubmit} loading={loading} className="w-full sm:w-auto px-8 sm:px-12 py-3 rounded-lg font-bold text-white text-sm sm:text-base shadow hover:opacity-90 transition"
                                     style={{ background: 'linear-gradient(93.58deg, #112481 0%, #2054CC 70%, #307DE3 100%)', border: 'none' }}>
-                                    Proceed to pay
+                                    SUBMIT
                                 </Button>
                             )}
                         </div>

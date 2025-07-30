@@ -2,10 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { TeamDraftContext } from "../../context/TeamDraftContext";
 import api from "../../utils/api";
-import { message } from "antd";
+import { message, Modal } from "antd";
 
 const PER_HEAD_COST = 499;
-const RAZORPAY_KEY_ID = import.meta.env.VITE_RAZORPAY_KEY_ID || "rzp_test_xxxxx";
+const RAZORPAY_KEY_ID = import.meta.env.VITE_RAZORPAY_KEY_ID;
 
 function loadRazorpayScript() {
   return new Promise((resolve) => {
@@ -26,6 +26,61 @@ const TeamCheckoutPage = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [pollAttempts, setPollAttempts] = useState(0);
+  const [schoolDetails, setSchoolDetails] = useState(null);
+
+  const [showProcessingModal, setShowProcessingModal] = useState(false);
+  const [showDelayedConfirmationModal, setShowDelayedConfirmationModal] = useState(false);
+
+
+  // Fetch school details if not present in draft (cross-device fix)
+useEffect(() => {
+  async function fetchSchool() {
+    try {
+      let schoolRegId = draft.schoolRegId;
+
+      if (!schoolRegId) {
+        schoolRegId = localStorage.getItem("schoolRegId");
+      }
+
+      const path = window.location.pathname;
+
+      if (!schoolRegId) {
+        // ✅ Special case: user refreshed on checkout
+        if (path === "/registration/checkout") {
+          message.warning("Please submit teams again.");
+          navigate("/registration/team");
+        } 
+        // 🔁 Default fallback for all other cases
+        else if (path !== "/teamRegistration-success") {
+          message.error("Please submit teams again.");
+          navigate("/registration/team");
+        }
+        return;
+      }
+
+      const res = await api.get(`/school/${schoolRegId}`);
+      if (res.data?.success && res.data?.school) {
+        setSchoolDetails(res.data.school);
+
+        if (!draft.schoolRegId) {
+          draft.schoolRegId = schoolRegId;
+        }
+      } else {
+        message.error("Failed to fetch school details. Please restart registration.");
+        navigate("/registration/school");
+      }
+    } catch (err) {
+      console.error(err);
+      message.error("Could not load school details. Please try again.");
+    }
+  }
+
+  fetchSchool();
+}, [draft, navigate]);
+
+
+
 
   // Build team data for checkout
   useEffect(() => {
@@ -48,43 +103,61 @@ const TeamCheckoutPage = () => {
   const handleBack = () => navigate("/modules");
 
   const handleProceedToPay = async () => {
+    console.log("schoolDetails at pay time:", schoolDetails);
+
+    if (!schoolDetails) {
+      message.error("Missing school data. Please reload.");
+      return;
+    }
+
     if (!teamSummaries.length) {
       message.error("No teams to register.");
       return;
     }
+    if (
+      !schoolDetails?.coordinatorName ||
+      !schoolDetails?.coordinatorEmail ||
+      !schoolDetails?.coordinatorNumber
+    ) {
+      message.error("Coordinator details missing. Please complete registration properly.");
+      return;
+    }
 
-    const payerEmail = draft.coordinatorEmail || "school@example.com";
+
     setLoading(true);
     setError("");
 
+    console.log("DEBUG PAYLOAD to /team/payment/create-order:", {
+      schoolRegId: draft.schoolRegId,
+      teams: teamSummaries.map(({ amount, ...rest }) => rest),
+    });
+
     try {
-      // Step 1: Create Razorpay order
       const res = await api.post("/team/payment/create-order", {
         schoolRegId: draft.schoolRegId,
-        payerEmail,
         teams: teamSummaries.map(({ amount, ...rest }) => rest),
       });
+
       if (!res.data?.order) throw new Error(res.data?.message || "Failed to create payment order.");
       const { order } = res.data;
 
-      // Step 2: Load Razorpay SDK
       const scriptLoaded = await loadRazorpayScript();
       if (!scriptLoaded) throw new Error("Failed to load Razorpay SDK. Check your connection.");
 
       const options = {
         key: RAZORPAY_KEY_ID,
         amount: order.amount,
-        currency: order.currency || "INR",
+        currency: order.currency,
         name: "Team Registration - Bharat Teck League",
         description: "Team Registration Payment",
         order_id: order.id,
-        handler: async function (response) {
-          handleVerifyPayment(order.id, response);
+        handler: (response) => {
+          handleVerifyPayment(order.id, response, 0);
         },
         prefill: {
-          name: "School Coordinator",
-          email: payerEmail,
-          contact: "9999999999",
+          name: schoolDetails.coordinatorName,
+          email: schoolDetails.coordinatorEmail || schoolDetails.email,
+          contact: schoolDetails.coordinatorNumber,
         },
         theme: { color: "#2563EB" },
       };
@@ -102,17 +175,29 @@ const TeamCheckoutPage = () => {
     }
   };
 
-  const handleVerifyPayment = async (orderId, response) => {
+  const handleVerifyPayment = async (orderId, response, attempt = 0) => {
+
+    if (attempt === 0) {
+      setShowProcessingModal(true);
+    }
+
+    if (attempt >= 3) {
+      setShowProcessingModal(false);
+      setShowDelayedConfirmationModal(true);
+      return;
+    }
+
+
     try {
       const verifyRes = await api.post("/team/payment/verify", {
-        schoolRegId: draft.schoolRegId,
-        teams: teamSummaries,
         razorpay_order_id: orderId,
         razorpay_payment_id: response.razorpay_payment_id,
         razorpay_signature: response.razorpay_signature,
       });
-      if (verifyRes.data.success) {
-        clearDraft();
+
+      const { status, success } = verifyRes.data;
+
+      if (success && status === "registered") {
         navigate("/teamRegistration-success", {
           state: {
             registeredTeams: verifyRes.data.teams || [],
@@ -120,11 +205,9 @@ const TeamCheckoutPage = () => {
             pdfFileName: verifyRes.data.pdfFileName,
           },
         });
-      } else if (verifyRes.data.status === "processing" || verifyRes.data.status === "pending") {
-        message.info("Payment is being processed. Retrying in 3 seconds...");
-        setTimeout(() => {
-          handleVerifyPayment(orderId, response);
-        }, 3000);
+        setTimeout(() => clearDraft(), 2000);
+      } else if (status === "processing" || status === "pending") {
+        setTimeout(() => handleVerifyPayment(orderId, response, attempt + 1), 2000);
       } else {
         message.error(verifyRes.data.message || "Payment verification failed.");
       }
@@ -133,6 +216,43 @@ const TeamCheckoutPage = () => {
       message.error(err.response?.data?.message || "Failed to verify payment.");
     }
   };
+
+  useEffect(() => {
+    if (showDelayedConfirmationModal) {
+      savePendingTeamRegistration();
+    }
+  }, [showDelayedConfirmationModal]);
+
+  const savePendingTeamRegistration = async () => {
+    try {
+      await api.post("/team/savePending", {
+        schoolRegId: draft.schoolRegId,
+        teams: Object.values(draft.teams || {}), // array form
+      });
+      console.log("Saved pending registration fallback due to webhook miss.");
+    } catch (err) {
+      console.error("Error saving pending registration:", err);
+    }
+  };
+
+  const hasUnsavedChanges = teamSummaries.length > 0 && !showDelayedConfirmationModal;
+
+  // Warn on tab close or refresh during payment session
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      if (teamSummaries.length > 0 && !showDelayedConfirmationModal) {
+        e.preventDefault();
+        e.returnValue = ""; // Required for browser prompt
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [teamSummaries, showDelayedConfirmationModal]);
+
 
   return (
     <div className="max-w-3xl mx-auto mt-32 p-6 bg-white rounded-xl shadow border">
@@ -190,6 +310,35 @@ const TeamCheckoutPage = () => {
           </div>
         </>
       )}
+
+      <Modal
+        open={showProcessingModal}
+        footer={null}
+        closable={false}
+        centered
+      >
+        <p className="text-lg font-medium text-center">Registration is in process. Please wait...</p>
+        <p className="text-lg font-medium text-center">Don't close the window!!</p>
+      </Modal>
+
+      <Modal
+        open={showDelayedConfirmationModal}
+        onCancel={() => {
+          setShowDelayedConfirmationModal(false);
+          navigate("/registration/team");
+        }}
+        closable={true}
+        maskClosable={false} // Prevent click outside
+        footer={null}
+        centered
+      >
+        <p className="text-lg font-medium text-center mb-2">✅ Payment confirmed.</p>
+        <p className="text-gray-600 text-center">
+          Registration is still in process. You’ll receive a confirmation email shortly. You can now close this window.
+        </p>
+      </Modal>
+
+
     </div>
   );
 };

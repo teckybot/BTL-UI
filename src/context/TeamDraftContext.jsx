@@ -6,20 +6,57 @@ const getStorageKey = (schoolRegId) => `teamDraftData_${schoolRegId}`;
 const LAST_SCHOOL_KEY = 'lastTeamSchoolRegId';
 
 export const TeamDraftProvider = ({ children }) => {
-  const [draft, setDraft] = useState({ schoolRegId: "", teams: {}, coordinatorEmail: "" });
+  const [draft, setDraft] = useState({
+    schoolRegId: "",
+    teams: {},
+    coordinatorName: "",
+    coordinatorEmail: "",
+    coordinatorNumber: "",
+    schoolEmail: "",
+  });
+
+  const setCoordinatorName = (name) => {
+    setDraft((prev) => ({ ...prev, coordinatorName: name }));
+  };
+
+  const setCoordinatorContact = (contact) => {
+    setDraft((prev) => ({ ...prev, coordinatorNumber: contact }));
+  };
+
   const [filledCount, setFilledCount] = useState(0);
 
+  // const loadDraft = useCallback((schoolRegId) => {
+  //   if (!schoolRegId) return { schoolRegId: "", teams: {}, coordinatorEmail: "" };
+  //   try {
+  //     const saved = localStorage.getItem(getStorageKey(schoolRegId));
+  //     return saved ? JSON.parse(saved) : { schoolRegId, teams: {}, coordinatorEmail: "" };
+  //   } catch {
+  //     return { schoolRegId, teams: {}, coordinatorEmail: "" };
+  //   }
+  // }, []);
+
+  // On mount, try to restore last used schoolRegId if not set
+
   const loadDraft = useCallback((schoolRegId) => {
-    if (!schoolRegId) return { schoolRegId: "", teams: {}, coordinatorEmail: "" };
+    const defaultDraft = {
+      schoolRegId,
+      teams: {},
+      coordinatorName: "",
+      coordinatorEmail: "",
+      coordinatorNumber: "",
+      schoolEmail: "",
+    };
+
+    if (!schoolRegId) return defaultDraft;
+
     try {
       const saved = localStorage.getItem(getStorageKey(schoolRegId));
-      return saved ? JSON.parse(saved) : { schoolRegId, teams: {}, coordinatorEmail: "" };
+      return saved ? JSON.parse(saved) : defaultDraft;
     } catch {
-      return { schoolRegId, teams: {}, coordinatorEmail: "" };
+      return defaultDraft;
     }
   }, []);
 
-  // On mount, try to restore last used schoolRegId if not set
   useEffect(() => {
     if (!draft.schoolRegId) {
       // Try to get last used schoolRegId
@@ -92,7 +129,15 @@ export const TeamDraftProvider = ({ children }) => {
     if (draft.schoolRegId) {
       localStorage.removeItem(getStorageKey(draft.schoolRegId));
     }
-    setDraft({ schoolRegId: "", teams: {}, coordinatorEmail: "" });
+    setDraft({
+      schoolRegId: "",
+      teams: {},
+      coordinatorName: "",
+      coordinatorEmail: "",
+      coordinatorNumber: "",
+      schoolEmail: "",
+    });
+
   };
 
   return (
@@ -105,6 +150,8 @@ export const TeamDraftProvider = ({ children }) => {
         removeTeams,
         setSchoolRegId,
         setCoordinatorEmail,
+        setCoordinatorName,
+        setCoordinatorContact,
         clearDraft,
         switchToSchool,
       }}
