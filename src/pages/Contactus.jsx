@@ -3,7 +3,7 @@ import bgImageLg from '../data/All/BTL_contact_us.jpg';
 import bgImageSm from '../data/All/contact us_BTL.png';
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet";
-
+import FAQSection from '../components/Faq'
 
 
 export default function ContactUs() {
@@ -118,6 +118,8 @@ export default function ContactUs() {
         </div>
 
       </div>
+      {/* FAQ Section */}
+      <FAQSection />
 
       <Footer />
     </>
