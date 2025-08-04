@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useState } from "react";
 import Navbar from '../../components/Header';
 import Footer from '../../components/Footer';
 import code from '../../data/images/img5.png';
 import codexPDF from "../../data/pdfs/CodeX.pdf";
 import codexMobile from "../../data/pdfs/CodexMobile.png";
+import SubmissionStepper from "../../components/Subcomponents/SubmissionStepper";
+import { HiArrowNarrowLeft } from "react-icons/hi";
+
+import { useNavigate } from 'react-router-dom';
 
 export default function Codex() {
+
+  const navigate = useNavigate();
+  const [showSubmissionForm, setShowSubmissionForm] = useState(false);
+
+  const handleUploadClick = () => {
+    setShowSubmissionForm(true); // Show the stepper form
+  };
+
+  const handleBackToCompetitions = () => {
+    navigate('/competitions');
+  };
+
+  const handleBackToDetails = () => {
+    setShowSubmissionForm(false); // Hide the form, show details
+  };
+
   return (
     <>
       <Navbar />
@@ -22,7 +42,7 @@ export default function Codex() {
         {/* Right Content */}
         <div className="relative flex-1 px-4 sm:px-6 lg:px-6 overflow-hidden">
           {/* Mobile Hero Header Section (outside card) */}
-          <div className="block md:hidden text-center px-6 mb-4">
+          {/* <div className="block md:hidden text-center px-6 mb-4">
             <h1 className="text-4xl font-bold uppercase bg-gradient-codex bg-clip-text text-transparent mb-4">
               CodeX
             </h1>
@@ -40,15 +60,44 @@ export default function Codex() {
             >
               DOWNLOAD PDF
             </a>
+          </div> */}
+
+          {/* Mobile Hero Header Section (outside card) */}
+          <div className="block md:hidden text-center px-6 mb-4">
+            <h1 className="text-4xl font-bold uppercase bg-gradient-codex bg-clip-text text-transparent mb-4">
+              CodeX
+            </h1>
+            <div className="rounded-lg overflow-hidden shadow-md mb-4">
+              <img
+                src={codexMobile}
+                alt="Codex Mobile Hero"
+                className="w-full object-cover"
+              />
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href={codexPDF}
+                download="CODEX PROBLEM STATEMENT.pdf"
+                className="bg-[#2053CA] text-white text-sm font-semibold px-6 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+              >
+                DOWNLOAD PDF
+              </a>
+              <button
+                onClick={handleUploadClick}
+                className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+              >
+                EXAM INFO
+              </button>
+            </div>
           </div>
 
           {/* Tablet/Desktop Header */}
-          <div className="hidden md:flex justify-between items-center">
+          {/* <div className="hidden md:flex justify-between items-center">
             <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-codex bg-clip-text text-transparent">
               CodeX
             </h1>
-            <a href="/competitions" 
-            className="md:mr-[-570px] bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
+            <a href="/competitions"
+              className="md:mr-[-570px] bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition">BACK</a>
             <a
               href={codexPDF}
               download="CODEX PROBLEM STATEMENT.pdf"
@@ -56,9 +105,96 @@ export default function Codex() {
             >
               DOWNLOAD PDF
             </a>
+          </div> */}
+
+          {/* Tablet/Desktop Header */}
+          {/* <div className="hidden md:block">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-codex bg-clip-text text-transparent">
+                CodeX
+              </h1>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="/competitions"
+                  className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                >
+                  BACK
+                </a>
+                <a
+                  href={codexPDF}
+                  download="CODEX PROBLEM STATEMENT.pdf"
+                  className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                >
+                  DOWNLOAD PDF
+                </a>
+                <button
+                  onClick={handleUploadClick}
+                  className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                >
+                  EXAM INFO
+                </button>
+              </div>
+            </div>
+          </div> */}
+
+          <div className="hidden md:block">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-codex bg-clip-text text-transparent">
+                CodeX
+              </h1>
+              <div className="flex flex-wrap gap-4">
+                {showSubmissionForm ? (
+                  <>
+                    <button
+                      onClick={handleBackToDetails}
+                      className="flex items-center gap-2 bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                    >
+                      <HiArrowNarrowLeft className="text-lg" />Back to Details
+                    </button>
+                    <a
+                      href={codexPDF}
+                      download="CODEX PROBLEM STATEMENT.pdf"
+                      className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                    >
+                      DOWNLOAD PDF
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      onClick={handleBackToCompetitions}
+                      className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                    >
+                      BACK
+                    </button>
+                    <a
+                      href={codexPDF}
+                      download="CODEX PROBLEM STATEMENT.pdf"
+                      className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                    >
+                      DOWNLOAD PDF
+                    </a>
+                    <button
+                      onClick={handleUploadClick}
+                      className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                    >
+                      EXAM INFO
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
 
+
           {/* Scrollable Card */}
+          {/* Conditional rendering of either the details or the form */}
+          {showSubmissionForm ? (
+            <SubmissionStepper
+              onCancel={() => setShowSubmissionForm(false)}
+              submissionType="CDX"
+            />
+          ) : (
           <div className="relative bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6  md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
             <h2 className="text-base sm:text-lg font-bold text-blue-700 sm:mb-8">
               Qualifier Level (Online Quiz)
@@ -66,7 +202,7 @@ export default function Codex() {
             <p className="mb-4 text-sm sm:text-base text-justify">
               Mission: Put your logical thinking, programming knowledge, and space science awareness to the test.
             </p>
-            
+
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
               <li>Codex's online examination will be held on 17th August.</li>
               <li>Eligibility:</li>
@@ -87,7 +223,7 @@ export default function Codex() {
                 <li>Results will be announced on the Bharat Teck League website</li>
               </ul>
             </ul>
-           
+
             <p className="text-sm text-blue-700 font-semibold italic mb-6 text-justify">
               Note: Students who follow all the Guidelines in the Qualifier round will be selected for the Finale.
             </p>
@@ -97,13 +233,13 @@ export default function Codex() {
             <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
               Finale Level (Offline Coding Challenge)
             </h2>
-             <p className="mb-4 text-sm sm:text-base text-justify">Mission: Solve a Space Problem through Code for a space-themed task, announced on the spot.</p>
-              
+            <p className="mb-4 text-sm sm:text-base text-justify">Mission: Solve a Space Problem through Code for a space-themed task, announced on the spot.</p>
+
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
               <li>Eligibility: Teams who qualify from the online round</li>
               <li>Challenge Format:</li>
               <ul className="list-[circle] pl-5 mt-1 space-y-1">
-                <li>Grades 6 & 7: 
+                <li>Grades 6 & 7:
                   <ul className="list-[circle] pl-5 mt-1">
                     <li>Create a Scratch game or story</li>
                     <li>The exact theme/story will be revealed at the venue</li>
@@ -151,6 +287,7 @@ export default function Codex() {
               Note: For all competitions, follow size, weight, and software rules mentioned. Any violation may result in disqualification. Ensure all required items (laptop, model, materials) are carried by the participants. Power supply will be provided at the venue.
             </p>
           </div>
+          )}
         </div>
       </section>
 

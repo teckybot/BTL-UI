@@ -1,11 +1,32 @@
-import React from 'react';
+
+import React, { useState } from "react";
 import Navbar from '../../components/Header';
 import Footer from '../../components/Footer';
 import Td from '../../data/images/img3.png';
 import pdf3DMaker from "../../data/pdfs/3D Maker.pdf";
 import mobileHero3D from "../../data/pdfs/3DMakerMobile.png";
+import SubmissionStepper from "../../components/Subcomponents/SubmissionStepper";    // 2
+import { HiArrowNarrowLeft } from "react-icons/hi";
+
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Robotics() {
+  const navigate = useNavigate();
+  const [showSubmissionForm, setShowSubmissionForm] = useState(false);     //3
+
+  const handleUploadClick = () => {
+    setShowSubmissionForm(true); // Show the stepper form
+  };
+
+  const handleBackToCompetitions = () => {
+    navigate('/competitions');
+  };                                                              // 4
+
+  const handleBackToDetails = () => {
+    setShowSubmissionForm(false); // Hide the form, show details
+  };
+
   return (
     <>
       <Navbar />
@@ -22,7 +43,8 @@ export default function Robotics() {
         {/* Right Content */}
         <div className="relative flex-1 px-4 sm:px-6 lg:px-6 overflow-hidden">
           {/* Mobile Hero Header Section (outside card) */}
-          <div className="block md:hidden text-center px-6 mb-4">
+
+          {/* <div className="block md:hidden text-center px-6 mb-4">
             <h1 className="text-4xl font-bold uppercase bg-gradient-3dmaker bg-clip-text text-transparent mb-4">
               3D Printing
             </h1>
@@ -40,10 +62,39 @@ export default function Robotics() {
             >
               DOWNLOAD PDF
             </a>
+          </div> */}
+
+          {/* Mobile Hero Header Section (outside card) */}
+          <div className="block md:hidden text-center px-6 mb-4">
+            <h1 className="text-4xl font-bold uppercase bg-gradient-3dmaker bg-clip-text text-transparent mb-4">
+              3D Printing
+            </h1>
+            <div className="rounded-lg overflow-hidden shadow-md mb-4">
+              <img
+                src={mobileHero3D}
+                alt="3D Maker Mobile Hero"
+                className="w-full object-cover"
+              />
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href={pdf3DMaker}
+                download="3D MAKER PROBLEM STATEMENT.pdf"
+                className="bg-[#2053CA] text-white text-sm font-semibold px-6 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+              >
+                DOWNLOAD PDF
+              </a>
+              <button
+                onClick={handleUploadClick}
+                className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+              >
+                UPLOAD VIDEO
+              </button>
+            </div>
           </div>
 
           {/* Tablet/Desktop Header */}
-          <div className="hidden md:flex justify-between items-center">
+          {/* <div className="hidden md:flex justify-between items-center">
             <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-3dmaker bg-clip-text text-transparent">
               3D Printing
             </h1>
@@ -56,9 +107,95 @@ export default function Robotics() {
             >
               DOWNLOAD PDF
             </a>
+          </div> */}
+
+          {/* Tablet/Desktop Header */}
+          {/* <div className="hidden md:block">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-3dmaker bg-clip-text text-transparent">
+                3D Printing
+              </h1>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="/competitions"
+                  className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                >
+                  BACK
+                </a>
+                <a
+                  href={pdf3DMaker}
+                  download="3D MAKER PROBLEM STATEMENT.pdf"
+                  className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                >
+                  DOWNLOAD PDF
+                </a>
+                <button
+                  onClick={handleUploadClick}
+                  className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                >
+                  UPLOAD VIDEO
+                </button>
+              </div>
+            </div>
+          </div> */}
+
+          <div className="hidden md:block">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-8xl font-bold uppercase bg-gradient-3dmaker bg-clip-text text-transparent">
+                3D Printing
+              </h1>
+              <div className="flex flex-wrap gap-4">
+                {showSubmissionForm ? (
+                  <>
+                    <button
+                      onClick={handleBackToDetails}
+                      className="flex items-center gap-2 bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                    >
+                      <HiArrowNarrowLeft className="text-lg" />Back to Details
+                    </button>
+                    <a
+                      href={pdf3DMaker}
+                      download="3D MAKER PROBLEM STATEMENT.pdf"
+                      className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                    >
+                      DOWNLOAD PDF
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      onClick={handleBackToCompetitions}
+                      className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                    >
+                      BACK
+                    </button>
+                    <a
+                      href={pdf3DMaker}
+                      download="3D MAKER PROBLEM STATEMENT.pdf"
+                      className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                    >
+                      DOWNLOAD PDF
+                    </a>
+                    <button
+                      onClick={handleUploadClick}
+                      className="bg-[#2053CA] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-md hover:bg-[#173f9c] transition"
+                    >
+                      UPLOAD VIDEO
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
 
           {/* Scrollable Card */}
+          {/* Conditional rendering of either the details or the form */}
+          {showSubmissionForm ? (
+            <SubmissionStepper
+              onCancel={() => setShowSubmissionForm(false)}
+              submissionType="VIDEO"
+            />
+          ) : (
           <div className="relative  bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6 md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
             <h2 className="text-base sm:text-lg font-bold text-blue-700 sm:mb-8">
               Qualifier Level (Online Submission)
@@ -80,7 +217,7 @@ export default function Robotics() {
               <li>Video file name should be the Team ID (Example ID: APTDM001)</li>
               <li>Only MP4 videos under 30 MB will be accepted.</li>
               <li>
-                Upload the video in: <a href="https://www.bharatteckleague.com/" target="_blank" rel="noreferrer" className="text-blue-700 underline">https://www.bharatteckleague.com/</a>
+                Upload the video in: <a href="https://www.bharatteckleague.com/competitions/3d-maker" target="_blank" rel="noreferrer" className="text-blue-700 underline">https://www.bharatteckleague.com/competitions/3d-maker</a>
               </li>
             </ul>
 
@@ -126,6 +263,7 @@ export default function Robotics() {
               Note: For all competitions, follow size, weight, and software rules mentioned. Any violation may result in disqualification. Ensure all required items (laptop, model, materials) are carried by the participants. Power supply will be provided at the venue.
             </p>
           </div>
+          )}
         </div>
       </section>
 

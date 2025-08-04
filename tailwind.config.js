@@ -62,6 +62,12 @@ export default {
         'countdown-gradient-from': '#FFFFFF',
         'countdown-gradient-to': '#A2B7C0',
       },
+      boxShadow: {
+        'inner-top-left': 'inset 6px 6px 10px rgba(0, 0, 0, 0.2), inset 0px -2px 6px rgba(0, 0, 0, 0.05)',
+      },
+      dropShadow: {
+        'arrow': '6px 10px 12px rgba(0, 0, 0, 0.35)', // bottom-right shadow
+      },
     },
   },
   plugins: [
