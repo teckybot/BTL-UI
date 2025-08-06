@@ -1,87 +1,123 @@
-// CheckpointForm.jsx
-import React, { useState,useEffect } from "react";
-import { Input, Button, message } from "antd";
+import React, { useState } from "react";
+import { Input, Button, message, Card, Space, Typography, Form } from "antd";
+import { CloseCircleOutlined, CheckOutlined } from "@ant-design/icons";
 import api from "../../utils/api";
+
+const { Title, Text } = Typography;
 
 const CheckpointForm = ({ onVerify, onCancel }) => {
   const [teamId, setTeamId] = useState("");
-  // const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
-  const handleCheck = async () => {
-    const trimmedId = teamId.trim();
-    if (!trimmedId) {
-      message.error("Please enter a Team Registration ID.");
-      return;
-    }
+  const handleCheck = async (e) => {
+  if (e) e.preventDefault(); // prevent form reload
 
-    try {
-      // Step 1: Verify if the team exists
-      const teamRes = await api.get(`/team/details/${trimmedId}`);
+  const trimmedId = teamId.trim();
+  if (!trimmedId) {
+    message.error("Please enter a Team Registration ID.");
+    return;
+  }
 
-      if (teamRes.data.success) {
-        // Step 2 (New Logic): Check if a submission has already been made
-        const submissionRes = await api.get(`/submission/check/${trimmedId}`);
+  setLoading(true);
+  try {
+    const teamRes = await api.get(`/team/details/${trimmedId}`);
 
-        if (submissionRes.data.hasSubmitted) {
-          message.warning(
-            `A submission has already been made for team ${trimmedId}.`
-          );
-          return; // Stop the flow here
-        }
+    if (teamRes.data.success) {
+      const submissionRes = await api.get(`/submission/check/${trimmedId}`);
 
-        // Step 3: If no submission exists, navigate to the correct form
-        // const eventCode = trimmedId.substring(2, 5).toUpperCase();
-
-        // switch (eventCode) {
-        //   case "INV":
-        //     navigate(`/pdf-submission/${trimmedId}`);
-        //     break;
-        //   case "CDX":
-        //     navigate(`/submit/cdx/${trimmedId}`);
-        //     break;
-        //   case "ASB":
-        //   case "SPL":
-        //   case "TDM":
-        //     navigate(`/online-submission/${trimmedId}`);
-        //     break;
-        //   default:
-        //     message.error("Unknown competition code in Team ID.");
-        // }
-        onVerify(trimmedId);
-
-      } else {
-        message.error("Team not found. Please check your Team ID.");
+      if (submissionRes.data.hasSubmitted) {
+        message.warning(
+          `A submission has already been made for team ${trimmedId}.`
+        );
+        return;
       }
-    } catch (err) {
-      message.error(
-        err.response?.data?.message || "An error occurred. Please try again."
-      );
-    }
-  };
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      // No logging or action for keydown except what is handled in input
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
+      onVerify(trimmedId);
+    } else {
+      message.error("Team not found. Please check your Team ID.");
+    }
+  } catch (err) {
+    message.error(
+      err.response?.data?.message || "An error occurred. Please try again."
+    );
+  } finally {
+    setLoading(false);
+  }
+};
+
+
 
   return (
-    <div style={{ maxWidth: 400, margin: "50px auto" }}>
-      <h3>Enter Team Registration ID</h3>
-      <Input
-        placeholder="e.g. APASB001"
-        value={teamId}
-        onChange={(e) => setTeamId(e.target.value.toUpperCase())}
-        style={{ marginBottom: 16, textTransform: "uppercase" }}
-        onKeyDown={(e) => { if (e.key === 'Enter') handleCheck(); }}
-      />
-      <Button type="primary" onClick={handleCheck}>Verify</Button>
+  <div className="w-full max-w-3xl mx-auto mt-10 px-6">
+    <div className="text-[#2054CC] rounded-md p-6">
+      <h2 className="text-3xl font-medium text-center mb-14">
+        Enter Team Registration ID
+      </h2>
+
+      <form onSubmit={handleCheck} className="space-y-4">
+        <div>
+          <label
+            htmlFor="teamId"
+            className="block text-sm font-medium text-gray-700 mb-3 flex items-center gap-1"
+          >
+            Team Registration ID
+            {/* Tooltip "?" icon */}
+            <div className="relative group">
+              <span className="inline-block w-4 h-4 bg-gray-300 text-gray-700 text-xs font-bold rounded-full text-center cursor-pointer">
+                ?
+              </span>
+              <div className="absolute left-6 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-black text-white text-xs rounded px-2 py-1 z-10 whitespace-nowrap transition-opacity duration-200">
+                Format: e.g., APASB001
+              </div>
+            </div>
+          </label>
+
+          <input
+            id="teamId"
+            type="text"
+            placeholder="Enter your team registration ID"
+            value={teamId}
+            onChange={(e) => setTeamId(e.target.value.toUpperCase())}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleCheck();
+            }}
+            className="w-full px-4 py-2 border rounded-md text-sm text-black uppercase focus:outline-none focus:ring-2 focus:ring-blue-500"
+            autoFocus
+          />
+        </div>
+
+        <div className="flex flex-wrap gap-3 justify-between">
+          <button
+            type="submit"
+            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center justify-center disabled:opacity-50"
+            style={{ background: 'linear-gradient(93.58deg, #112481 0%, #2054CC 70%, #307DE3 100%)'}}
+            disabled={loading}
+          >
+            {/* <CheckOutlined className="mr-2" /> */}
+            {loading ? "Verifying..." : "Verify"}
+          </button>
+
+
+          {onCancel && (
+            <button
+              type="button"
+              onClick={onCancel}
+              className="flex items-center justify-center px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+            >
+              Cancel
+            </button>
+          )}
+        </div>
+      </form>
+
+      <p className="text-sm text-gray-500 mt-4 text-center">
+        Please provide a valid Team Registration ID to proceed
+      </p>
     </div>
-  );
+  </div>
+);
+
+
 };
 
 export default CheckpointForm;

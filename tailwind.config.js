@@ -35,7 +35,16 @@ export default {
             transform: 'scale(1.1)', // Grows slightly
           },
         },
-        
+        'slide-in-bl': {
+          '0%': {
+            transform: 'translate(-100%, 100%) scale(0.5)',
+            opacity: '0',
+          },
+          '100%': {
+            transform: 'translate(0, 0) scale(1)',
+            opacity: '1',
+          },
+        },
       },
 
       animation: {
@@ -44,6 +53,7 @@ export default {
         'marquee': 'marquee 30s linear infinite',
         'blink': 'blink 1.5s infinite',
         'blueGlow': 'blueGlow 1.5s infinite ease-in-out',
+        'slide-in-bl': 'slide-in-bl 0.8s ease-out forwards',
       },
       backgroundImage: {
         'gradient-3dmaker': 'linear-gradient(180deg, #D23D0B 25%, #F9C696 100%)',

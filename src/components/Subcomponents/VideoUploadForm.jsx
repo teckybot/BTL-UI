@@ -1,9 +1,14 @@
-// VideoUploadForm.jsx
 import React, { useState, useEffect } from "react";
-import { Upload, Button, Form, message, Space, Modal } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+import { Form, message, Modal } from "antd";
+import Dragger from "antd/es/upload/Dragger";
+import { VideoCameraOutlined } from "@ant-design/icons";
 import api from "../../utils/api";
 import { useNavigate } from "react-router-dom";
+import { Upload } from "antd";
+import rocket from '../../data/animations/rocket.png';
+import Lottie from "lottie-react";
+import successAnimation from "../../data/animations/success.json";
+import Astronaut from "../../data/animations/Astronaut.json";
 
 const VideoUploadForm = ({ teamRegId, onPrev }) => {
   const [file, setFile] = useState(null);
@@ -11,25 +16,30 @@ const VideoUploadForm = ({ teamRegId, onPrev }) => {
   const [showModal, setShowModal] = useState(false);
   const [uploadTime, setUploadTime] = useState(0);
   const [modalMessage, setModalMessage] = useState("Submission is in process. Please wait...");
+  const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [successAnimationComplete, setSuccessAnimationComplete] = useState(false);
+
   const navigate = useNavigate();
 
   const beforeUpload = (file) => {
-    // ... (Your validation logic remains the same)
-    const isMp4 = file.type === "video/mp4";
-    if (!isMp4) {
-      message.error("Only MP4 format is allowed.");
+    const isVideo = ["video/mp4"].includes(file.type);
+    if (!isVideo) {
+      message.error("Only MP4 video format is allowed.");
       return Upload.LIST_IGNORE;
     }
-    const isLt30MB = file.size / 1024 / 1024 < 30;
-    if (!isLt30MB) {
-      message.error("File must be smaller than 30MB.");
+
+    const isLt100MB = file.size / 1024 / 1024 < 30;
+    if (!isLt100MB) {
+      message.error("Video must be smaller than 30MB.");
       return Upload.LIST_IGNORE;
     }
-    const nameMatches = file.name.split(".")[0] === teamRegId;
+
+    const nameMatches = file.name.split(".")[0].toLowerCase() === teamRegId.toLowerCase();
     if (!nameMatches) {
       message.error("Filename must match Team ID.");
       return Upload.LIST_IGNORE;
     }
+
     setFile(file);
     return false;
   };
@@ -38,11 +48,11 @@ const VideoUploadForm = ({ teamRegId, onPrev }) => {
     const formData = new FormData();
     formData.append("teamRegId", teamRegId);
     formData.append("submissionFile", file);
-    
-    // Show the modal and start the timer
+
     setShowModal(true);
     setUploadTime(0);
     setModalMessage("Submission is in process. Please wait...");
+
     const timer = setInterval(() => {
       setUploadTime((prevTime) => prevTime + 1);
     }, 1000);
@@ -51,87 +61,160 @@ const VideoUploadForm = ({ teamRegId, onPrev }) => {
       setUploading(true);
       await api.post("/submission/dynamic-upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
-        timeout: 600000, 
+        timeout: 300000,
       });
-      
-      message.success("Uploaded successfully!");
-      setFile(null);
-      
-      // Cleanup on success
-      clearInterval(timer);
-      setShowModal(false);
 
-      navigate("/video-confirmation");
-      
+      clearInterval(timer);
+      setUploading(false);
+      setFile(null);
+      setUploadSuccess(true);
+      setModalMessage("Your video has been uploaded successfully!");
     } catch (err) {
-      // Cleanup on error
       clearInterval(timer);
       setShowModal(false);
+      setUploading(false);
 
       if (err.code === 'ECONNABORTED') {
         message.error("Upload timed out. Please check your internet connection and try again.");
       } else {
         message.error(err.response?.data?.message || "Upload failed.");
       }
-    } finally {
-      setUploading(false);
     }
   };
 
-  const handleRemove = () => {
-    setFile(null);
-  };
-  
-  // Effect to update the modal message based on elapsed time
+  const handleRemove = () => setFile(null);
+
+  // Update modal message during upload
   useEffect(() => {
-    if (uploadTime > 90) {
-      setModalMessage("Almost there! We're about to wrap up your submission.");
-    } else if (uploadTime > 45) {
-      setModalMessage("Seems like a low internet connection. Hang tight, we're still working on it!");
+    if (!uploading) return;
+    if (uploadTime > 120) {
+      setModalMessage("Still uploading your video. We're getting close to the finish line!");
+    } else if (uploadTime > 60) {
+      setModalMessage("Your video is still uploading. This can take a while for larger files, hang tight!");
     } else {
       setModalMessage("Submission is in process. Please wait...");
     }
-  }, [uploadTime]);
+  }, [uploadTime, uploading]);
+
 
   return (
     <>
-      <Form layout="vertical">
-        <Form.Item label="Upload Video (MP4, ≤ 30MB)">
-          <Upload
-            fileList={file ? [file] : []}
-            beforeUpload={beforeUpload}
-            onRemove={handleRemove}
-            maxCount={1}
-          >
-            <Button icon={<UploadOutlined />} disabled={file}>
-              {file ? "File Selected" : "Select File"}
-            </Button>
-          </Upload>
-        </Form.Item>
+      <Form layout="vertical" className="flex flex-col items-center justify-center min-h-[400px]">
+        <div className="w-full max-w-5xl bg-white p-6 rounded-2xl border border-gray-200 text-center">
+          {file ? (
+            <div className="mt-4 text-center">
+              <p className="text-gray-700 font-medium mb-2">{file.name}</p>
+              <div className="flex items-center justify-center p-8 bg-gray-50 rounded-md">
+                <VideoCameraOutlined style={{ fontSize: "48px", color: "#6366F1" }} />
+              </div>
+              <button
+                onClick={handleRemove}
+                type="button"
+                className="mt-4 text-indigo-600 hover:underline text-sm"
+              >
+                Remove Video & choose another
+              </button>
+            </div>
+          ) : (
+            <Dragger
+              name="file"
+              multiple={false}
+              beforeUpload={beforeUpload}
+              showUploadList={false}
+              className="border-gray-300 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition cursor-pointer"
+            >
+              <div className="flex flex-col items-center justify-center py-10 space-y-3">
+                <VideoCameraOutlined className="text-5xl text-gray-400" />
+                <p className="text-gray-600 font-medium">
+                  Click or drag to upload Video
+                </p>
+                <p className="text-sm text-gray-400">
+                  MP4 only • Max 30MB • Filename = Team ID
+                </p>
+              </div>
+            </Dragger>
+          )}
 
-        <Space>
-          <Button onClick={onPrev}>Previous</Button>
-          <Button
-            type="primary"
-            onClick={handleUpload}
-            disabled={!file}
-            loading={uploading}
-          >
-            Submit
-          </Button>
-        </Space>
+          <p className="text-sm text-gray-500 mt-6">
+            Please ensure the file is in <strong>MP4 format</strong>, does not exceed <strong>30MB</strong> in size,
+            and the filename matches your <strong>Team ID</strong>.
+          </p>
+
+          <div className="mt-6 flex justify-center gap-4">
+            <button
+              type="button"
+              onClick={onPrev}
+              className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 transition"
+            >
+              Back
+            </button>
+            <button
+              type="button"
+              onClick={handleUpload}
+              disabled={!file || uploading}
+              className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition disabled:opacity-50"
+            >
+              {uploading ? "Uploading..." : "Submit"}
+            </button>
+          </div>
+        </div>
       </Form>
-      
-      {/* The Upload Progress Modal */}
+
       <Modal
-        title="Uploading Video"
         open={showModal}
-        closable={false}
+        onCancel={() => {
+          setShowModal(false);
+          setUploadSuccess(false); // reset animation condition
+          navigate("/competitions");
+        }}
+
+        closable={true}
         maskClosable={false}
         footer={null}
+        centered
+        className="video-success-modal"
       >
-        <p>{modalMessage}</p>
-        <p>Time elapsed: **{uploadTime}** seconds.</p>
+        <div className="flex flex-col items-center justify-center text-center py-4">
+          {uploadSuccess ? (
+            successAnimationComplete ? (
+              <>
+                <div className="relative w-full flex flex-col items-center">
+                  {/* Cloud Bubble */}
+                  <div className="bg-white text-gray-700 px-4 py-2 rounded-full shadow-md text-base font-medium border border-gray-200 animate-fade-in mb-2">
+                    See you soon!
+                  </div>
+
+                  {/* Astronaut Animation */}
+                  <div className="w-56 h-56 animate-slide-in-bl">
+                    <Lottie animationData={Astronaut} loop={true} />
+                  </div>
+                </div>
+                <h2 className="text-lg font-semibold text-green-600">{modalMessage}</h2>
+              </>
+            )
+
+              : (
+                <>
+                  <div className="w-28 h-28 mb-2">
+                    <Lottie
+                      animationData={successAnimation}
+                      loop={false}
+                      onComplete={() => setSuccessAnimationComplete(true)}
+                    />
+                  </div>
+                  <h2 className="text-lg font-semibold text-green-600">{modalMessage}</h2>
+                </>
+              )
+          ) : (
+            <>
+              <img src={rocket} alt="Upload status" className="w-20 h-20 mb-4 animate-bounce" />
+              <h2 className="text-lg font-semibold text-gray-800">{modalMessage}</h2>
+              <p className="text-sm text-gray-600 mt-1">All the best!</p>
+            </>
+          )}
+
+        </div>
+
       </Modal>
     </>
   );
