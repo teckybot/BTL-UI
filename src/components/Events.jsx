@@ -8,10 +8,10 @@ export default function EventsTimeline() {
   const events = [
     { date: "13 July 2025", title: "Releasing problem statement", desc: "Exciting tech challenges will be unveiled. Participants can begin brainstorming their tech solutions." },
     { date: "15 July 2025", title: "Registrations open", desc: "Schools will be invited to nominate their teams. Participants can start enrolling for the competitions." },
-    { date: "17 Aug 2025", title: "Registration close", desc: "Enrollment will end after the registration deadline. No entries will be accepted beyond the cut-off." },
-    { date: "24 Aug 2025", title: "Qualifier level close", desc: "All team submissions will be finalized and reviewed. No edits or uploads will be allowed post deadline." },
-    { date: "30 Aug 2025", title: "Results of Qualifier level", desc: "Selected teams will move forward to the grand stage. Results will be officially published after evaluation." },
-    { date: "14 Sep 2025", title: "Finale", desc: "Finalists will compete for the BTL championship title, showcasing creativity and teamwork on the grand stage." },
+    { date: "Date To Be Announced", title: "Registration close", desc: "Enrollment will end after the registration deadline. No entries will be accepted beyond the cut-off." },
+    { date: "Deadline extended", title: "Qualifier level close", desc: "All team submissions will be finalized and reviewed. No edits or uploads will be allowed post deadline." },
+    { date: "Announcement Date TBA", title: "Results of Qualifier level", desc: "Selected teams will move forward to the grand stage. Results will be officially published after evaluation." },
+    { date: "Date To Be Announced", title: "Finale", desc: "Finalists will compete for the BTL championship title, showcasing creativity and teamwork on the grand stage." },
   ];
 
   const stars = useMemo(() =>

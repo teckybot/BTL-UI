@@ -17,6 +17,8 @@ import spl from '../data/Tech zones/spacelab.png'
 import { Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 
+import ComingSoonOverlay from '../components/ComingSoonOverlay';
+
 const competitions = [
     { title: "ASTROBOT", image: img12, mobileImage: mob11 },
     { title: "3D MAKER", image: img13, mobileImage: mob12 },
@@ -27,38 +29,9 @@ const competitions = [
 
 // New component for the "TECK SHOWS" section
 const TechShowsSection = () => {
+    const [showOverlay, setShowOverlay] = React.useState(true);
     // Reusable card component
     const arrowHeight = 120; // total arrow height in pixels (e.g., 96px means 48px top and bottom triangle)
-
-    // const TechShowCard = ({ number, title }) => (
-    //     <div className="relative w-full max-w-sm md:max-w-[280px] lg:max-w-[340px] h-64 md:h-96 bg-white rounded-xl shadow-lg flex items-center justify-center p-6">
-    //         {/* Background shadow layer */}
-    //         <div className="absolute inset-0 bg-white rounded-xl shadow-inner-top-left"></div>
-
-    //         {/* Arrow */}
-    //         <div
-    //             className="absolute top-1/2 left-0 w-[70%] -translate-y-1/2 flex items-center z-10"
-    //             style={{ height: `${arrowHeight}px` }}
-    //         >
-    //             {/* Arrow body */}
-    //             <div className="flex-1 bg-gradient-to-r from-[#0c0c4f] to-[#101083] flex flex-col items-start justify-center px-6 shadow-md text-white rounded-l-md h-full">
-    //                 <span className="text-xl font-bold">{number}</span>
-    //                 <span className="text-sm font-medium">{title}</span>
-    //             </div>
-
-    //             {/* Arrow head */}
-    //             <div
-    //                 className="w-0 h-0 border-t-transparent border-b-transparent border-l-[#101083]"
-    //                 style={{
-    //                     borderTopWidth: `${arrowHeight / 2}px`,
-    //                     borderBottomWidth: `${arrowHeight / 2}px`,
-    //                     borderLeftWidth: `${arrowHeight / 2}px`,
-    //                 }}
-    //             ></div>
-    //         </div>
-    //     </div>
-    // );
-
     const TechShowCard = ({ number, title }) => (
         <div className="relative w-full max-w-sm md:max-w-[280px] lg:max-w-[340px] h-64 md:h-96 bg-white rounded-xl shadow-lg flex items-center justify-center p-6">
             {/* Background shadow layer */}
@@ -98,7 +71,7 @@ const TechShowsSection = () => {
     return (
         <>
             <section
-                className="min-h-screen w-full flex flex-col justify-start items-center p-8"
+                className="relative min-h-screen w-full flex flex-col justify-start items-center p-8"
                 style={{
                     background: `
                     linear-gradient(to bottom, white 50%, transparent 50%),
@@ -106,6 +79,13 @@ const TechShowsSection = () => {
                 `,
                 }}
             >
+                {/* Coming soon overlay */}
+                {showOverlay && (
+                    <ComingSoonOverlay
+                        message="TECK SHOWS COMING SOON"
+                        onClose={() => setShowOverlay(true)}
+                    />
+                )}
                 <div className="container mx-auto">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-[rgba(0,4,78,1)] my-12">
                         TECK SHOWS
@@ -120,7 +100,15 @@ const TechShowsSection = () => {
             </section>
 
             {/* TECH ZONES */}
-            <section className="max-w-[1300px] mx-auto px-4 py-20 ">
+            <section className="relative max-w-[1300px] mx-auto px-4 py-20 ">
+
+                {/* Coming soon overlay */}
+                {showOverlay && (
+                    <ComingSoonOverlay
+                        message="TECK ZONES COMING SOON"
+                        onClose={() => setShowOverlay(true)}
+                    />
+                )}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-[rgba(0,4,78,1)] my-12">
                     TECK ZONES
                 </h2>
@@ -189,7 +177,6 @@ const TechShowsSection = () => {
         </>
     );
 };
-
 
 
 

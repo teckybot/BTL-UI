@@ -33,9 +33,9 @@
   import StepperFormOnline from './pages/Submission/StepperFormVideo';
   import SubmissionConfirmation from './pages/Submission/SubmissionConfirmation';
   import StepperFormPdf from "./pages/Submission/StepperFormPdf";
-
-
   import SubmissionPage from './pages/Submission/SubmissionPage';
+  import PopupPoster from './components/PopupPoster';
+
   function ScrollButtonWrapper() {
     const location = useLocation();
     const hideScrollToTopOn = [
@@ -81,6 +81,7 @@
         <TeamDraftProvider>
           <Navbar />
           <ScrollToTop />
+          <PopupPoster />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/aboutus" element={<Aboutus />} />
