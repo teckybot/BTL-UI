@@ -81,7 +81,7 @@
         <TeamDraftProvider>
           <Navbar />
           <ScrollToTop />
-          <PopupPoster />
+          {/* <PopupPoster /> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/aboutus" element={<Aboutus />} />
