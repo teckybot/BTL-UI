@@ -24,7 +24,7 @@
   import TeamForm from './components/Regcomponents/TeamForm';
   import TeamRegistrationSuccess from './pages/Registration/Team/TeamRegistrationSuccess';
   import SchoolRegistrationForm from './pages/Registration/School/SchoolRegistrationForm';
-  import BotExpoPage from './pages/Botexpo';
+  // import BotExpoPage from './pages/Botexpo';
   import AIWorkshopSuccess from './pages/AIWorkshopSuccess';
   import TeamCheckoutPage from './pages/Registration/TeamCheckoutPage';
   import NasoInfoCard from './pages/Naso';
@@ -103,7 +103,7 @@
             <Route path="/team-form/:teamNumber" element={<TeamForm />} />
             <Route path="/teamRegistration-success" element={<TeamRegistrationSuccess />} />
             {/* <Route path="/regform" element={<SchoolRegistrationForm />} /> */}
-            <Route path="/Botexpo" element={<BotExpoPage />} />
+            {/* <Route path="/Botexpo" element={<BotExpoPage />} /> */}
             <Route path="/ai-workshop-pending" element={<AIWorkshopSuccess />} />
             {/* <Route path="/ai-workshop-dashboard" element={<AIWorkshopDashboard />} /> */}
             <Route path="/registration/team/checkout" element={<TeamCheckoutPage />} />
