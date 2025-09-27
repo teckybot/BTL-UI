@@ -79,13 +79,13 @@ export default function Navbar() {
 
   // Navbar style logic for different pages
   let navClass = 'fixed w-full top-0 z-50 font-poppins transition-all duration-300';
-  let textColor = '';
+  let textColor = ''
   let mobileButtonClass = '';
 
   if (isMaintenance || isContactus) {
-    navClass += 'bg-white/10 backdrop-blur-[25px]';
-    textColor = 'text-white';
-    mobileButtonClass = 'text-white hover:text-gray-300 hover:bg-white/20';
+    navClass += 'bg-white backdrop-blur-[20px]';
+    textColor = 'text-black';
+    mobileButtonClass = 'text-black hover:text-black hover:bg-white/20';
   } else if (isAboutus) {
     if (!scrolled || inJourneySection) {
       // At rest: no glass effect, white text
