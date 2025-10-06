@@ -1,6 +1,6 @@
 import React from "react";
 import starBullet from "../data/Naso/Star 11.png";
-import Nasodesktop from "../data/Naso/tempImageQM2NtT 1 (1).png";
+import Nasodesktop from "../data/Naso/naso_poster.jpg";
 import Nasomobile from "../data/Naso/naso_poster(1).jpg";
 import Footer from "../components/Footer";
 
