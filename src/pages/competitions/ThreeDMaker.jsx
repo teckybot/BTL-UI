@@ -7,16 +7,26 @@ import pdf3DMaker from "../../data/pdfs/3D Maker.pdf";
 import mobileHero3D from "../../data/pdfs/3DMakerMobile.png";
 import SubmissionStepper from "../../components/Subcomponents/SubmissionStepper";    // 2
 import { HiArrowNarrowLeft } from "react-icons/hi";
-
 import { useNavigate } from 'react-router-dom';
+import SubmissionClosedModal from '../Submission/SubmissionClosedModal';
 
 
 export default function Robotics() {
   const navigate = useNavigate();
   const [showSubmissionForm, setShowSubmissionForm] = useState(false);     //3
 
+  const [showClosedModal, setShowClosedModal] = useState(false);
+
   const handleUploadClick = () => {
-    setShowSubmissionForm(true); // Show the stepper form
+    const submissionsOpen = false; // Set this to 'true' to show the Stepper, or 'false' to show the Modal.
+
+    if (submissionsOpen) {
+      setShowSubmissionForm(true); 
+      setShowClosedModal(false); 
+    } else {
+      setShowClosedModal(true); 
+      setShowSubmissionForm(false); 
+    }
   };
 
   const handleBackToCompetitions = () => {
@@ -30,6 +40,11 @@ export default function Robotics() {
   return (
     <>
       <Navbar />
+      <SubmissionClosedModal 
+        isOpen={showClosedModal}
+        onClose={() => setShowClosedModal(false)}
+      />
+
       <section className="pt-[80px] bg-[#f7faff] flex flex-col lg:flex-row min-h-screen">
         {/* Left Image (Desktop only) */}
         <div className="w-full lg:w-80 shrink-0 hidden lg:block">

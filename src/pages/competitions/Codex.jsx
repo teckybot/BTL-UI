@@ -6,16 +6,29 @@ import codexPDF from "../../data/pdfs/CodeX.pdf";
 import codexMobile from "../../data/pdfs/CodexMobile.png";
 import SubmissionStepper from "../../components/Subcomponents/SubmissionStepper";
 import { HiArrowNarrowLeft } from "react-icons/hi";
-
 import { useNavigate } from 'react-router-dom';
+import SubmissionClosedModal from '../Submission/SubmissionClosedModal';
 
 export default function Codex() {
 
   const navigate = useNavigate();
   const [showSubmissionForm, setShowSubmissionForm] = useState(false);
 
+  const [showClosedModal, setShowClosedModal] = useState(false);
+
+  const customTitle = "Exam Dates Released Soon! 🚀";
+  const customMessage = "Thank you for your interest. The exam date for the Qualifier Round will be announced shortly. Please stay tuned for updates on this page.";
+
   const handleUploadClick = () => {
-    setShowSubmissionForm(true); // Show the stepper form
+    const submissionsOpen = false; // Set this to 'true' to show the Stepper, or 'false' to show the Modal.
+
+    if (submissionsOpen) {
+      setShowSubmissionForm(true); 
+      setShowClosedModal(false); 
+    } else {
+      setShowClosedModal(true); 
+      setShowSubmissionForm(false); 
+    }
   };
 
   const handleBackToCompetitions = () => {
@@ -29,6 +42,13 @@ export default function Codex() {
   return (
     <>
       <Navbar />
+      <SubmissionClosedModal
+        isOpen={showClosedModal}
+        onClose={() => setShowClosedModal(false)}
+        title={customTitle}        
+      message={customMessage}
+      />
+
       <section className="pt-[80px] bg-[#f7faff] flex flex-col lg:flex-row min-h-screen">
         {/* Left Image (Desktop only) */}
         <div className="w-full lg:w-80 shrink-0 hidden lg:block">
@@ -195,98 +215,98 @@ export default function Codex() {
               submissionType="CDX"
             />
           ) : (
-          <div className="relative bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6  md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
-            <h2 className="text-base sm:text-lg font-bold text-blue-700 sm:mb-8">
-              Qualifier Level (Online Quiz)
-            </h2>
-            <p className="mb-4 text-sm sm:text-base text-justify">
-              Mission: Put your logical thinking, programming knowledge, and space science awareness to the test.
-            </p>
+            <div className="relative bg-white border border-gray-300 shadow-xl rounded-lg p-4 sm:p-6  md:p-[100px] sm:mb-[40px] md:mt-[-45px] max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#2053CA]/70 scrollbar-track-gray-200">
+              <h2 className="text-base sm:text-lg font-bold text-blue-700 sm:mb-8">
+                Qualifier Level (Online Quiz)
+              </h2>
+              <p className="mb-4 text-sm sm:text-base text-justify">
+                Mission: Put your logical thinking, programming knowledge, and space science awareness to the test.
+              </p>
 
-            <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
-              <li>Codex's online examination will be held on 17th August.</li>
-              <li>Eligibility:</li>
-              <ul className="list-[circle] pl-5 mt-1 space-y-1">
-                <li>Grades 6 & 7: Scratch + Space Basics</li>
-                <li>Grades 8 & 9: Python + Space Science</li>
+              <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
+                <li>Codex's online examination will be held on 17th August.</li>
+                <li>Eligibility:</li>
+                <ul className="list-[circle] pl-5 mt-1 space-y-1">
+                  <li>Grades 6 & 7: Scratch + Space Basics</li>
+                  <li>Grades 8 & 9: Python + Space Science</li>
+                </ul>
+                <li>Format:</li>
+                <ul className="list-[circle] pl-5 mt-1 space-y-1">
+                  <li>Online Multiple-Choice Quiz</li>
+                  <li>Covers basics of coding (as per grade level) and general space-related science</li>
+                  <li>Timed and monitored quiz to ensure fair play</li>
+                  <li>Conducted via secure online platform</li>
+                </ul>
+                <li>Selection Criteria:</li>
+                <ul className="list-[circle] pl-5 mt-1 space-y-1">
+                  <li>Top-performing teams with good score will qualify for the Finale Level</li>
+                  <li>Results will be announced on the Bharat Teck League website</li>
+                </ul>
               </ul>
-              <li>Format:</li>
-              <ul className="list-[circle] pl-5 mt-1 space-y-1">
-                <li>Online Multiple-Choice Quiz</li>
-                <li>Covers basics of coding (as per grade level) and general space-related science</li>
-                <li>Timed and monitored quiz to ensure fair play</li>
-                <li>Conducted via secure online platform</li>
+
+              <p className="text-sm text-blue-700 font-semibold italic mb-6 text-justify">
+                Note: Students who follow all the Guidelines in the Qualifier round will be selected for the Finale.
+              </p>
+
+              <hr className="my-6" />
+
+              <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
+                Finale Level (Offline Coding Challenge)
+              </h2>
+              <p className="mb-4 text-sm sm:text-base text-justify">Mission: Solve a Space Problem through Code for a space-themed task, announced on the spot.</p>
+
+              <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
+                <li>Eligibility: Teams who qualify from the online round</li>
+                <li>Challenge Format:</li>
+                <ul className="list-[circle] pl-5 mt-1 space-y-1">
+                  <li>Grades 6 & 7:
+                    <ul className="list-[circle] pl-5 mt-1">
+                      <li>Create a Scratch game or story</li>
+                      <li>The exact theme/story will be revealed at the venue</li>
+                      <li>Time-bound challenge (1.5–2 hours)</li>
+                    </ul>
+                  </li>
+                  <li>Grades 8 & 9:
+                    <ul className="list-[circle] pl-5 mt-1">
+                      <li>Solve a Python-based problem on the spot</li>
+                      <li>Focus on logic, clean coding, and efficiency</li>
+                      <li>The exact task/problem statement will be revealed at the venue</li>
+                      <li>Time-bound challenge (1.5–2 hours)</li>
+                    </ul>
+                  </li>
+                </ul>
+                <li>Requirements:</li>
+                <ul className="list-[circle] pl-5 mt-1">
+                  <li>Each team must bring at least one laptop with relevant tools installed</li>
+                  <li>Scratch (offline version or browser-compatible)</li>
+                  <li>Python (IDLE / VS Code / Thonny or any other IDE)</li>
+                </ul>
+                <li>Judging Criteria:</li>
+                <ul className="list-[circle] pl-5 mt-1">
+                  <li>Creativity & Innovation</li>
+                  <li>Logic & Problem-Solving</li>
+                  <li>Completion & Functionality</li>
+                  <li>Relevance to the given task</li>
+                </ul>
               </ul>
-              <li>Selection Criteria:</li>
-              <ul className="list-[circle] pl-5 mt-1 space-y-1">
-                <li>Top-performing teams with good score will qualify for the Finale Level</li>
-                <li>Results will be announced on the Bharat Teck League website</li>
+
+              <hr className="my-6" />
+
+              <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
+                Team Guidelines
+              </h2>
+              <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
+                <li>Each team must have a minimum of 2 and a maximum of 4 student members</li>
+                <li>All members of the team must be from the same school</li>
+                <li>A student can participate in only one category</li>
+                <li>Teams must be mentored by a teacher/coordinator/school representative</li>
+                <li>Once the team is registered, no modifications to team members are allowed at any level of the competition</li>
+                <li>Teams must arrange their own materials, tools, and laptops as required</li>
               </ul>
-            </ul>
-
-            <p className="text-sm text-blue-700 font-semibold italic mb-6 text-justify">
-              Note: Students who follow all the Guidelines in the Qualifier round will be selected for the Finale.
-            </p>
-
-            <hr className="my-6" />
-
-            <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
-              Finale Level (Offline Coding Challenge)
-            </h2>
-            <p className="mb-4 text-sm sm:text-base text-justify">Mission: Solve a Space Problem through Code for a space-themed task, announced on the spot.</p>
-
-            <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
-              <li>Eligibility: Teams who qualify from the online round</li>
-              <li>Challenge Format:</li>
-              <ul className="list-[circle] pl-5 mt-1 space-y-1">
-                <li>Grades 6 & 7:
-                  <ul className="list-[circle] pl-5 mt-1">
-                    <li>Create a Scratch game or story</li>
-                    <li>The exact theme/story will be revealed at the venue</li>
-                    <li>Time-bound challenge (1.5–2 hours)</li>
-                  </ul>
-                </li>
-                <li>Grades 8 & 9:
-                  <ul className="list-[circle] pl-5 mt-1">
-                    <li>Solve a Python-based problem on the spot</li>
-                    <li>Focus on logic, clean coding, and efficiency</li>
-                    <li>The exact task/problem statement will be revealed at the venue</li>
-                    <li>Time-bound challenge (1.5–2 hours)</li>
-                  </ul>
-                </li>
-              </ul>
-              <li>Requirements:</li>
-              <ul className="list-[circle] pl-5 mt-1">
-                <li>Each team must bring at least one laptop with relevant tools installed</li>
-                <li>Scratch (offline version or browser-compatible)</li>
-                <li>Python (IDLE / VS Code / Thonny or any other IDE)</li>
-              </ul>
-              <li>Judging Criteria:</li>
-              <ul className="list-[circle] pl-5 mt-1">
-                <li>Creativity & Innovation</li>
-                <li>Logic & Problem-Solving</li>
-                <li>Completion & Functionality</li>
-                <li>Relevance to the given task</li>
-              </ul>
-            </ul>
-
-            <hr className="my-6" />
-
-            <h2 className="text-base sm:text-lg font-bold text-blue-700 mb-4">
-              Team Guidelines
-            </h2>
-            <ul className="list-disc pl-5 space-y-2 text-[15px] text-gray-700 text-justify">
-              <li>Each team must have a minimum of 2 and a maximum of 4 student members</li>
-              <li>All members of the team must be from the same school</li>
-              <li>A student can participate in only one category</li>
-              <li>Teams must be mentored by a teacher/coordinator/school representative</li>
-              <li>Once the team is registered, no modifications to team members are allowed at any level of the competition</li>
-              <li>Teams must arrange their own materials, tools, and laptops as required</li>
-            </ul>
-            <p className="text-sm text-blue-700 font-semibold italic mt-4 text-justify">
-              Note: For all competitions, follow size, weight, and software rules mentioned. Any violation may result in disqualification. Ensure all required items (laptop, model, materials) are carried by the participants. Power supply will be provided at the venue.
-            </p>
-          </div>
+              <p className="text-sm text-blue-700 font-semibold italic mt-4 text-justify">
+                Note: For all competitions, follow size, weight, and software rules mentioned. Any violation may result in disqualification. Ensure all required items (laptop, model, materials) are carried by the participants. Power supply will be provided at the venue.
+              </p>
+            </div>
           )}
         </div>
       </section>
